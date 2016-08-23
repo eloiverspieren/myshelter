@@ -1,0 +1,1 @@
+json.array! @refuges, partial: 'refuges/refuge', as: :refuge

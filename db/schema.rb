@@ -10,10 +10,106 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822141733) do
+ActiveRecord::Schema.define(version: 20160823083650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.date     "start_day"
+    t.date     "end_day"
+    t.integer  "capacity"
+    t.integer  "refuge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["refuge_id"], name: "index_availabilities_on_refuge_id", using: :btree
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.date     "start_day"
+    t.date     "end_day"
+    t.integer  "hikers_nb"
+    t.integer  "user_id"
+    t.integer  "refuge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["refuge_id"], name: "index_bookings_on_refuge_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "guides", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "picture"
+    t.integer  "refuge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["refuge_id"], name: "index_guides_on_refuge_id", using: :btree
+  end
+
+  create_table "hikings", force: :cascade do |t|
+    t.integer  "difficulty"
+    t.string   "range"
+    t.string   "description"
+    t.string   "picture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "refuge_id"
+    t.index ["refuge_id"], name: "index_hikings_on_refuge_id", using: :btree
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "avatar_picture"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+  end
+
+  create_table "refuge_to_hikes", force: :cascade do |t|
+    t.integer  "hiking_id"
+    t.integer  "refuge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hiking_id"], name: "index_refuge_to_hikes_on_hiking_id", using: :btree
+    t.index ["refuge_id"], name: "index_refuge_to_hikes_on_refuge_id", using: :btree
+  end
+
+  create_table "refuges", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.integer  "capacity"
+    t.string   "address"
+    t.integer  "day_price"
+    t.string   "description"
+    t.float    "lat"
+    t.float    "lon"
+    t.integer  "altitude"
+    t.string   "range"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.string   "department"
+    t.index ["user_id"], name: "index_refuges_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "rating"
+    t.text     "content"
+    t.string   "picture"
+    t.integer  "user_id"
+    t.integer  "hiking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "refuge_id"
+    t.index ["hiking_id"], name: "index_reviews_on_hiking_id", using: :btree
+    t.index ["refuge_id"], name: "index_reviews_on_refuge_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +124,21 @@ ActiveRecord::Schema.define(version: 20160822141733) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.boolean  "admin"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "availabilities", "refuges"
+  add_foreign_key "bookings", "refuges"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "guides", "refuges"
+  add_foreign_key "hikings", "refuges"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "refuge_to_hikes", "hikings"
+  add_foreign_key "refuge_to_hikes", "refuges"
+  add_foreign_key "refuges", "users"
+  add_foreign_key "reviews", "hikings"
+  add_foreign_key "reviews", "refuges"
+  add_foreign_key "reviews", "users"
 end

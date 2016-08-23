@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @refuge.name %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @refuge.picture %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @refuge.capacity %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @refuge.address %>
+</p>
+
+<p>
+  <strong>Day price:</strong>
+  <%= @refuge.day_price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @refuge.description %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @refuge.lat %>
+</p>
+
+<p>
+  <strong>Lon:</strong>
+  <%= @refuge.lon %>
+</p>
+
+<p>
+  <strong>Altitude:</strong>
+  <%= @refuge.altitude %>
+</p>
+
+<p>
+  <strong>Range:</strong>
+  <%= @refuge.range %>
+</p>
+
+<%= link_to 'Edit', edit_refuge_path(@refuge) %> |
+<%= link_to 'Back', refuges_path %>

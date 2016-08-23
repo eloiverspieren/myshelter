@@ -1,0 +1,15 @@
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :start_day %>
+    <%= f.input :end_day %>
+    <%= f.input :hikers_nb %>
+    <%= f.association :user %>
+    <%= f.association :refuge %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

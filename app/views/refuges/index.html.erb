@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Refuges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Capacity</th>
+      <th>Address</th>
+      <th>Day price</th>
+      <th>Description</th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Altitude</th>
+      <th>Range</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @refuges.each do |refuge| %>
+      <tr>
+        <td><%= refuge.name %></td>
+        <td><%= refuge.picture %></td>
+        <td><%= refuge.capacity %></td>
+        <td><%= refuge.address %></td>
+        <td><%= refuge.day_price %></td>
+        <td><%= refuge.description %></td>
+        <td><%= refuge.lat %></td>
+        <td><%= refuge.lon %></td>
+        <td><%= refuge.altitude %></td>
+        <td><%= refuge.range %></td>
+        <td><%= link_to 'Show', refuge %></td>
+        <% if policy(refuge).edit? %>
+          <td><%= link_to 'Edit', edit_refuge_path(refuge) %></td>
+        <% end %>
+        <td><%= link_to 'Destroy', refuge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Refuge', new_refuge_path %>
