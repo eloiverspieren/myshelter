@@ -11,12 +11,7 @@
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
-        </div>
-      <% end %>
+      <%= link_to "My Bookings", my_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -47,11 +42,11 @@
       <!-- Login text link -->
       <i class="fa fa fa-user"></i>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        
+
     <% end %>
 
     <!-- Button (call-to-action) -->
-    
+
   </div>
 
  <!-- Dropdown list appearing on mobile only -->
@@ -65,5 +60,5 @@
       </ul>
     </div>
   </div>
-</div> 
+</div>
 
