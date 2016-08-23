@@ -1,11 +1,7 @@
 class RefugePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin?
-        scope.all # Admin can show all shelters
-      else
-        scope.where(:user => user) # User can show his shelters
-      end
+        scope.all
     end
   end
 

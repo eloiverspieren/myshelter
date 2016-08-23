@@ -1,1 +1,0 @@
-json.array! @hikings, partial: 'hikings/hiking', as: :hiking
