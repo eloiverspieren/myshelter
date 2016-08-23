@@ -1,2 +1,351 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner">
+  <div class="banner-content">
+    <h1>Home is where you dry your boots</h1>
+  </div>
+</div>
+    <!-- SEARCH TOUR -->
+    <section class="darkSection">
+      <div class="container">
+        <div class="row gridResize">
+          <div class="col-sm-3 col-xs-12">
+            <div class="sectionTitleDouble">
+              <p>Book</p>
+              <h2>your <span>shelter</span></h2>
+            </div>
+          </div>
+          <div class="col-sm-7 col-xs-12">
+            <div class="row">
+              <div class="col-sm-3 col-xs-12">
+                <div class="searchTour">
+                  <select name="guiest_id2" id="guiest_id2" class="select-drop">
+                    <option value="0">Destinations</option>
+                    <option value="1">USA</option>
+                    <option value="2">UK</option>
+                    <option value="3">Canada</option>            
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+                <div class="input-group date ed-datepicker" data-provide="datepicker">
+                  <input type="text" class="form-control" placeholder="MM/DD/YYYY">
+                  <div class="input-group-addon">
+                      <span class="fa fa-calendar"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+                <div class="input-group date ed-datepicker" data-provide="datepicker">
+                  <input type="text" class="form-control" placeholder="MM/DD/YYYY">
+                  <div class="input-group-addon">
+                      <span class="fa fa-calendar"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+                <div class="searchTour">
+                  <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                    <option value="0">$1000 - $2000</option>
+                    <option value="1">$1400 - $2000</option>
+                    <option value="2">$1600 - $2000</option>
+                    <option value="3">$1800 - $2000</option>            
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 col-xs-12">
+            <a href="#" class="btn btn-block buttonCustomPrimary">Book</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOP DEALS -->
+    <section class="mainContentSection packagesSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="sectionTitle">
+              <h2><span class="lightBg">Our Top Route</span></h2>
+              <p>Quisque lacus augue, blandit non est a, dictum malesuada odio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <div class="thumbnail deals">
+              <%= image_tag('hiker.jpg') %>
+              
+              <a href="single-package-right-sidebar.html" class="pageLink"></a>
+              <div class="discountInfo">
+                <ul class="list-inline rating homePage">
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <ul class="list-inline duration">
+                  <li>7 days</li>
+                  <li>15 hrs</li>
+                  <li>15 min</li>
+                </ul>
+              </div>
+              <div class="caption">
+                <h4><a href="single-package-right-sidebar.html" class="captionTitle">Suspendisse Blandit</a></h4>
+                <p>Integer purus ex, dictum nec elementum eu, tristique vel lectus. Donec rutrum lectus et pharetra egestas.</p>
+                <div class="detailsInfo">
+                  <h5>
+                    <span>Start From</span>
+                    $299
+                  </h5>
+                  <ul class="list-inline detailsBtn">
+                    <li><a href="single-package-right-sidebar.html" class="btn buttonTransparent">Details</a></li>
+                    <li><a href='booking-1.html' class="btn buttonTransparent">Book now</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="thumbnail deals">
+              <%= image_tag('refugedupourri.jpg') %>
+              <a href="single-package-fullwidth.html" class="pageLink"></a>
+              <div class="discountInfo">
+                <ul class="list-inline rating homePage">
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <ul class="list-inline duration">
+                  <li>12 days</li>
+                  <li>3 hrs</li>
+                  <li>12 min</li>
+                </ul>
+              </div>
+              <div class="caption">
+                <h4><a href="single-package-fullwidth.html" class="captionTitle">Suspendisse Eros Erat</a></h4>
+                <p>Proin convallis magna vel libero accumsan sollicitudin. Quisque dapibus vitae turpis eu magna sagittis.</p>
+                <div class="detailsInfo">
+                  <h5>
+                    <span>Start From</span>
+                    $499
+                  </h5>
+                  <ul class="list-inline detailsBtn">
+                    <li><a href="single-package-fullwidth.html" class="btn buttonTransparent">Details</a></li>
+                    <li><a data-toggle="modal" href='.modalBook' class="btn buttonTransparent">Inquiry</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="thumbnail deals">
+              <%= image_tag('refugemontrose.jpg') %>
+              <a href="single-package-left-sidebar.html" class="pageLink"></a>
+              <div class="discountInfo">
+                <ul class="list-inline rating homePage">
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <ul class="list-inline duration">
+                  <li>17 days</li>
+                  <li>13 hrs</li>
+                  <li>18 min</li>
+                </ul>
+              </div>
+              <div class="caption">
+                <h4><a href="single-package-left-sidebar.html" class="captionTitle">Quisque Placerat Nunc</a></h4>
+                <p>Vivamus eu mattis nibh. Quisque eget ipsum at odio fringilla consequat vel id erat. Suspendisse non feugiat mi.</p>
+                <div class="detailsInfo">
+                  <h5>
+                    <span>Start From</span>
+                    $399
+                  </h5>
+                  <ul class="list-inline detailsBtn">
+                    <li><a href="single-package-left-sidebar.html" class="btn buttonTransparent">Details</a></li>
+                    <li><a href='booking-1.html' class="btn buttonTransparent">Book now</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTION PARALLAX -->
+    <section class="promotionWrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="promotionTable">
+              <div class="promotionTableInner">
+                <div class="promotionInfo">
+                  <span>Winter Promotion</span>
+                  <h2>Greek Island Vacetion Tour</h2>
+                  <ul class="list-inline rating">
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  </ul>
+                  <p>$599 per person - 5 nights</p>
+                  <a href="single-package-right-sidebar.html" class="btn buttonCustomPrimary">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TOUR PACKAGES -->
+    <section class="whiteSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="sectionTitle">
+              <h2><span>Our Packages</span></h2>
+              <p>Ut facilisis facilisis metus quis semper</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="filter-container isotopeFilters">
+              <ul class="list-inline filter">
+                <li class="active"><a href="#" data-filter="*">All Places</a></li>
+                <li><a href="#" data-filter=".asia">Asia</a></li>
+                <li><a href="#" data-filter=".america">America</a></li>
+                <li><a href="#" data-filter=".africa">Africa</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row isotopeContainer">
+            <div class="col-sm-4 isotopeSelector asia">
+              <article class="">
+                <figure>
+                  <%= image_tag('refugedupourri.jpg') %>
+                  <h4>Vestibulum Tour</h4>
+                  <div class="overlay-background">
+                    <div class="inner"></div>
+                  </div>
+                  <div class="overlay">
+                    <a class="fancybox-pop" href="single-package-fullwidth.html">
+                    <div class="overlayInfo">
+                      <h5>from <span>$399</span></h5>
+                      <p><i class="fa fa-calendar" aria-hidden="true"></i>27 Jan, 2017</p>
+                    </div>
+                    </a>
+                  </div>
+                </figure>
+              </article>
+            </div>
+            <div class="col-sm-4 isotopeSelector america africa">
+              <article class="">
+                <figure>
+                  <%= image_tag('refugedupourri.jpg') %>
+                  <h4>Maecenas Tour</h4>
+                  <div class="overlay-background">
+                    <div class="inner"></div>
+                  </div>
+                  <div class="overlay">
+                  <a class="fancybox-pop" href="single-package-fullwidth.html">
+                      <div class="overlayInfo">
+                        <h5>from <span>$599</span></h5>
+                        <p><i class="fa fa-calendar" aria-hidden="true"></i>09 Feb, 2017</p>
+                      </div>
+                    </a>
+                  </div>
+                </figure>
+              </article>
+            </div>
+            <div class="col-sm-4 isotopeSelector africa">
+              <article class="">
+                <figure>
+                  <%= image_tag('refugedupourri.jpg') %>
+                  <h4>Lobortis Tour</h4>
+                  <div class="overlay-background">
+                    <div class="inner"></div>
+                  </div>
+                  <div class="overlay">
+                    <a class="fancybox-pop" href="single-package-fullwidth.html">
+                    <div class="overlayInfo">
+                      <h5>from <span>$299</span></h5>
+                      <p><i class="fa fa-calendar" aria-hidden="true"></i>14 Feb, 2017</p>
+                    </div>
+                    </a>
+                  </div>
+                </figure>
+              </article>
+            </div>
+            <div class="col-sm-4 isotopeSelector asia america">
+              <article class="">
+                <figure>
+                  <%= image_tag('refugedupourri.jpg') %>
+                  <h4>Leo Lacus Tour</h4>
+                  <div class="overlay-background">
+                    <div class="inner"></div>
+                  </div>
+                  <div class="overlay">
+                    <a class="fancybox-pop" href="single-package-fullwidth.html">
+                    <div class="overlayInfo">
+                      <h5>from <span>$399</span></h5>
+                      <p><i class="fa fa-calendar" aria-hidden="true"></i>11 Jan, 2017</p>
+                    </div>
+                    </a>
+                  </div>
+                </figure>
+              </article>
+            </div>
+            <div class="col-sm-4 isotopeSelector america">
+              <article class="">
+                <figure>
+                  <%= image_tag('refugedupourri.jpg') %>
+                  <h4>Nullam Tour</h4>
+                  <div class="overlay-background">
+                    <div class="inner"></div>
+                  </div>
+                  <div class="overlay">
+                    <a class="fancybox-pop" href="single-package-fullwidth.html">
+                    <div class="overlayInfo">
+                      <h5>from <span>$199</span></h5>
+                      <p><i class="fa fa-calendar" aria-hidden="true"></i>02 Feb, 2017</p>
+                    </div>
+                    </a>
+                  </div>
+                </figure>
+              </article>
+            </div>
+            <div class="col-sm-4 isotopeSelector africa asia">
+              <article class="">
+                <figure>
+                  <%= image_tag('refugedupourri.jpg') %>
+                  <h4>Hendrerit Tour</h4>
+                  <div class="overlay-background">
+                    <div class="inner"></div>
+                  </div>
+                  <div class="overlay">
+                    <a class="fancybox-pop" href="single-package-fullwidth.html">
+                    <div class="overlayInfo">
+                      <h5>from <span>$799</span></h5>
+                      <p><i class="fa fa-calendar" aria-hidden="true"></i>26 Feb, 2017</p>
+                    </div>
+                    </a>
+                  </div>
+                </figure>
+              </article>
+            </div>
+        </div>
+      </div>
+    </section>
