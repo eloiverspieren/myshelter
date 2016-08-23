@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
   # GET /bookings
   # GET /bookings.json
   def index
@@ -67,6 +66,11 @@ class BookingsController < ApplicationController
       format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def my_booking
+    # TODO search current_user bookings
+    # /!\ Auth
   end
 
   private
