@@ -10,16 +10,20 @@ class RefugesController < ApplicationController
   # GET /refuges/1
   # GET /refuges/1.json
   def show
+    @refuge = Refuge.find(params[:id])
+    authorize @refuge
   end
 
   # GET /refuges/new
   def new
     @refuge = Refuge.new
-    authorize @profile
+    authorize @refuge
   end
 
   # GET /refuges/1/edit
   def edit
+    @refuge = Refuge.find(params[:id])
+    authorize @refuge
   end
 
   # POST /refuges
@@ -43,6 +47,8 @@ class RefugesController < ApplicationController
   # PATCH/PUT /refuges/1
   # PATCH/PUT /refuges/1.json
   def update
+    @refuge = Refuge.find(params[:id])
+    authorize @refuge
     respond_to do |format|
       if @refuge.update(refuge_params)
         format.html { redirect_to @refuge, notice: 'Refuge was successfully updated.' }
@@ -58,6 +64,7 @@ class RefugesController < ApplicationController
   # DELETE /refuges/1.json
   def destroy
     @refuge.destroy
+    authorize @refuge
     respond_to do |format|
       format.html { redirect_to refuges_url, notice: 'Refuge was successfully destroyed.' }
       format.json { head :no_content }
@@ -72,6 +79,6 @@ class RefugesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def refuge_params
-      params.require(:refuge).permit(:name, :picture, :capacity, :address, :day_price, :description, :lat, :lon, :altitude, :range)
+      params.require(:refuge).permit(:name, :picture, :capacity, :address, :day_price, :description, :lat, :lon, :altitude, :range, :department)
     end
 end
