@@ -1,1 +1,0 @@
-json.partial! "refuges/refuge", refuge: @refuge
