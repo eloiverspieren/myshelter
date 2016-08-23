@@ -1,41 +1,40 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_refuge, except: [:my_bookings]
+  skip_after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_authorized, only: :my_bookings
+
   # GET /bookings
-  # GET /bookings.json
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = @refuge.bookings
+  end
+
+  def my_bookings
+    @user = current_user
+    @bookings = @user.bookings
   end
 
   # GET /bookings/1
-  # GET /bookings/1.json
   def show
-    @booking = Booking.find(params[:id])
+
   end
 
   # GET /bookings/new
   def new
     @booking = Booking.new
     authorize @booking
-
-  end
-
-  # GET /bookings/1/edit
-  def edit
   end
 
   # POST /bookings
-  # POST /bookings.json
   def create
-    @refuge = Refuge.find(params[:hunt_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.refuge = @refuge
     authorize @booking
 
-
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to my_bookings_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -44,39 +43,24 @@ class BookingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bookings/1
-  # PATCH/PUT /bookings/1.json
-  def update
-    respond_to do |format|
-      if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
-        format.json { render :show, status: :ok, location: @booking }
-      else
-        format.html { render :edit }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /bookings/1
-  # DELETE /bookings/1.json
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to refuge_bookings_path, notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def my_booking
-    # TODO search current_user bookings
-    # /!\ Auth
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params[:id])
+      authorize @booking
+    end
+
+    def set_refuge
+      @refuge = Refuge.find(params[:refuge_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,6 +1,5 @@
 class RefugesController < ApplicationController
   before_action :set_refuge, only: [:show, :edit, :update, :destroy]
-
   # GET /refuges
   # GET /refuges.json
   def index
@@ -11,6 +10,7 @@ class RefugesController < ApplicationController
   # GET /refuges/1.json
   def show
     @refuge = Refuge.find(params[:id])
+    @booking = Booking.new
     authorize @refuge
   end
 
@@ -31,7 +31,9 @@ class RefugesController < ApplicationController
   def create
     @refuge = Refuge.new(refuge_params)
     @refuge.user = current_user
+
     authorize @refuge
+    authorize @booking
 
     respond_to do |format|
       if @refuge.save
