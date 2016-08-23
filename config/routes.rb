@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resources :reviews
     resources :bookings
   end
-  resource :profile
-    get 'my_booking', to: 'bookings#my_booking'
+  resource :profiles
+  get 'my_booking', to: 'bookings#my_booking'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
