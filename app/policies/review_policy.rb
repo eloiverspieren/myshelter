@@ -3,7 +3,6 @@ class ReviewPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-    end
   end
 
   def index?

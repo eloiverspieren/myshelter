@@ -7,7 +7,6 @@ class RefugesController < ApplicationController
   end
 
   # GET /refuges/1
-  # GET /refuges/1.json
   def show
     @refuge = Refuge.find(params[:id])
     @booking = Booking.new
@@ -38,10 +37,8 @@ class RefugesController < ApplicationController
     respond_to do |format|
       if @refuge.save
         format.html { redirect_to @refuge, notice: 'Refuge was successfully created.' }
-        format.json { render :show, status: :created, location: @refuge }
       else
         format.html { render :new }
-        format.json { render json: @refuge.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,10 +51,8 @@ class RefugesController < ApplicationController
     respond_to do |format|
       if @refuge.update(refuge_params)
         format.html { redirect_to @refuge, notice: 'Refuge was successfully updated.' }
-        format.json { render :show, status: :ok, location: @refuge }
       else
         format.html { render :edit }
-        format.json { render json: @refuge.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,7 +64,6 @@ class RefugesController < ApplicationController
     authorize @refuge
     respond_to do |format|
       format.html { redirect_to refuges_url, notice: 'Refuge was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
