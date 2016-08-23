@@ -1,49 +1,54 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Refuges</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Picture</th>
-      <th>Capacity</th>
-      <th>Address</th>
-      <th>Day price</th>
-      <th>Description</th>
-      <th>Lat</th>
-      <th>Lon</th>
-      <th>Altitude</th>
-      <th>Range</th>
-      <th>Department</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @refuges.each do |refuge| %>
-      <tr>
-        <td><%= refuge.name %></td>
-        <td><%= refuge.picture %></td>
-        <td><%= refuge.capacity %></td>
-        <td><%= refuge.address %></td>
-        <td><%= refuge.day_price %></td>
-        <td><%= refuge.description %></td>
-        <td><%= refuge.lat %></td>
-        <td><%= refuge.lon %></td>
-        <td><%= refuge.altitude %></td>
-        <td><%= refuge.range %></td>
-        <td><%= refuge.department %></td>
-        <td><%= link_to 'Show', refuge %></td>
+<section class="mainContentSection packagesSection">
+  <div class="container">
+    <div class="row">
+      <% @refuges.each do |refuge| %>
+      <div class="col-sm-4 col-xs-12">
+        <div class="thumbnail deals">
+          <img src="img/home/deal/deal-01.jpg" alt="deal-image">
+          <a href="single-package-right-sidebar.html" class="pageLink"></a>
+          <div class="discountInfo">
+            <ul class="list-inline rating homePage">
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+            </ul>
+            <ul class="list-inline duration">
+              <li><%= refuge.altitude %>"meters"</li>
+              <li><%= refuge.capacity %>"people"</li>
+              <li><%= refuge.day_price%>"€"</li>
+            </ul>
+          </div>
+          <div class="caption">
+            <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= refuge.name %></a></h4>
+            <p><%= refuge.address %></p>
+            <p><%= refuge.range %></p>
+            <div class="detailsInfo">
+              <h5>
+                <span>Start From</span>
+                <%= refuge.day_price %>
+              </h5>
+              <ul class="list-inline detailsBtn">
+                <li><a href="single-package-right-sidebar.html" class="btn buttonTransparent">See More</a></li>
+                <li><a href="booking-1.html" class="btn buttonTransparent">Book now</a></li>
+              </ul>
+            </div>
+          </div>
+          <td><%= link_to 'Show', refuge %></td>
         <% if policy(refuge).edit? %>
           <td><%= link_to 'Edit', edit_refuge_path(refuge) %></td>
         <% end %>
         <td><%= link_to 'Destroy', refuge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</section>
 
-<br>
+
+
 
 <%= link_to 'New Refuge', new_refuge_path %>
