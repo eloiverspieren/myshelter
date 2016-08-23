@@ -1,7 +1,7 @@
 class RefugePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-        scope.all
+      scope.all # Admin can show all shelters
     end
   end
 
