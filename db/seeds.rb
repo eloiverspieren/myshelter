@@ -14,7 +14,7 @@ u1 = User.create!(email: "eloi.verspieren@gmail.com", password: "verchu")
 refuges_attributes = [
   {
     name:  "LES COSMIQUES",
-    picture: "refugecosmiques.jpg",
+    remote_photo_url: "http://s2.wklcdn.com/image_8/269158/3230796/1479596.jpg",
     capacity: 148,
     address: "Aiguille du Midi",
     day_price: 42 ,
@@ -27,7 +27,7 @@ refuges_attributes = [
 },
   {
     name:  "LE POURRI",
-    picture: "images/refugedupourri.jpg",
+    remote_photo_url: "http://s.camptocamp.org/uploads/images/1259366642_1655889778BI.jpg",
     capacity: 50,
     address: "Parc National de la Vanoise",
     day_price: 42.65,
@@ -40,7 +40,7 @@ refuges_attributes = [
 },
 {
     name: "LE GOÛTER",
-    picture: "images/refugegouter.jpg",
+    remote_photo_url: "http://media.sit.savoie-mont-blanc.com/original/168866/0-902969.jpg",
     capacity: 120,
     address: "Aiguille du Goûter",
     day_price: 55,
@@ -53,7 +53,7 @@ refuges_attributes = [
 },
 {
     name:  "L’AIGLE",
-    picture: "images/aigle.jpg",
+    remote_photo_url: "https://www.petzl.com/fondation/foundation-refuge-aigle-vallee.jpeg?v=1",
     capacity: 34,
     address: "Vallée de la Romanche",
     day_price: 29,
@@ -66,7 +66,7 @@ refuges_attributes = [
 },
 {
     name:  "LES AIGUILLES D’ARVES",
-    picture: "images/aiguillesdarves.jpg",
+    remote_photo_url: "http://www.123savoie.com/pic/109/108307_t6.jpg",
     capacity: 39,
     address: "Aiguille de l’épaisseur",
     day_price: 18.3,
@@ -79,7 +79,7 @@ refuges_attributes = [
 },
 {
     name: "LES BANS",
-    picture: "images/lesbans.jpg",
+    remote_photo_url: "http://a136.idata.over-blog.com/600x450/6/00/18/97/IMAGES-ETE/100_1258.jpg",
     capacity: 22,
     address: "Parc National des Ecrins",
     day_price: 18.3,
@@ -93,7 +93,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
 },
 {
     name:  "ALBERT 1ER",
-    picture: "images/albert.jpg",
+    remote_photo_url: "http://s.camptocamp.org/uploads/images/1344013894_1784147809.jpg",
     capacity: 140,
     address: "Glacier du Tour",
     day_price: 30.5,
@@ -106,7 +106,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
 },
 {
     name:  "L'ALPE DE VILLAR D'ARÈNE",
-    picture: "images/villardarene.jpg",
+    remote_photo_url: "http://static.sitra-tourisme.com/filestore/objets-touristiques/images-principales/91/228/517211-diaporama.jpg",
     capacity: 94,
     address: "Parc national des Ecrins",
     day_price: 19.6,
@@ -119,7 +119,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
 },
 {
     name:  "AMBIN",
-    picture: "images/ambin.jpg",
+    remote_photo_url: "http://surlessommets.blog.free.fr/public/Ambin/Ambin625.jpg",
     capacity: 30,
     address: "Haute-Maurienne",
     day_price: 17.7,
@@ -132,7 +132,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
 },
 {
     name: "L’ARGENTIÈRE",
-    picture: "images/largentiere.jpg",
+    remote_photo_url: "http://www.chamonix-randos.com/Resources/gallery10s.jpg?278",
     capacity: 94,
     address: "Pays du Mont-Blanc",
     day_price: 30.8,
@@ -145,7 +145,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
 },
 {
     name: "L’ARRÉMOULIT",
-    picture: "images/larremoulit.jpg",
+    remote_photo_url: "http://www.caf-bagneres-bigorre.com/photos/28062010_220055_19.jpg",
     capacity: 28,
     address: "Parc National des Pyrénées",
     day_price: 17.7,
