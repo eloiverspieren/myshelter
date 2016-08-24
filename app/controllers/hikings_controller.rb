@@ -49,7 +49,9 @@ class HikingsController < ApplicationController
 
   # DELETE /hikings/1
   def destroy
+  if current_user.admin?
     @hiking.destroy
+    authorize @hiking
     respond_to do |format|
       format.html { redirect_to hikings_url, notice: 'Hiking was successfully destroyed.' }
     end
@@ -63,6 +65,6 @@ class HikingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hiking_params
-      params.require(:hiking).permit(:difficulty, :range, :description, :picture)
+      params.require(:hiking).permit(:difficulty, :range, :description, :photo, :photo_cache)
     end
 end
