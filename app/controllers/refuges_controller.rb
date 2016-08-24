@@ -1,56 +1,69 @@
 class RefugesController < ApplicationController
   before_action :set_refuge, only: [:show, :edit, :update, :destroy]
-
   # GET /refuges
   # GET /refuges.json
   def index
-    @refuges = policy_scope(Refuge)
+    @refuges = policy_scope(Refuge).where.not(lat: nil, lon: nil)
+
+    @hash = Gmaps4rails.build_markers(@refuges) do |refuge, marker|
+      marker.lat refuge.lat
+      marker.lng refuge.lon
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   # GET /refuges/1
-  # GET /refuges/1.json
   def show
+    @refuges = Refuge.all
+    @refuge = Refuge.find(params[:id])
+    @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
+
+    @booking = Booking.new
+    @review = Review.new
+    authorize @refuge
+
+    @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
+
+    @hash = Gmaps4rails.build_markers(@refuge) do |refuge, marker|
+      marker.lat refuge.lat
+      marker.lng refuge.lon
+    end
   end
 
   # GET /refuges/new
   def new
     @refuge = Refuge.new
-    authorize @profile
+    authorize @refuge
   end
 
   # GET /refuges/1/edit
   def edit
+    @refuge = Refuge.find(params[:id])
+    authorize @refuge
   end
 
   # POST /refuges
-  # POST /refuges.json
   def create
     @refuge = Refuge.new(refuge_params)
     @refuge.user = current_user
     authorize @refuge
 
-    respond_to do |format|
-      if @refuge.save
-        format.html { redirect_to @refuge, notice: 'Refuge was successfully created.' }
-        format.json { render :show, status: :created, location: @refuge }
-      else
-        format.html { render :new }
-        format.json { render json: @refuge.errors, status: :unprocessable_entity }
-      end
+    if @refuge.save
+        redirect_to @refuge
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /refuges/1
   # PATCH/PUT /refuges/1.json
   def update
-    respond_to do |format|
-      if @refuge.update(refuge_params)
-        format.html { redirect_to @refuge, notice: 'Refuge was successfully updated.' }
-        format.json { render :show, status: :ok, location: @refuge }
-      else
-        format.html { render :edit }
-        format.json { render json: @refuge.errors, status: :unprocessable_entity }
-      end
+    @refuge.update(refuge_params)
+
+    if @refuge.save
+      redirect_to @refuge
+    else
+      render :edit
     end
   end
 
@@ -58,20 +71,21 @@ class RefugesController < ApplicationController
   # DELETE /refuges/1.json
   def destroy
     @refuge.destroy
+    authorize @refuge
     respond_to do |format|
       format.html { redirect_to refuges_url, notice: 'Refuge was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_refuge
-      @refuge = Refuge.find(params[:id])
+     @refuge = Refuge.find(params[:id])
+     authorize @refuge
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def refuge_params
-      params.require(:refuge).permit(:name, :picture, :capacity, :address, :day_price, :description, :lat, :lon, :altitude, :range)
+      params.require(:refuge).permit(:name, :photo, :photo_cache, :capacity, :address, :day_price, :description, :lat, :lon, :altitude, :range, :department)
     end
 end

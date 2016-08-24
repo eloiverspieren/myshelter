@@ -1,10 +1,14 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_refuge
+  skip_after_action :verify_policy_scoped, only: :index
+
+
 
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = @refuge.reviews
   end
 
   # GET /reviews/1
@@ -15,6 +19,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    authorize @review
   end
 
   # GET /reviews/1/edit
@@ -25,10 +30,14 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    @review.user = current_user
+    @review.refuge_id = @refuge.id
+    authorize @review
+
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to refuge_path(@refuge), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -56,7 +65,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to refuge_path(@refuge), notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +74,11 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+      authorize @review
+    end
+
+    def set_refuge
+      @refuge = Refuge.find(params[:refuge_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

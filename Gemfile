@@ -17,6 +17,17 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'pundit'
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
+gem 'omniauth-facebook'
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 
 group :development, :test do
   gem 'binding_of_caller'

@@ -1,54 +1,200 @@
 <p id="notice"><%= notice %></p>
+<section class="mainContentSection singlePackage">
+      <div class="container">
+        <div class="row countryTitle">
+          <div class="col-sm-8 col-xs-12">
+            <div id="package-carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#package-carousel" data-slide-to="0" class=""></li>
+                <li data-target="#package-carousel" data-slide-to="1" class=""></li>
+                <li data-target="#package-carousel" data-slide-to="2" class="active"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="item">
+                  <%= cl_image_tag @refuge.photo, crop: :fill %>
+                </div>
+                <div class="item">
+                  <%= cl_image_tag @refuge.photo, crop: :fill %>
+                </div>
+                <div class="item active">
+                  <%= cl_image_tag @refuge.photo, crop: :fill %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <aside>
+              <div class="weatherInfo">
+               <%= simple_form_for [@refuge, @booking] do |f| %>
+               <%= f.input :start_day %>
+               <%= f.input :end_day %>
+               <%= f.input :hikers_nb %>
+               <%= f.submit "Book it", :class => "btn btn-primary" %>
+               <%end%>
+             </div>
+            </aside>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div role="tabpanel" class="countryTabs">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="">
+                  <a href="#over-view" aria-controls="over-view" role="tab" data-toggle="tab" aria-expanded="false">Basic Infos</a>
+                </li>
+                <li role="presentation" class="">
+                  <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
+                </li>
+                <li role="presentation" class="active">
+                  <a href="#location-map" aria-controls="location-map" role="tab" data-toggle="tab" aria-expanded="true">Location map</a>
+                </li>
+                <li class="pull-right">
+                  <ul class="list-inline">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                  </ul>
+                </li>
+              </ul>
 
-<p>
-  <strong>Name:</strong>
-  <%= @refuge.name %>
-</p>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="over-view">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                      <div class="commonInfo">
+                        <p><%= @refuge.description %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tour-guide">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                      <div class="commonInfo">
 
-<p>
-  <strong>Picture:</strong>
-  <%= @refuge.picture %>
-</p>
+                        <% @refuge.reviews.each do |review| %>
+                        <hr>
+                        <div id="review-refuge">
+                          <% if user_signed_in? && current_user.facebook_picture_url %>
+                          <div id="avatar_refuge" >
+                            <%= image_tag current_user.facebook_picture_url, height: 40, width: 40 %>
+                          </div>
+                          <%else%>
+                          <div id="avatar_review" >
+                            <img src="http://placehold.it/35x35" style="height: 40px; width: 40px;" >
+                          </div>
+                          <% end %>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @refuge.capacity %>
-</p>
+                          <div id="stars">
+                            <% if review.rating != nil %>
+                            <% review.rating.times do %>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <% end %>
+                            <% (5 - review.rating).times do %>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <% end %>
+                            <%end%>
+                          </div><br><br><br>
+                          <%= review.content %><br><br><br>
+                          <div id="delete-review">
+                            <% if review.user == current_user && user_signed_in? %>
+                            <%= link_to "Delete", refuge_review_path(@refuge, review), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
+                            <%end%><br>
+                          </div>
+                        </div>
+                        <%end%>
 
-<p>
-  <strong>Address:</strong>
-  <%= @refuge.address %>
-</p>
+                        <hr>
 
-<p>
-  <strong>Day price:</strong>
-  <%= @refuge.day_price %>
-</p>
+                        <div id="form-add-review">
+                         <% if current_user && user_signed_in? %>
+                         <%= simple_form_for [@refuge, @review] do |f| %>
+                         <%= f.input :rating %>
+                         <%= f.input :content %>
+                         <%= f.submit "Add a new review", :class => "btn btn-primary" %>
+                         <% end %>
+                         <%end%>
+                       </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @refuge.description %>
-</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="location-map">
+                  <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                      <div class="commonInfo">
 
-<p>
-  <strong>Lat:</strong>
-  <%= @refuge.lat %>
-</p>
 
-<p>
-  <strong>Lon:</strong>
-  <%= @refuge.lon %>
-</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <strong>Altitude:</strong>
-  <%= @refuge.altitude %>
-</p>
 
-<p>
-  <strong>Range:</strong>
-  <%= @refuge.range %>
-</p>
+
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="relatedProduct">
+              <h2>Shelters in the Area</h2>
+              <div class="row">
+                <% @count = 0 %>
+                  <% @refuges.each do |refuge| %>
+                    <% if refuge.range == @refuge.range && refuge.name != @refuge.name && @count < 3 %>
+                      <% @count += 1 %>
+                      <div class="col-sm-4 col-xs-12">
+                        <div class="relatedItem">
+                          <%= cl_image_tag refuge.photo, crop: :fill %>
+                          <div class="maskingInfo">
+                          <h4><%=refuge.name%></h4>
+                          <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                          </div>
+                        </div>
+                      </div>
+                    <%end%>
+                  <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
 
 <%= link_to 'Edit', edit_refuge_path(@refuge) %> |
 <%= link_to 'Back', refuges_path %>
+
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
+
+
+
+

@@ -1,23 +1,28 @@
 class HikingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all # Admin can show all restaurants
+      scope.all
     end
   end
 
   def index?
-    true # All user can index
+    true
+  end
+
+  def show?
+    true
   end
 
   def create?
-    true # All user can create
-  end
-
-  def destroy?
-    record.user == user || user.admin? # if user have created the restaurant  can destory
+    user.admin?
   end
 
   def update?
-    record.user == user || user.admin?# user == current_user
+    user.admin?
+  end
+
+  def destroy?
+    user.admin?
   end
 end
+

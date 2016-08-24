@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Difficulty:</strong>
@@ -17,8 +16,9 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= @hiking.picture %>
+  <%= cl_image_tag @hiking.photo, height: 300, width: 400, crop: :fill %>
+
 </p>
 
-<%= link_to 'Edit', edit_hiking_path(@hiking) %> |
-<%= link_to 'Back', hikings_path %>
+<%= link_to 'Back', hikings_path %> |
+

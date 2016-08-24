@@ -2,14 +2,15 @@ class HikingsController < ApplicationController
   before_action :set_hiking, only: [:show, :edit, :update, :destroy]
 
   # GET /hikings
-  # GET /hikings.json
   def index
     @hikings = policy_scope(Hiking)
   end
 
   # GET /hikings/1
-  # GET /hikings/1.json
   def show
+    @hiking = Hiking.find(params[:id])
+    authorize @hiking
+
   end
 
   # GET /hikings/new
@@ -23,42 +24,36 @@ class HikingsController < ApplicationController
   end
 
   # POST /hikings
-  # POST /hikings.json
   def create
-    @hiking = Hiking.new(hiking_params)
+    if current_user.admin?
+      @hiking = Hiking.new(hiking_params)
+      authorize @hiking
 
-    respond_to do |format|
       if @hiking.save
-        format.html { redirect_to @hiking, notice: 'Hiking was successfully created.' }
-        format.json { render :show, status: :created, location: @hiking }
-      else
-        format.html { render :new }
-        format.json { render json: @hiking.errors, status: :unprocessable_entity }
+        redirect_to @refuge
       end
     end
   end
 
   # PATCH/PUT /hikings/1
-  # PATCH/PUT /hikings/1.json
   def update
     respond_to do |format|
+    authorize @hiking
       if @hiking.update(hiking_params)
         format.html { redirect_to @hiking, notice: 'Hiking was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hiking }
       else
         format.html { render :edit }
-        format.json { render json: @hiking.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /hikings/1
-  # DELETE /hikings/1.json
   def destroy
+  if current_user.admin?
     @hiking.destroy
+    authorize @hiking
     respond_to do |format|
       format.html { redirect_to hikings_url, notice: 'Hiking was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -70,6 +65,6 @@ class HikingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hiking_params
-      params.require(:hiking).permit(:difficulty, :range, :description, :picture)
+      params.require(:hiking).permit(:difficulty, :range, :description, :photo, :photo_cache)
     end
 end

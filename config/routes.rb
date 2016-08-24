@@ -7,9 +7,17 @@ Rails.application.routes.draw do
     resources :reviews
     resources :bookings
   end
-  resource :profile
-    get 'my_booking', to: 'bookings#my_booking'
-  devise_for :users
+  resource :profiles
+
+  get 'my_bookings', to: 'bookings#my_bookings'
+  resources :bookings, only: [:index] do
+    member do
+      get 'accept'
+      get 'reject'
+    end
+  end
+
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
