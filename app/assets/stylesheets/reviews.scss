@@ -1,3 +1,46 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#form-add-review {
+  font-color:#C9D4D2;
+  width:400px;
+  text-align:center;
+  margin-left:25%;
+  padding-bottom: 40px;
+
+}
+
+#review-refuge {
+  background-color:white;
+  border-radius: 10px;
+  text-align:left;
+  padding:10px;
+  width:400px;
+  margin-left:25%;
+  position:relative;
+}
+
+.fa-star{
+color:#FFD700;
+}
+
+#avatar_review {
+  position:absolute;
+  top:8px;
+  left:8px;
+  img {
+    border-radius:50%;
+    border:1px;
+  }
+
+}
+
+#stars {
+  position:absolute;
+  right:8px;
+}
+#delete-review {
+  position:absolute;
+  right:8px;
+  bottom:8px;
+}

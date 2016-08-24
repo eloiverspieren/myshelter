@@ -14,10 +14,12 @@ class RefugesController < ApplicationController
 
   # GET /refuges/1
   def show
+    @refuges = Refuge.all
     @refuge = Refuge.find(params[:id])
     @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
 
     @booking = Booking.new
+    @review = Review.new
     authorize @refuge
 
     @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
