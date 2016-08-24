@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 <section class="mainContentSection packagesSection">
   <div class="container">
@@ -23,16 +24,13 @@
           </div>
           <div class="caption">
             <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= refuge.name %></a></h4>
-            <p><%= refuge.address %></p>
-            <p><%= refuge.range %></p>
+            <h5><%= refuge.address %></h5>
             <div class="detailsInfo">
               <h5>
-                <span>Start From</span>
-                <%= refuge.day_price %>
-              </h5>
+                <%= refuge.day_price %>€
+              </h5><br>
               <ul class="list-inline detailsBtn">
-                <li><a href="single-package-right-sidebar.html" class="btn buttonTransparent">See More</a></li>
-                <li><a href="booking-1.html" class="btn buttonTransparent">Book now</a></li>
+                <li><a href="single-package-right-sidebar.html" class="btn buttonTransparent">More About This Shelter</a></li>
               </ul>
             </div>
           </div>
@@ -47,8 +45,6 @@
     </div>
   </div>
 </section>
-
-
 
 
 <%= link_to 'New Refuge', new_refuge_path %>

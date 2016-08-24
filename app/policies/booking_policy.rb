@@ -1,16 +1,16 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin?
-        scope.all # Admin can show all restaurants
-      else
-        scope.where(:user => user) # User can show his restaurants
-      end
+      scope.where(:user => user) # User can show his restaurants
     end
   end
 
   def index?
     true # All user can index
+  end
+
+  def my_bookings?
+    true
   end
 
   def create?

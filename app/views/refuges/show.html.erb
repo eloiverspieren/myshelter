@@ -57,3 +57,9 @@
 
 <%= link_to 'Edit', edit_refuge_path(@refuge) %> |
 <%= link_to 'Back', refuges_path %>
+<%= simple_form_for [@refuge, @booking] do |f| %>
+<%= f.input :start_day %>
+<%= f.input :end_day %>
+<%= f.input :hikers_nb %>
+<%= f.submit "Book it", :class => "btn btn-primary" %>
+<%end%>
