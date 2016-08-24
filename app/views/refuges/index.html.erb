@@ -28,9 +28,7 @@
             <h5><%= refuge.address %></h5>
             <div class="detailsInfo">
               <br>
-              <ul class="list-inline detailsBtn">
-               <%= link_to 'More About this Shelter', refuge, :class => "btn btn-primary btn-xs"%>
-              </ul>
+               <%= link_to 'More About this Shelter', refuge, :class => "btn btn-primary btn"%>
             </div>
           </div>
         <% if policy(refuge).edit? %>
