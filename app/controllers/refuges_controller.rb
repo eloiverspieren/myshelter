@@ -26,34 +26,27 @@ class RefugesController < ApplicationController
   end
 
   # POST /refuges
-  # POST /refuges.json
   def create
     @refuge = Refuge.new(refuge_params)
     @refuge.user = current_user
-
     authorize @refuge
-    authorize @booking
 
-    respond_to do |format|
-      if @refuge.save
-        format.html { redirect_to @refuge, notice: 'Refuge was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @refuge.save
+        redirect_to @refuge
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /refuges/1
   # PATCH/PUT /refuges/1.json
   def update
-    @refuge = Refuge.find(params[:id])
-    authorize @refuge
-    respond_to do |format|
-      if @refuge.update(refuge_params)
-        format.html { redirect_to @refuge, notice: 'Refuge was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    @refuge.update(refuge_params)
+
+    if @refuge.save
+      redirect_to @refuge
+    else
+      render :edit
     end
   end
 
@@ -70,7 +63,8 @@ class RefugesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_refuge
-      @refuge = Refuge.find(params[:id])
+     @refuge = Refuge.find(params[:id])
+     authorize @refuge
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
