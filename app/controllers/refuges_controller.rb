@@ -3,14 +3,29 @@ class RefugesController < ApplicationController
   # GET /refuges
   # GET /refuges.json
   def index
-    @refuges = policy_scope(Refuge)
+    @refuges = policy_scope(Refuge).where.not(lat: nil, lon: nil)
+
+    @hash = Gmaps4rails.build_markers(@refuges) do |refuge, marker|
+      marker.lat refuge.lat
+      marker.lng refuge.lon
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   # GET /refuges/1
   def show
     @refuge = Refuge.find(params[:id])
+    @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
+
     @booking = Booking.new
     authorize @refuge
+
+    @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
+
+    @hash = Gmaps4rails.build_markers(@refuge) do |refuge, marker|
+      marker.lat refuge.lat
+      marker.lng refuge.lon
+    end
   end
 
   # GET /refuges/new

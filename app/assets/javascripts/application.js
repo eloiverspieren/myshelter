@@ -17,3 +17,5 @@
 //= require jquery.themepunch.revolution
 
 //= require custom
+//= require underscore
+//= require gmaps/google
