@@ -24,4 +24,12 @@ class BookingPolicy < ApplicationPolicy
   def update?
     record.user == user || user.admin?# user == current_user
   end
+
+  def accept?
+    record.refuge.user == user || user.admin?# user == current_user
+  end
+
+  def reject?
+    record.refuge.user == user || user.admin?# user == current_user
+  end
 end

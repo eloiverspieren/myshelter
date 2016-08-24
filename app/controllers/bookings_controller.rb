@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :set_refuge, except: [:my_bookings]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :accept, :reject]
+  before_action :set_refuge, except: [:my_bookings, :accept, :reject]
   skip_after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :my_bookings
 
@@ -12,11 +12,26 @@ class BookingsController < ApplicationController
   def my_bookings
     @user = current_user
     @bookings = @user.bookings
+    @user.refuges.each do |refuge|
+      @bookings += refuge.bookings
+    end
   end
 
   # GET /bookings/1
   def show
 
+  end
+
+  def accept
+    @booking.status = 1
+    @booking.save
+    redirect_to my_bookings_path
+  end
+
+  def reject
+    @booking.status = 2
+    @booking.save
+    redirect_to my_bookings_path
   end
 
   # GET /bookings/new
@@ -30,6 +45,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.refuge = @refuge
+    @booking.status = 0
     authorize @booking
 
     respond_to do |format|

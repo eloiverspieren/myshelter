@@ -32,7 +32,7 @@ class RefugesController < ApplicationController
     @refuge.user = current_user
 
     authorize @refuge
-    authorize @booking
+
 
     respond_to do |format|
       if @refuge.save
