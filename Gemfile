@@ -19,8 +19,7 @@ gem 'autoprefixer-rails'
 gem 'pundit'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
-
-
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
