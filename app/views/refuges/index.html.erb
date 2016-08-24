@@ -6,7 +6,8 @@
       <% @refuges.each do |refuge| %>
       <div class="col-sm-4 col-xs-12">
         <div class="thumbnail deals">
-          <img src="img/home/deal/deal-01.jpg" alt="deal-image">
+        <%= cl_image_tag(refuge.photo,
+      width: 400, height: 300, crop: :fill) %>
           <a href="single-package-right-sidebar.html" class="pageLink"></a>
           <div class="discountInfo">
             <ul class="list-inline rating homePage">
@@ -17,34 +18,34 @@
               <li><i class="fa fa-star" aria-hidden="true"></i></li>
             </ul>
             <ul class="list-inline duration">
-              <li><%= refuge.altitude %>"meters"</li>
-              <li><%= refuge.capacity %>"people"</li>
-              <li><%= refuge.day_price%>"€"</li>
+              <li><%= refuge.altitude %>meters</li>
+              <li><%= refuge.capacity %>people</li>
+              <li><%= refuge.day_price%>€</li>
             </ul>
           </div>
           <div class="caption">
             <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= refuge.name %></a></h4>
             <h5><%= refuge.address %></h5>
             <div class="detailsInfo">
-              <h5>
-                <%= refuge.day_price %>€
-              </h5><br>
+              <br>
               <ul class="list-inline detailsBtn">
-                <li><a href="single-package-right-sidebar.html" class="btn buttonTransparent">More About This Shelter</a></li>
+               <%= link_to 'More About this Shelter', refuge, :class => "btn btn-primary btn-xs"%>
               </ul>
             </div>
           </div>
-          <td><%= link_to 'Show', refuge %></td>
         <% if policy(refuge).edit? %>
           <td><%= link_to 'Edit', edit_refuge_path(refuge) %></td>
         <% end %>
+        <% if policy(refuge).destroy? %>
         <td><%= link_to 'Destroy', refuge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
         </div>
       </div>
       <%end%>
     </div>
   </div>
+  <%= link_to 'New Refuge', new_refuge_path , :class => "btn btn-primary" %>
+
 </section>
 
 
-<%= link_to 'New Refuge', new_refuge_path %>
