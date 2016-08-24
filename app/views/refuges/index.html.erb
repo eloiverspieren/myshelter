@@ -28,9 +28,7 @@
             <h5><%= refuge.address %></h5>
             <div class="detailsInfo">
               <br>
-              <ul class="list-inline detailsBtn">
-               <%= link_to 'More About this Shelter', refuge, :class => "btn btn-primary btn-xs"%>
-              </ul>
+               <%= link_to 'More About this Shelter', refuge, :class => "btn btn-primary btn"%>
             </div>
           </div>
         <% if policy(refuge).edit? %>
@@ -47,5 +45,25 @@
   <%= link_to 'New Refuge', new_refuge_path , :class => "btn btn-primary" %>
 
 </section>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
 
 

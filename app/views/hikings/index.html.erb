@@ -18,7 +18,9 @@
         <td><%= hiking.difficulty %></td>
         <td><%= hiking.range %></td>
         <td><%= hiking.description %></td>
-        <td><%= hiking.picture %></td>
+        <td><%= cl_image_tag( hiking.photo,
+          width: 400, height: 300, crop: :fill) %>
+        </td>
         <td><%= link_to 'Show', hiking %></td>
         <% if policy(hiking).edit? %>
           <td><%= link_to 'Edit', edit_hiking_path(hiking) %></td>
