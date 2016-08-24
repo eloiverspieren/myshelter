@@ -10,6 +10,7 @@ class HikingsController < ApplicationController
   def show
     @hiking = Hiking.find(params[:id])
     authorize @hiking
+
   end
 
   # GET /hikings/new
@@ -24,14 +25,12 @@ class HikingsController < ApplicationController
 
   # POST /hikings
   def create
-    @hiking = Hiking.new(hiking_params)
-    authorize @hiking
+    if current_user.admin?
+      @hiking = Hiking.new(hiking_params)
+      authorize @hiking
 
-    respond_to do |format|
       if @hiking.save
-        format.html { redirect_to @hiking, notice: 'Hiking was successfully created.' }
-      else
-        format.html { render :new }
+        redirect_to @refuge
       end
     end
   end

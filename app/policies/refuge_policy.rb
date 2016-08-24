@@ -14,7 +14,7 @@ class RefugePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user || user.admin? # if user have created the restaurant  can destory
+    record.user == user || user.admin? # if user have created the refuge  can destory
   end
 
   def update?
