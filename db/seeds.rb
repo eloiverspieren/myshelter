@@ -68,7 +68,7 @@ refuges_attributes = [
     name:  "LES AIGUILLES D’ARVES",
     remote_photo_url: "http://www.123savoie.com/pic/109/108307_t6.jpg",
     capacity: 39,
-    address: "Albertville",
+    address: "Albertville, France",
     day_price: 18.3,
     description: "Refuge sur un balcon, dans les pentes herbeuses et fleuries descendant de l'Aiguille de l'Epaisseur. Au-dessus du torrent des Aiguilles, face à la longue crête sévère d'Argentière et avec vue sur les pointes Méridionale et Centrale des aiguilles d'Arves. La faune est particulièrement présente (chamois, marmottes, hermines ).",
     latitude: "45.118201 N",
