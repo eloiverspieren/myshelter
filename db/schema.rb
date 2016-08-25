@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20160824142830) do
     t.string   "address"
     t.integer  "day_price"
     t.string   "description"
-    t.float    "lat"
-    t.float    "lon"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "altitude"
     t.string   "range"
     t.datetime "created_at",  null: false
