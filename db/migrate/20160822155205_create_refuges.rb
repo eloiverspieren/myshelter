@@ -7,8 +7,8 @@ class CreateRefuges < ActiveRecord::Migration[5.0]
       t.string :address
       t.integer :day_price
       t.string :description
-      t.float :lat
-      t.float :lon
+      t.float :latitude
+      t.float :longitude
       t.integer :altitude
       t.string :range
 
