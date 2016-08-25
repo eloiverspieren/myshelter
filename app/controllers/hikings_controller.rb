@@ -49,11 +49,12 @@ class HikingsController < ApplicationController
 
   # DELETE /hikings/1
   def destroy
-  if current_user.admin?
-    @hiking.destroy
-    authorize @hiking
-    respond_to do |format|
+    if current_user.admin?
+      @hiking.destroy
+      authorize @hiking
+      respond_to do |format|
       format.html { redirect_to hikings_url, notice: 'Hiking was successfully destroyed.' }
+      end
     end
   end
 
