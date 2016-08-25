@@ -159,8 +159,8 @@ h4 {
 }
 @media (min-width: 1200px) {
   .btn {
-    font-size: 15px;
-    padding: 13px 0;
+    font-size: 12px;
+    padding: 10px 10px;
   }
 }
 
@@ -890,7 +890,7 @@ a:focus {
   border-right: 0;
 }
 .thumbnail.deals .caption {
-  padding: 30px 20px;
+  padding: 20px 20px;
 }
 .thumbnail.deals .caption .captionTitle {
   font-size: 15px;
@@ -912,9 +912,10 @@ a:focus {
   margin-bottom: 40px;
 }
 .thumbnail.deals .caption .detailsInfo {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 .thumbnail.deals .caption .detailsInfo h5 {
   float: left;
@@ -1172,8 +1173,8 @@ a:focus {
 }
 .buttonArea.galleryBtnArea .buttonTransparent:hover, .buttonArea.galleryBtnArea .paginationCenter .pagination li:first-child a:hover, .paginationCenter .pagination li:first-child .buttonArea.galleryBtnArea a:hover, .buttonArea.galleryBtnArea .paginationCenter .pagination li:last-child a:hover, .paginationCenter .pagination li:last-child .buttonArea.galleryBtnArea a:hover, .buttonArea.galleryBtnArea .isotopeFilters ul.filter > li a:hover, .isotopeFilters ul.filter > li .buttonArea.galleryBtnArea a:hover {
   color: #ffffff;
-  background-color: #ff891e;
-  border-color: #ff891e;
+  background-color: white;
+  border-color: white;
 }
 
 .blogTitle {
@@ -2274,7 +2275,7 @@ a:focus {
 /*=== 5.1 MAIN CONTENT SECTION ===*/
 .mainContentSection, .whiteSection, .lightSection {
   width: 100%;
-  padding: 100px 0 70px 0;
+  padding: 40px 0 40px 0;
   background-color: #ffffff;
   display: block;
 }
@@ -2554,7 +2555,7 @@ a:focus {
 .isotopeSelector h4 {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 42%;
   font-size: 20px;
   color: #ffffff;
   text-transform: uppercase;

@@ -3,7 +3,7 @@ class RefugesController < ApplicationController
   # GET /refuges
   # GET /refuges.json
   def index
-    @refuges = policy_scope(Refuge).where.not(latitude: nil, longitude: nil)
+    @refuges = policy_scope(Refuge).search(params[:search]).where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@refuges) do |refuge, marker|
       marker.lat refuge.latitude

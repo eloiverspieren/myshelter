@@ -126,7 +126,7 @@
                </div>
                <div role="tabpanel" class="tab-pane active" id="location-map">
                 <div class="row">
-                  <div class="col-sm-8 col-xs-12">
+                  <div class="col-sm-8 col-xs-12 col-sm-offset-2">
                     <div class="commonInfo">
 
                       <div id="map" style="width: 100%; height: 600px;"></div>
@@ -161,8 +161,8 @@
 
       <div class="row">
           <div class="col-xs-12">
-            <div class="relatedProduct">
-              <h2>Shelters in the Area</h2>
+            <div class="sectionTitle">
+              <h2><span>Shelters in the Area</span></h2><br><br>
               <div class="row">
                 <% @count = 0 %>
                   <% @refuges.each do |refuge| %>
@@ -170,7 +170,7 @@
                       <% @count += 1 %>
                       <div class="col-sm-4 col-xs-12">
                         <div class="relatedItem">
-                          <%= cl_image_tag refuge.photo, crop: :fill %>
+                          <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
                           <div class="maskingInfo">
                           <h4><%=refuge.name%></h4>
                           <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>

@@ -9,4 +9,13 @@ class Refuge < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  def self.search(search)
+    if search
+     return self.near(search, 50)
+    else
+      return Refuge.all
+    end
+    return nil
+  end
 end

@@ -22,7 +22,7 @@ refuges_attributes = [
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 3613,
-    range: "PAYS DU MONT-BLANC",
+    range: "Alpes",
     department: "73"
 },
   {
@@ -35,7 +35,7 @@ refuges_attributes = [
     latitude: "45.314026 N",
     longitude: "6.493692 E",
     altitude: 2374,
-    range: "VANOISE",
+    range: "Alpes",
     department: "73"
 },
 {
@@ -48,7 +48,7 @@ refuges_attributes = [
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 3613,
-    range: "PAYS DU MONT-BLANC",
+    range: "Alpes",
     department: "74"
 },
 {
@@ -61,7 +61,7 @@ refuges_attributes = [
     latitude: "45.011304 N",
     longitude: "6.53763 E",
     altitude: 3440,
-    range: "VALLEE DE LA ROMANCHE",
+    range: "Alpes",
     department: "05"
 },
 {
@@ -74,7 +74,7 @@ refuges_attributes = [
     latitude: "45.118201 N",
     longitude: "6.375205 E",
     altitude: 2260,
-    range: "GRANDES ROUSSES-ARVES",
+    range: "Alpes",
     department: "73"
 },
 {
@@ -88,7 +88,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     latitude: "44.834424 N",
     longitude: "6.361139 E",
     altitude: 2106,
-    range: "PAYS DES ECRINS",
+    range: "Alpes",
     department: "05"
 },
 {
@@ -101,7 +101,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 2707,
-    range: "PAYS DU MONT-BLANC",
+    range: "Alpes",
     department: "74"
 },
 {
@@ -114,7 +114,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 2071,
-    range: "VALLE DE LA ROMANCHE",
+    range: "Alpes",
     department: "05"
 },
 {
@@ -127,7 +127,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 2270,
-    range: "AMBIN",
+    range: "Alpes",
     department: "73"
 },
 {
@@ -140,7 +140,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 2769,
-    range: "PAYS DU MONT-BLANC",
+    range: "Alpes",
     department: "74"
 },
 {
@@ -153,7 +153,7 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     latitude: "45.522294 N",
     longitude: "6.53763 E",
     altitude: 2257,
-    range: "VALLEE D’OSSAU",
+    range: "Pyrénées",
     department: "64"
 },
 {
