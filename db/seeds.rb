@@ -157,19 +157,70 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     department: "64"
 },
 {
-    name: "L’AYOUS",
-    remote_photo_url: "http://www.caf-bagneres-bigorre.com/photos/28062010_220055_19.jpg",
-    capacity: 47,
-    address: "GABAS",
-    day_price: 17.7,
-    description: "Situé dans les Pyrénées Atlantiques en zone de montagne de la région du Béarn au coeur de la Vallée d'Ossau, perché sur les hauteurs du tour de l'Ossau, du GR10, et sur la variante de la HRP, le Refuge d'Ayous fait face au splendide lac Gentau et au Pic du midi d'Ossau. Sa capacité d'accueil est de 47 places en petits dortoirs. Les gardiens de ce lieu assurent un service de restauration le midi. Pour les randonneurs voulant profiter du coucher de soleil sur le lac, des demi-pensions ou des pensions complètes vous sont proposées. C'est une étape idéale pour les randonnées familiales, ainsi que pour les groupes de jeunes scolaires.",
-    latitude: "45.522294 N",
-    longitude: "6.53763 E",
-    altitude: 2257,
-    range: "VALLEE D’OSSAU",
+    name: "LA POMBIE",
+    remote_photo_url: "http://www.topopyrenees.com/wp-content/uploads/2010/06/randonnee-refuge-pombie_024.jpg",
+    capacity: 45,
+    address: "Pau",
+    day_price: 19.6,
+    description: "Le refuge est situé en plein cour du Parc national des Pyrénées en haute vallée d'Ossau au pied de la face sud-est du pic du Midi d'Ossau, entre milieu pastoral et haute montagne. Il est le point de départ classique pour l'ascension du pic du Midi d'Ossau par sa voie normale, ainsi que de nombreuses voies d'escalades et courses d'arêtes. Refuge situé sur la traversée des Pyrénées (HRP), il sert également d'étape sur le tour du pic du midi d'Ossau ainsi que sur la variante du GR10. Les gardiens, très attentifs à l'accueil des montagnards et des randonneurs vous feront goûter une cuisine de qualité.",
+    latitude: "42.835504 N",
+    longitude: "-0.426940 E",
+    altitude: 1980,
+    range: "Pyrénées",
     department: "64"
 },
-
+{
+    name: "L’AYOUS",
+    remote_photo_url: "http://www.randozone.com/pict_mont/x960/im13389.jpg",
+    capacity: 47,
+    address: "Gabas",
+    day_price: 30.7,
+    description: "Situé dans les Pyrénées Atlantiques en zone de montagne de la région du Béarn au coeur de la Vallée d'Ossau, perché sur les hauteurs du tour de l'Ossau, du GR10, et sur la variante de la HRP, le Refuge d'Ayous fait face au splendide lac Gentau et au Pic du midi d'Ossau. Sa capacité d'accueil est de 47 places en petits dortoirs. Les gardiens de ce lieu assurent un service de restauration le midi. Pour les randonneurs voulant profiter du coucher de soleil sur le lac, des demi-pensions ou des pensions complètes vous sont proposées. C'est une étape idéale pour les randonnées familiales, ainsi que pour les groupes de jeunes scolaires.",
+    latitude: "42.858208 N",
+    longitude: "-0.288792 E",
+    altitude: 1980,
+    range: "Pyrénées",
+    department: "64"
+},
+{
+    name: "LE PLAIN DU CANON",
+    remote_photo_url: "http://www.refugedusotre.com/wp-content/gallery/refuge-du-sotre-paysages/sotre-vosges-refuge-vosges.jpg",
+    capacity: 12,
+    address: "Nancy",
+    day_price: 10,
+    description: "Légèrement en contre bas de la route montant de St Maurice au Ballon d'Alsace en bord de clairière, en forêt domaniale, sur les pentes NW du Ballon d'Alsace. Un petit bâtiment préfabriqué inattendu.",
+    latitude: "47.836500 N",
+    longitude: "6.825300 E",
+    altitude: 819,
+    range: "Vosges",
+    department: "88"
+},
+{
+    name: "LE LANGENBERG",
+    remote_photo_url: "http://www.auberge-refuge-neuweiher.fr/NEUWEIHER_WEB/FR/ACCUEIL/Auberge-refuge-neuweiher.jpg",
+    capacity: 25,
+    address: "Vescemont",
+    day_price: 14.7,
+    description: "Un bâtiment clair avec une vue exceptionnelle sur la plaine d'Alsace, la Forêt Noire, et les Alpes suisses (Oberland).
+A proximité du sommet du Grand Langenberg sur le versant S.E. du Ballon d'Alsace. C'est un pays de rencontres et de frontières où l'histoire est très présente.",
+    latitude: "47.806670 N",
+    longitude: "6.861670 E",
+    altitude: 1050,
+    range: "Vosges",
+    department: "90"
+},{
+    name: "LE GRAND VENTRON",
+    remote_photo_url: "http://www.sitlor.fr/photos/741/741000070_4.jpg",
+    capacity: 22,
+    address: "Cornimont",
+    day_price: 10,
+    description: "En lisière de la forêt domaniale de Cornimont, dans un site tranquille, à proximité du sommet du Grand Ventron, point culminant d'une région boisée, avec une vue remarquable. A proximité du GR5.",
+    latitude: "47.960300 N",
+    longitude: "6.921700 E",
+    altitude: 1150,
+    range: "Vosges",
+    department: "88"
+},
 ]
 refuges_attributes.each { |params| u1.refuges.create!(params) }
 
