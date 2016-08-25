@@ -1,11 +1,7 @@
 class ProfilePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin?
-        scope.all # Admin can show all restaurants
-      else
-        scope.where(:user => user) # User can show his restaurants
-      end
+      scope.all # Admin can show all shelters
     end
   end
 
@@ -18,7 +14,7 @@ class ProfilePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user || user.admin? # if user have created the restaurant  can destory
+    record.user == user || user.admin? # if user have created the refuge  can destory
   end
 
   def update?
