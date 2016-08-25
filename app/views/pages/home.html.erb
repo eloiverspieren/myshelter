@@ -255,12 +255,6 @@
                       <%= link_to 'More About this Shelter', refuge, :class => "btn btn-primary btn"%>
                     </div>
                   </div>
-                  <% if policy(refuge).edit? %>
-                  <td><%= link_to 'Edit', edit_refuge_path(refuge) %></td>
-                  <% end %>
-                  <% if policy(refuge).destroy? %>
-                  <td><%= link_to 'Destroy', refuge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <% end %>
                 </div>
               </div>
               <%end%>

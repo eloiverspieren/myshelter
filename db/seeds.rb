@@ -9,7 +9,7 @@ User.destroy_all
 Refuge.destroy_all
 
 
-u1 = User.create!(email: "eloi.verspieren@gmail.com", password: "verchu")
+u1 = User.create!(email: "eloi.verspieren@gmail.com", password: "verchu", admin: true)
 
 refuges_attributes = [
   {
