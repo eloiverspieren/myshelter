@@ -3,11 +3,11 @@ class RefugesController < ApplicationController
   # GET /refuges
   # GET /refuges.json
   def index
-    @refuges = policy_scope(Refuge).where.not(lat: nil, lon: nil)
+    @refuges = policy_scope(Refuge).where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@refuges) do |refuge, marker|
-      marker.lat refuge.lat
-      marker.lng refuge.lon
+      marker.lat refuge.latitude
+      marker.lng refuge.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
@@ -16,17 +16,17 @@ class RefugesController < ApplicationController
   def show
     @refuges = Refuge.all
     @refuge = Refuge.find(params[:id])
-    @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
+    @refuge_coordinates = { lat: @refuge.latitude, lng: @refuge.longitude }
 
     @booking = Booking.new
     @review = Review.new
     authorize @refuge
 
-    @refuge_coordinates = { lat: @refuge.lat, lng: @refuge.lon }
+    @refuge_coordinates = { lat: @refuge.latitude, lng: @refuge.longitude }
 
     @hash = Gmaps4rails.build_markers(@refuge) do |refuge, marker|
-      marker.lat refuge.lat
-      marker.lng refuge.lon
+      marker.lat refuge.latitude
+      marker.lng refuge.longitude
     end
   end
 
