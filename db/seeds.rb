@@ -156,6 +156,20 @@ Un petit refuge au charme associé à son site mais aussi à la construction en 
     range: "VALLEE D’OSSAU",
     department: "64"
 },
+{
+    name: "L’AYOUS",
+    remote_photo_url: "http://www.caf-bagneres-bigorre.com/photos/28062010_220055_19.jpg",
+    capacity: 47,
+    address: "GABAS",
+    day_price: 17.7,
+    description: "Situé dans les Pyrénées Atlantiques en zone de montagne de la région du Béarn au coeur de la Vallée d'Ossau, perché sur les hauteurs du tour de l'Ossau, du GR10, et sur la variante de la HRP, le Refuge d'Ayous fait face au splendide lac Gentau et au Pic du midi d'Ossau. Sa capacité d'accueil est de 47 places en petits dortoirs. Les gardiens de ce lieu assurent un service de restauration le midi. Pour les randonneurs voulant profiter du coucher de soleil sur le lac, des demi-pensions ou des pensions complètes vous sont proposées. C'est une étape idéale pour les randonnées familiales, ainsi que pour les groupes de jeunes scolaires.",
+    latitude: "45.522294 N",
+    longitude: "6.53763 E",
+    altitude: 2257,
+    range: "VALLEE D’OSSAU",
+    department: "64"
+},
+
 ]
 refuges_attributes.each { |params| u1.refuges.create!(params) }
 
