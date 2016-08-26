@@ -11,8 +11,12 @@
       <%= f.input :phone %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit %>
+      <%= f.button :submit, class: "btn btn-success" %>
     </div>
     <% end %>
+    <br>
+      <%= link_to 'Back to Your Profile', profile_path, class: "btn btn-success" %>
+
   </div>
+
 </div>

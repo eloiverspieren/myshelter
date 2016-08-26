@@ -75,19 +75,23 @@
                <%= link_to 'More Info', refuge, :class => "btn btn-primary btn"%>
             </div>
           </div>
-        <% if policy(refuge).edit? %>
-          <td><%= link_to 'Edit', edit_refuge_path(refuge), class: "btn btn-success" %></td>
-        <% end %>
-        <% if policy(refuge).destroy? %>
-        <td><%= link_to 'Destroy', refuge, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+          <% if current_user %>
+            <% if policy(refuge).edit? %>
+              <td><%= link_to 'Edit', edit_refuge_path(refuge), class: "btn btn-success" %></td>
+            <% end %>
+            <% if policy(refuge).destroy? %>
+              <td><%= link_to 'Destroy', refuge, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          <%else %>
+          <%end%>
         </div>
       </div>
       <%end%>
     </div>
   </div>
-  <div class="text-center">
-  <%= link_to 'Add your Refuge', new_refuge_path , :class => "btn btn-primary large" %>
+  <div class="text-center padded">
+  <h1>// BECOME HOST \\</h1><br>
+    <%= link_to 'Add your Shelter', new_refuge_path , :class => "btn btn-primary large" %>
   </div>
 </section>
 

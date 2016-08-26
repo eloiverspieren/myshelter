@@ -5,6 +5,10 @@ class RefugePolicy < ApplicationPolicy
     end
   end
 
+  def home?
+    true
+  end
+
   def index?
     true # All user can index
   end

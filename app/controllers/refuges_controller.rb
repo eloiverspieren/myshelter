@@ -1,4 +1,6 @@
 class RefugesController < ApplicationController
+  skip_before_action :authenticate_user!, only:[:index, :show]
+  skip_after_action :verify_authorized, only:[:index, :show]
   before_action :set_refuge, only: [:show, :edit, :update, :destroy]
   # GET /refuges
   # GET /refuges.json
@@ -9,6 +11,7 @@ class RefugesController < ApplicationController
       marker.lat refuge.latitude
       marker.lng refuge.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      authorize @refuges
     end
   end
 
