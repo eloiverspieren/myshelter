@@ -10,5 +10,6 @@ class PagesController < ApplicationController
   def navbar
     @profile = Profile.all
   end
+
 end
 

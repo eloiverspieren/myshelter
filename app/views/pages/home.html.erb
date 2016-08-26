@@ -172,11 +172,19 @@
                   width: 400, height: 300, crop: :fill) %>
                   <div class="discountInfo">
                     <ul class="list-inline rating homePage">
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                     <% i = 0 %>
+                      <% ratingtotal = 0 %>
+                      <% refuge.reviews.each do |r| %>
+                      <% i += 1 %>
+                      <% ratingtotal += r.rating if r.rating != nil %>
+                      <% end %>
+                      <% i = ratingtotal / i if i != 0 %>
+                      <% i.to_i.times do %>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <% end %>
+                      <% (5 - i.to_i).times do %>
+                      <i class="fa fa-star-o " aria-hidden="true"></i>
+                      <% end %>
                     </ul>
                     <ul class="list-inline duration">
                       <li><%= refuge.altitude %> meters</li>
