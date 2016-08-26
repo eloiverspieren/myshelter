@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_refuge
+  before_action :set_hiking
   skip_after_action :verify_policy_scoped, only: :index
 
 
@@ -32,6 +33,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.refuge_id = @refuge.id
+    @review.hiking_id = @hiking.id
     authorize @review
 
 
@@ -79,6 +81,10 @@ class ReviewsController < ApplicationController
 
     def set_refuge
       @refuge = Refuge.find(params[:refuge_id])
+    end
+
+    def set_hiking
+      @hiking = Hiking.find(params[:hiking_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

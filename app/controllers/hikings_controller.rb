@@ -8,8 +8,12 @@ class HikingsController < ApplicationController
 
   # GET /hikings/1
   def show
+    @hikings = Hiking.all
     @hiking = Hiking.find(params[:id])
+
+    @review = Review.new
     authorize @hiking
+
 
   end
 
@@ -30,7 +34,7 @@ class HikingsController < ApplicationController
       authorize @hiking
 
       if @hiking.save
-        redirect_to @refuge
+        redirect_to @hiking
       end
     end
   end

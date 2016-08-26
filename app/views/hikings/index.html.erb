@@ -1,36 +1,36 @@
+<p id="notice"><%= notice %></p>
 
-<h1>Hikings</h1>
+<section class="mainContentSection packagesSection">
+  <div class="container">
+    <div class="row">
+      <% @hikings.each do |hiking| %>
+        <div class="col-sm-4 col-xs-12">
+          <div class="thumbnail deals">
+          <%= cl_image_tag(hiking.picture,
+        width: 400, height: 300, crop: :fill) %>
+            <a href="single-package-right-sidebar.html" class="pageLink"></a>
+            <div class="discountInfo">
+              <ul class="list-inline rating homePage">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </ul>
+            </div>
+            <div class="caption">
+              <h4><a href="single-package-right-sidebar.html" class="captionTitle">Range : <%= hiking.range %></a></h4>
+              <h5>Level: <%= hiking.difficulty %></h5>
+              <div class="detailsInfo">
+                <br>
+                 <%= link_to 'More Info', hiking, :class => "btn btn-primary btn"%>
+              </div>
+            </div>
+            </div>
+            </div>
+      <%end%>
+    </div>
+  </div>
+</section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Difficulty</th>
-      <th>Range</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @hikings.each do |hiking| %>
-      <tr>
-        <td><%= hiking.difficulty %></td>
-        <td><%= hiking.range %></td>
-        <td><%= hiking.description %></td>
-        <td><%= cl_image_tag( hiking.photo,
-          width: 400, height: 300, crop: :fill) %>
-        </td>
-        <td><%= link_to 'Show', hiking %></td>
-        <% if policy(hiking).edit? %>
-          <td><%= link_to 'Edit', edit_hiking_path(hiking) %></td>
-        <% end %>
-        <td><%= link_to 'Destroy', hiking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Hiking', new_hiking_path %>
