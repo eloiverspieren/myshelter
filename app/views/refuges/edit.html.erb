@@ -1,6 +1,11 @@
-<h1>Editing Refuge</h1>
+  <div class="text-center padded">
+  <h1>Editing Your Shelter</h1>
+  </div>
 
-<%= render 'form', refuge: @refuge %>
+    <%= render 'form', refuge: @refuge %>
 
-<%= link_to 'Show', @refuge %> |
-<%= link_to 'Back', refuges_path %>
+
+    <div class="text-center padded">
+    <%= link_to 'Show', refuge_path, class: "btn btn-success" %>
+    <%= link_to 'Back To Our Catalog', refuges_path, class: "btn btn-success" %>
+  </div>

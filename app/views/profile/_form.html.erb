@@ -1,6 +1,6 @@
 
 <h1>Your Profile</h1>
-<%= simple_form_for(@profile) do |f| %>
+<%= simple_form_for profile, url: profile_path do |f| %>
 <%= f.error_notification %>
 <div class="form-inputs">
   <%= f.input :name %>

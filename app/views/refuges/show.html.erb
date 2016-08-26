@@ -40,13 +40,13 @@
             <div role="tabpanel" class="countryTabs">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="">
+                <li role="presentation" class="active">
                   <a href="#over-view" aria-controls="over-view" role="tab" data-toggle="tab" aria-expanded="false">Basic Infos</a>
                 </li>
                 <li role="presentation" class="">
                   <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
                 </li>
-                <li role="presentation" class="active">
+                <li role="presentation" class="&">
                   <a href="#location-map" aria-controls="location-map" role="tab" data-toggle="tab" aria-expanded="true">Location map</a>
                 </li>
                 <li class="pull-right">
@@ -62,7 +62,7 @@
 
               <!-- Tab panes -->
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane" id="over-view">
+                <div role="tabpanel" class="tab-pane active" id="over-view">
                   <div class="row">
                     <div class="col-sm-8 col-xs-12">
                       <div class="commonInfo">
@@ -124,7 +124,7 @@
                    </div>
                  </div>
                </div>
-               <div role="tabpanel" class="tab-pane active" id="location-map">
+               <div role="tabpanel" class="tab-pane" id="location-map">
                 <div class="row">
                   <div class="col-sm-8 col-xs-12 col-sm-offset-2">
                     <div class="commonInfo">
@@ -186,9 +186,11 @@
       </div>
     </section>
 
+<div class="text-center padded">
+  <%= link_to 'Edit Your Shelter', edit_refuge_path(@refuge), class: "btn btn-success" %>
+  <%= link_to 'Back To Our Catalog', refuges_path, class: "btn btn-success" %>
+</div>
 
-<%= link_to 'Edit', edit_refuge_path(@refuge) %> |
-<%= link_to 'Back', refuges_path %>
 
 
 

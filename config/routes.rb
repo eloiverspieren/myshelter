@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :bookings
   end
-  resource :profiles
+  resource :profile, controller: 'profile'
 
   get 'my_bookings', to: 'bookings#my_bookings'
   resources :bookings, only: [:index] do
