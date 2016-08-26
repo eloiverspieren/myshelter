@@ -21,15 +21,17 @@
         <td><%= availability.capacity %></td>
         <td><%= availability.refuge %></td>
         <td><%= link_to 'Show', availability %></td>
+        <% if current_user %>
         <% if policy(availability).edit? %>
-          <td><%= link_to 'Edit', edit_availability_path(availability) %></td>
+          <td><%= link_to 'Edit', edit_refuge_availability_path(availability), class: "btn btn-success" %></td>
         <% end %>
         <td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%end%>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Availability', new_availability_path %>
+<%= link_to 'New Availability', new_refuge_availability_path, class: "btn btn-success"%>

@@ -52,29 +52,29 @@
       <div role="tabpanel" class="countryTabs">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="">
+          <li role="presentation" class="active">
             <a href="#over-view" aria-controls="over-view" role="tab" data-toggle="tab" aria-expanded="false">Basic Infos</a>
           </li>
           <li role="presentation" class="">
             <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
           </li>
-          <li role="presentation" class="active">
+          <li role="presentation" class="">
             <a href="#location-map" aria-controls="location-map" role="tab" data-toggle="tab" aria-expanded="true">Location map</a>
           </li>
           <li class="pull-right">
             <ul class="list-inline">
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+              <li><a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="http://www.google.com" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <li><a href="http://www.pinterest.com" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+              <li><a href="http://www.vimeo.com" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
             </ul>
           </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane" id="over-view">
+          <div role="tabpanel" class="tab-pane active" id="over-view">
             <div class="row">
               <div class="col-sm-8 col-xs-12">
                 <div class="commonInfo">
@@ -98,7 +98,6 @@
                       <% end %>
                     </div>
                   </div>
-
                   <div class="col-md-9">
                     <div id="stars">
                       <% if review.rating != nil %>
@@ -138,15 +137,11 @@
              </div>
            </div>
          </div>
-       </div>
-       <div role="tabpanel" class="tab-pane active" id="location-map">
-
+       <div role="tabpanel" class="tab-pane" id="location-map">
         <div class="row">
           <div class="col-sm-8 col-xs-12 col-sm-offset-2">
             <div class="commonInfo">
-
               <div id="map" style="width: 100%; height: 600px;"></div>
-
               <% content_for(:after_js) do %>
               <%= javascript_tag do %>
               $(document).on('ready', function() {

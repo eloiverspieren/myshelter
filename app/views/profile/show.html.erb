@@ -1,19 +1,18 @@
-<div class="banner" style="background: url('https://hd.unsplash.com/photo-1454618454636-a42c7330ccce');">
+<div class="banner-profile" style="background: url('https://hd.unsplash.com/photo-1454618454636-a42c7330ccce');">
   <div class="container-profile">
-    <div class="card-profile">
-
+  <div class="col-sm-3 col-sm-push-9 col-xs-12">
       <%= cl_image_tag( @profile.photo,
-      width: 150, height: 150, crop: :fill, radius: :max) %>
-    <p>
-      <%= @profile.name %>
-    </p>
-    <p>
-      <%= @profile.email %>
-    </p>
-    <p>
-      <%= @profile.phone %>
-    </p>
-    <%= link_to 'Edit Your Profile', edit_profile_path(@profile), class: "btn btn-success" %>
+      width: 150, height: 150, radius: :max) %>
+      <p><br>
+        <%= @profile.name %>
+      </p>
+      <p>
+        <%= @profile.email %>
+      </p>
+      <p>
+        <%= @profile.phone %>
+      </p>
+      <%= link_to 'Edit Your Profile', edit_profile_path(@profile), class: "btn btn-success" %>
     </div>
   </div>
 </div>
