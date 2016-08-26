@@ -76,18 +76,19 @@
             </div>
           </div>
         <% if policy(refuge).edit? %>
-          <td><%= link_to 'Edit', edit_refuge_path(refuge) %></td>
+          <td><%= link_to 'Edit', edit_refuge_path(refuge), class: "btn btn-success" %></td>
         <% end %>
         <% if policy(refuge).destroy? %>
-        <td><%= link_to 'Destroy', refuge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', refuge, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         </div>
       </div>
       <%end%>
     </div>
   </div>
-  <%= link_to 'New Refuge', new_refuge_path , :class => "btn btn-primary" %>
-
+  <div class="text-center">
+  <%= link_to 'Add your Refuge', new_refuge_path , :class => "btn btn-primary large" %>
+  </div>
 </section>
 
 <div id="map" style="width: 100%; height: 600px;"></div>

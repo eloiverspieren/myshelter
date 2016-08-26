@@ -1,6 +1,7 @@
 <div class="banner" style="background: url('https://hd.unsplash.com/photo-1454618454636-a42c7330ccce');">
   <div class="container-profile">
     <div class="card-profile">
+
       <%= cl_image_tag( @profile.photo,
       width: 150, height: 150, crop: :fill, radius: :max) %>
     <p>
@@ -12,7 +13,7 @@
     <p>
       <%= @profile.phone %>
     </p>
-    <%= link_to 'Edit Your Profile', edit_profiles_path(@profiles), class: "btn btn-success" %>
+    <%= link_to 'Edit Your Profile', edit_profile_path(@profile), class: "btn btn-success" %>
     </div>
   </div>
 </div>

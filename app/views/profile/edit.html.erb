@@ -1,7 +1,7 @@
 <div class="banner" style="background: url('https://hd.unsplash.com/photo-1454618454636-a42c7330ccce');">
 <div class="container-profile">
     <h1> Editing Profile </h1>
-    <%= simple_form_for(@profile, :url => profiles_path, :method => :put) do |f| %>
+    <%= simple_form_for(@profile, :url => profile_path, :method => :put) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
       <%= f.input :name %>

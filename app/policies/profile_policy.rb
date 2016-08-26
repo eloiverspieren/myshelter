@@ -9,6 +9,10 @@ class ProfilePolicy < ApplicationPolicy
     true # All user can index
   end
 
+  def show?
+    true
+  end
+
   def create?
     true # All user can create
   end
