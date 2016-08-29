@@ -153,8 +153,8 @@ h4 {
 }
 @media (min-width: 992px) {
   .btn {
-    font-size: 14px;
-    padding: 12px 0;
+    font-size: 12px;
+    padding: 8px 12px;
   }
 }
 @media (min-width: 1200px) {
@@ -4129,11 +4129,18 @@ a:focus {
     font-size: 14px;
   }
 }
+
 @media (min-width: 992px) {
-  .sidebarPage .packagesList .media-body .detailsBtn .btn {
+  .sidebarPage .packagesList .media-body .detailsBtn .btn #bookstatus {
     font-size: 12px;
     padding:2%;
     margin-right:5%;
+  }
+}
+@media (min-width: 992px) {
+  .sidebarPage .packagesList .media-body .detailsBtn .btn {
+    font-size: 10px;
+    padding:2%;
   }
 }
 @media (min-width: 1200px) {

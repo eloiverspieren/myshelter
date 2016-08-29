@@ -11,7 +11,7 @@
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "My Bookings", my_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -36,10 +36,23 @@
               <% end %>
             </li>
             <li>
-              <%= link_to new_refuge_path do %>
-                <i class="fa fa-pencil"></i>  <%= t(".profile", default: "Becom Host") %>
+            <%= link_to my_bookings_path do %>
+                <i class="fa fa-calendar"></i>  <%= t(".profile", default: "My Bookings") %>
               <% end %>
             </li>
+            <% if current_user.refuges != nil %>
+              <li>
+                <%= link_to my_refuges_path do %>
+                  <i class="fa fa-hotel"></i>  <%= t(".profile", default: "My Shelters") %>
+                <% end %>
+              </li>
+            <%else%>
+              <li>
+                <%= link_to new_refuge_path do %>
+                  <i class="fa fa-hotel"></i>  <%= t(".profile", default: "Become Host") %>
+                <% end %>
+              </li>
+            <%end%>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>

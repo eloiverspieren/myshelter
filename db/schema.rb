@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829111333) do
+ActiveRecord::Schema.define(version: 20160829150614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,11 +112,14 @@ ActiveRecord::Schema.define(version: 20160829111333) do
     t.string   "picture"
     t.integer  "user_id"
     t.integer  "hiking_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "refuge_id"
+    t.string   "reviewable_type"
+    t.integer  "reviewable_id"
     t.index ["hiking_id"], name: "index_reviews_on_hiking_id", using: :btree
     t.index ["refuge_id"], name: "index_reviews_on_refuge_id", using: :btree
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
