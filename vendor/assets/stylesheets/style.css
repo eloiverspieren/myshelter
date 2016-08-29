@@ -4110,7 +4110,7 @@ a:focus {
 }
 @media (min-width: 992px) {
   .sidebarPage .packagesList .media-body .detailsBtn {
-    top: 175px;
+    top: 100px;
   }
 }
 @media (min-width: 1200px) {
@@ -4131,7 +4131,9 @@ a:focus {
 }
 @media (min-width: 992px) {
   .sidebarPage .packagesList .media-body .detailsBtn .btn {
-    font-size: 10px;
+    font-size: 12px;
+    padding:2%;
+    margin-right:5%;
   }
 }
 @media (min-width: 1200px) {
