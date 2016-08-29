@@ -34,7 +34,7 @@
             <% end %>
             <%= @refuge.reviews.size %>  reviews<br><br>
             <p>Amazing shelter in <%= @refuge.address %></p>
-            <h4><%= @refuge.day_price %> € per day per hiker</h4>
+            <h4><%= @refuge.price %> € per day per hiker</h4>
           </div><br><br><br>
           <%= simple_form_for [@refuge, @booking] do |f| %>
           <%= f.input :start_day %>

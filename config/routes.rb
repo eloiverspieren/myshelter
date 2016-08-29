@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :refuges do
     resources :availabilities
     resources :reviews
-    resources :bookings
+    resources :bookings do
+      resources :payments, only: [:new, :create]
+    end
   end
   resource :profile, controller: 'profile'
 
