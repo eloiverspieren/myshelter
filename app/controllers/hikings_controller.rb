@@ -11,8 +11,16 @@ class HikingsController < ApplicationController
     @hikings = Hiking.all
     @hiking = Hiking.find(params[:id])
 
+
     @review = Review.new
     authorize @hiking
+
+    refuges = @hiking.refuges
+
+    @hash = Gmaps4rails.build_markers(refuges) do |refuge, marker|
+      marker.lat refuge.latitude
+      marker.lng refuge.longitude
+    end
 
 
   end

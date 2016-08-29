@@ -16,7 +16,7 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-            <% avatar_url = current_user.facebook_picture_url || current_user.profile.photo %>
+            <% avatar_url = current_user.facebook_picture_url || "http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" %>
             <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>

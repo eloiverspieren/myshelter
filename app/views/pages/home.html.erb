@@ -131,13 +131,6 @@
                 <div class="promotionInfo">
                   <h2>Open the doors of your Shelter</h2>
                   <p>Let them dry their boots</p>
-                  <ul class="list-inline rating">
-                    <li><i class="fa fa-home fa-2x" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-home fa-2x" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-home fa-2x" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-home fa-2x" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-home fa-2x" aria-hidden="true"></i></li>
-                  </ul>
                   <p></p>
                   <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-success" %></a>
                 </div>
@@ -164,7 +157,7 @@
         <section class="mainContentSection packagesSection">
           <div class="container">
             <div class="row">
-              <% @sample = @refuges.sample(6) %>
+              <% @sample = @refuges.sample(9) %>
               <% @sample.each do |refuge| %>
               <div class="col-sm-4 col-xs-12">
                 <div class="thumbnail deals">
@@ -206,3 +199,58 @@
           </div>
         </div>
       </section>
+
+    <section class="mainContentSection packagesSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="sectionTitle">
+              <h2><span class="lightBg">They tried us</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section class="mainContentSection packagesSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12" id="triedus">
+            <% if user_signed_in? && current_user.facebook_picture_url %>
+                <%= image_tag current_user.facebook_picture_url, height: 150, width: 150, :class => "avatar-exp" %>
+                <%else%>
+                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 150px; width: 150px;" >
+            <% end %>
+          </div>
+            <div class="col-sm-4 col-xs-12" id="triedus">
+            <% if user_signed_in? && current_user.facebook_picture_url %>
+                <%= image_tag current_user.facebook_picture_url, height: 150, width: 150, :class => "avatar-exp" %>
+                <%else%>
+                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 150px; width: 150px;" >
+            <% end %>
+          </div>
+          <div class="col-sm-4 col-xs-12" id="triedus">
+            <% if user_signed_in? && current_user.facebook_picture_url %>
+                <%= image_tag current_user.facebook_picture_url, height: 150, width: 150, :class => "avatar-exp" %>
+                <%else%>
+                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 150px; width: 150px;" >
+            <% end %>
+          </div>
+          </div>
+        </div>
+        </section>
+
+
+    <section class="mainContentSection packagesSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="sectionTitle">
+              <h2><span class="lightBg">Talking about us</span></h2>
+            </div>
+          </div>
+        </div>
+        </div>
+        </section>
+
+

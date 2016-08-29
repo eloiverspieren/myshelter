@@ -1,140 +1,234 @@
 <p id="notice"><%= notice %></p>
-<section class="mainContentSection singlePackage">
-      <div class="container">
-        <div class="row countryTitle">
-          <div class="col-sm-6 col-xs-12 ">
-            <div id="package-carousel" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#package-carousel" data-slide-to="2" class="active"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="item active">
-                  <%= cl_image_tag @hiking.picture, crop: :fill %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4 col-xs-12 description_refuge">
-            <aside>
-              <div class="weatherInfo">
-               <div class="main-info">
-                  <h2> <%= @hiking.range%> </h2>
-                  <% i = 0 %>
-                  <% ratingtotal = 0 %>
-                  <% @hiking.reviews.each do |r| %>
-                  <% i += 1 %>
-                  <% ratingtotal += r.rating if r.rating != nil %>
-                  <% end %>
-                  <% i = ratingtotal / i if i != 0 %>
-                  <% i.to_i.times do %>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <% end %>
-                  <% (5 - i.to_i).times do %>
-                  <i class="fa fa-star-o " aria-hidden="true"></i>
-                  <% end %>
-                    <%= @hiking.reviews.size %>  reviews<br><br>
-                  <p>Amazing hiking in <%= @hiking.range %></p>
-                </div><br><br><br>
-             </div>
-            </aside>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div role="tabpanel" class="countryTabs">
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                  <a href="#over-view" aria-controls="over-view" role="tab" data-toggle="tab" aria-expanded="false">Basic Infos</a>
-                </li>
-                <li role="presentation" class="">
-                  <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
-                </li>
-                <li role="presentation" class="">
-                  <a href="#location-map" aria-controls="location-map" role="tab" data-toggle="tab" aria-expanded="true">Location map</a>
-                </li>
-                <li class="pull-right">
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                  </ul>
-                </li>
-              </ul>
 
-              <!-- Tab panes -->
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="over-view">
-                  <div class="row">
-                    <div class="col-sm-8 col-xs-12">
-                      <div class="commonInfo">
-                        <p><%= @hiking.description %></p>
-                      </div>
+
+<section class="mainContentSection singlePackage">
+
+      <div class="container">
+            <!-- Photo et descritpion -->
+            <div class="row countryTitle">
+              <div class="col-sm-6 col-xs-12 ">
+                <div id="package-carousel" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#package-carousel" data-slide-to="0" class=""></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <%= cl_image_tag(@hiking.photo, crop: :fill) %>
                     </div>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="tour-guide">
-                  <div class="row">
-                    <div class="col-sm-8 col-xs-12 col-sm-offset-2">
-                        <% @hiking.reviews.each do |review| %>
-                          <div class="row_review">
-                              <div class="col-md-3 text-center space-2">
-                                <div class="avatar_review">
-                                  <% if user_signed_in? && current_user.facebook_picture_url %>
-                                    <%= image_tag current_user.facebook_picture_url, height: 70, width: 70 %><br><br>
-                                    <p><%= review.user.first_name %></p>
-                                  <%else%>
-                                    <img src="http://placehold.it/35x35" style="height: 70px; width: 70px;" ><br>
-                                  <% end %>
-                                </div>
+              </div>
+              <div class="col-sm-6 col-xs-12 description_refuge">
+                <aside>
+                  <div class="weatherInfo">
+                   <div class="main-info">
+                      <h2> <%= @hiking.name%> </h2>
+                      <% i = 0 %>
+                      <% ratingtotal = 0 %>
+                      <% @hiking.reviews.each do |r| %>
+                      <% i += 1 %>
+                      <% ratingtotal += r.rating if r.rating != nil %>
+                      <% end %>
+                      <% i = ratingtotal / i if i != 0 %>
+                      <% i.to_i.times do %>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <% end %>
+                      <% (5 - i.to_i).times do %>
+                      <i class="fa fa-star-o " aria-hidden="true"></i>
+                      <% end %>
+                        <%= @hiking.reviews.size %>  reviews<br><br>
+                      <p>Amazing hiking in <%= @hiking.range %></p>
+                      <p> Difficulty : <%= @hiking.difficulty %></p><br>
+                      <%= link_to "Book this hiking", root_path, :class => "btn btn-primary", :id => "bookhiking" %>
+                    </div><br><br><br>
+                 </div>
+                </aside>
+              </div>
+            </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+
+                <div role="tabpanel" class="countryTabs">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="">
+                      <a href="#over-view" aria-controls="over-view" role="tab" data-toggle="tab" aria-expanded="false">Basic Infos</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
+                    </li>
+                    <li role="presentation" class="">
+                      <a href="#location-map" aria-controls="location-map" role="tab" data-toggle="tab" aria-expanded="false">Location map</a>
+                    </li>
+                    <li role="presentation" class="active">
+                      <a href="#refuges" aria-controls="refuges" role="tab" data-toggle="tab" aria-expanded="false">Shelters</a>
+                    </li>
+                    <li class="pull-right">
+                      <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+
+                        <div role="tabpanel" class="tab-pane" id="over-view">
+                          <div class="row">
+                            <div class="col-sm-8 col-xs-12">
+                              <div class="commonInfo">
+                                <p><%= @hiking.description %></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="tour-guide">
+                          <div class="row">
+                            <div class="col-sm-8 col-xs-12 col-sm-offset-2">
+                                <% @hiking.reviews.each do |review| %>
+                                  <div class="row_review">
+
+                                      <div class="col-md-3 text-center space-2">
+                                        <div class="avatar_review">
+                                          <% if user_signed_in? && current_user.facebook_picture_url %>
+                                            <%= image_tag current_user.facebook_picture_url, height: 70, width: 70 %><br><br>
+                                            <p><%= review.user.first_name %></p>
+                                          <%else%>
+                                            <img src="http://placehold.it/35x35" style="height: 70px; width: 70px;" ><br>
+                                          <% end %>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-9">
+                                          <div id="stars">
+                                            <% if review.rating != nil %>
+                                              <% review.rating.times do %>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                              <% end %>
+                                              <% (5 - review.rating).times do %>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                              <% end %>
+                                            <%end%>
+                                          </div>
+                                          <div id="content_review">
+                                            <%= review.content %>
+                                          </div>
+                                          <div id="delete-review">
+                                            <% if review.user == current_user && user_signed_in? %>
+                                            <%= link_to "Delete", hiking_review_path(@hiking, review), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
+                                            <%end%>
+                                          </div>
+                                       </div>
+
+                                  </div>
+                                  <hr>
+                                  <%end%>
+                                 <hr></br></br>
+                                 <div id="form-add-review">
+                                   <% if current_user && user_signed_in? %>
+                                   <%= simple_form_for [@hiking, @review] do |f| %>
+                                   <%= f.input :rating %>
+                                   <%= f.input :content %>
+                                   <%= f.submit "Add a new review", :class => "btn btn-primary" %>
+                                   <% end %>
+                                   <%end%>
                               </div>
 
-                              <div class="col-md-9">
-                                  <div id="stars">
-                                    <% if review.rating != nil %>
-                                      <% review.rating.times do %>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                      <% end %>
-                                      <% (5 - review.rating).times do %>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                      <% end %>
-                                    <%end%>
-                                  </div>
-                                  <div id="content_review">
-                                    <%= review.content %>
-                                  </div>
-                                  <div id="delete-review">
-                                    <% if review.user == current_user && user_signed_in? %>
-                                    <%= link_to "Delete", hiking_review_path(@hiking, review), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
-                                    <%end%>
-                                  </div>
-                               </div>
+
                             </div>
-                            <hr>
-                         <%end%>
+                          </div>
+                        </div>
 
 
-                            <hr></br></br>
+                         <div role="tabpanel" class="tab-pane" id="location-map">
+                            <div class="row">
+                              <div class="col-sm-8 col-xs-12 col-sm-offset-2">
+                                <div class="commonInfo">
+                                  <div id="map" style="width: 100%; height: 600px;"></div>
+                                  <% content_for(:after_js) do %>
+                                  <%= javascript_tag do %>
+                                  $(document).on('ready', function() {
+                                  var handler = Gmaps.build('Google');
+                                  handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
+                                  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                                  handler.bounds.extendWith(markers);
+                                  handler.fitMapToBounds();
+                                  if (markers.length == 0) {
+                                  handler.getMap().setZoom(2);
+                                } else if (markers.length == 1) {
+                                handler.getMap().setZoom(14);
+                                    }
+                                  });
+                                });
+                                <% end %>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
-                            <div id="form-add-review">
-                             <% if current_user && user_signed_in? %>
-                             <%= simple_form_for [@hiking, @review] do |f| %>
-                             <%= f.input :rating %>
-                             <%= f.input :content %>
-                             <%= f.submit "Add a new review", :class => "btn btn-primary" %>
-                             <% end %>
-                             <%end%>
-                           </div>
+                        <div role="tabpanel" class="tab-pane active" id="refuges">
+                          <div class="row">
 
 
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
+                                <div class="row">
+                                  <% @hiking.refuges.each do |refuge| %>
+                                  <div class="col-sm-4 col-xs-12">
+                                    <div class="thumbnail deals">
+                                      <%= cl_image_tag(refuge.photo, crop: :fill) %>
+                                      <div class="discountInfo">
+                                        <ul class="list-inline rating homePage">
+                                         <% i = 0 %>
+                                         <% ratingtotal = 0 %>
+                                         <% refuge.reviews.each do |r| %>
+                                         <% i += 1 %>
+                                         <% ratingtotal += r.rating if r.rating != nil %>
+                                         <% end %>
+                                         <% i = ratingtotal / i if i != 0 %>
+                                         <% i.to_i.times do %>
+                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                         <% end %>
+                                         <% (5 - i.to_i).times do %>
+                                         <i class="fa fa-star-o " aria-hidden="true"></i>
+                                         <% end %>
+                                       </ul>
+                                       <ul class="list-inline duration">
+                                        <li><%= refuge.altitude %> meters</li>
+                                        <li><%= refuge.capacity %> people</li>
+                                        <li><%= refuge.day_price%> €</li>
+                                      </ul>
+                                    </div>
+                                    <div class="caption">
+                                      <h4><%= refuge.name %></h4>
+                                      <h5><%= refuge.address %></h5>
+                                      <div class="detailsInfo">
+                                        <%= link_to 'More Info', refuge, :class => "btn btn-primary btn"%>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%end%>
+                              </div>
+
+
+                          </div>
+                        </div>
+
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+
+
+
 
 
 

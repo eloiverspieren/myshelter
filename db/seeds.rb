@@ -289,15 +289,20 @@ r19 = u1.refuges.create!({
 
 
 h1 = Hiking.create!({
+    name: "Rando des Hautes-Vosges",
     difficulty: "Expert",
     range: "Vosges",
-    description: "Joli pti trip dans les vosges"
+    description: "Joli pti trip dans les vosges",
+    remote_photo_url: "http://medias.thurdoller.ingenie.fr/images/info_pages/multitailles/1920x1440_ballonalsace06062014adg-31bd-189.jpg"
+
   })
 
 h2 = Hiking.create!({
+    name: "Tour de la Bessanèse",
     difficulty: "Confirmé",
     range: "Alpes",
-    description: "Circuit de 4 jours et 3 nuits en refuges.
+    remote_photo_url: "https://i.ytimg.com/vi/YGQ5q9PZUD8/maxresdefault.jpg",
+    description: "Circuit de 4 jours et 3 nuits en refuges.,
 
 Cet itinéraire est idéal pour les randonneurs expérimentés qui aiment découvrir des paysages sauvages, des vallées diverses, franchir des cols à plus de 3000m d’altitude.
 Vous apprécierez le charme et la convivialité des 3 refuges de ce circuit Franco-Italien.
