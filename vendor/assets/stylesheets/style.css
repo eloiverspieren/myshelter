@@ -1002,7 +1002,7 @@ a:focus {
 .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn .buttonTransparent, .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn .paginationCenter .pagination li:first-child a, .paginationCenter .pagination li:first-child .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn a, .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn .paginationCenter .pagination li:last-child a, .paginationCenter .pagination li:last-child .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn a, .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn .isotopeFilters ul.filter > li a, .isotopeFilters ul.filter > li .thumbnail.deals.packagesPage .caption .detailsInfo .detailsBtn a {
   font-size: 13px;
 }
-.thumbnail.deals:hover {
+.thumbnail.deals {
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -2275,7 +2275,7 @@ a:focus {
 /*=== 5.1 MAIN CONTENT SECTION ===*/
 .mainContentSection, .whiteSection, .lightSection {
   width: 100%;
-  padding: 40px 0 40px 0;
+  padding: 60px 0 60px 0;
   background-color: #ffffff;
   display: block;
 }
