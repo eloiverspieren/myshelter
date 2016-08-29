@@ -130,16 +130,24 @@
                                   <%end%>
                                  <hr></br></br>
                                  <div id="form-add-review">
-                                   <% if current_user && user_signed_in? %>
-                                   <%= simple_form_for [@hiking, @review] do |f| %>
-                                   <%= f.input :reviewable_id, as: :hidden, input_html: { value: @hiking.id } %>
-                                   <%= f.input :reviewable_type, as: :hidden, input_html: { value: 'Hiking' } %>
-                                   <%= f.input :rating %>
-                                   <%= f.input :content %>
-                                   <%= f.submit "Add a new review", :class => "btn btn-primary" %>
-                                   <% end %>
-                                   <%end%>
-                              </div>
+                                   <% if current_user && user_signed_in? && current_user.bookings != nil  %>
+                                      <%current_user.bookings.each do |booking| %>
+                                        <% if booking.status == 3 %>
+                                          <% @hiking.refuges.each do |refuge| %>
+                                            <% if booking.refuge.name == refuge.name %>
+                                              <%= simple_form_for [@hiking, @review] do |f| %>
+                                              <%= f.input :reviewable_id, as: :hidden, input_html: { value: @hiking.id } %>
+                                              <%= f.input :reviewable_type, as: :hidden, input_html: { value: 'Hiking' } %>
+                                              <%= f.input :rating %>
+                                              <%= f.input :content %>
+                                              <%= f.submit "Add a new review", :class => "btn btn-primary" %>
+                                              <% end %>
+                                            <% end %>
+                                        <% end %>
+                                      <% end %>
+                                    <% end %>
+                                  <% end %>
+                                  </div>
 
 
                             </div>
