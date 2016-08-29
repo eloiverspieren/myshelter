@@ -23,7 +23,7 @@
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                           </ul>
                         </div>
-                        <ul class="list-inline detailsBtn">
+                        <ul class="list-inline detailsBtn" id="bookstatus">
                           <li><span class="textInfo"><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.start_day %></span></li>
                           <% days = (booking.end_day - booking.start_day).to_i %>
                           <li><span class="textInfo"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=days%> Days</span></li>

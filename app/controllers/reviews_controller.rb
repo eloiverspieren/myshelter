@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :set_refuge
-  before_action :set_hiking
   skip_after_action :verify_policy_scoped, only: :index
 
 
@@ -9,7 +7,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = @refuge.reviews
+    @reviews = Review.all
   end
 
   # GET /reviews/1
@@ -32,14 +30,19 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    @review.refuge_id = @refuge.id
-    @review.hiking_id = @hiking.id
     authorize @review
-
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to refuge_path(@refuge), notice: 'Review was successfully created.' }
+        format.html do
+          if @review.reviewable_type == "Refuge"
+            @refuge = Refuge.find(review_params[:reviewable_id])
+            redirect_to refuge_path(@refuge), notice: 'Review was successfully created.'
+          else
+            @hiking = Hiking.find(review_params[:reviewable_id])
+            redirect_to hiking_path(@hiking), notice: 'Review was successfully created.'
+          end
+        end
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -53,7 +56,15 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html do
+          if @review.reviewable_type == "Refuge"
+            @refuge = Refuge.find(review_params[:reviewable_id])
+            redirect_to refuge_path(@refuge), notice: 'Review was successfully updated.'
+          else
+            @hiking = Hiking.find(review_params[:reviewable_id])
+            redirect_to hiking_path(@hiking), notice: 'Review was successfully updated.'
+          end
+        end
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -67,7 +78,15 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to refuge_path(@refuge), notice: 'Review was successfully destroyed.' }
+      format.html do
+          if @review.reviewable_type == "Refuge"
+            @refuge = Refuge.find(review_params[:reviewable_id])
+            redirect_to refuge_path(@refuge), notice: 'Review was successfully deleted.'
+          else
+            @hiking = Hiking.find(review_params[:reviewable_id])
+            redirect_to hiking_path(@hiking), notice: 'Review was successfully deleted.'
+          end
+        end
       format.json { head :no_content }
     end
   end
@@ -79,16 +98,10 @@ class ReviewsController < ApplicationController
       authorize @review
     end
 
-    def set_refuge
-      @refuge = Refuge.find(params[:refuge_id])
-    end
 
-    def set_hiking
-      @hiking = Hiking.find(params[:hiking_id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:rating, :content, :picture, :user_id, :hiking_id)
+      params.require(:review).permit(:rating, :content, :picture, :user_id, :reviewable_id, :reviewable_type)
     end
 end
