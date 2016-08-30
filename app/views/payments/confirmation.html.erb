@@ -1,0 +1,64 @@
+<section class="mainContentSection">
+      <div class="container">
+        <div class="row progress-wizard" style="border-bottom:0;">
+
+          <div class="col-sm-4 col-xs-12 progress-wizard-step complete col-sm-offset-2">
+            <div class="progress"><div class="progress-bar"></div></div>
+            <a href="booking-1.html" class="progress-wizard-dot">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              1. Personal Info and Payment
+            </a>
+          </div>
+
+
+          <div class="col-sm-4 col-xs-12 progress-wizard-step active">
+            <div class="progress"><div class="progress-bar"></div></div>
+            <a href="javascript:void(0)" class="progress-wizard-dot">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              2. Confirmation
+            </a>
+          </div>
+        </div>
+        <div class="row bookingConfirmed">
+          <div class="col-xs-12">
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">Dismiss</span></button>
+              Thank you! Your booking is confirmed. Invoice Sent in your email address
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="infoTitle">
+              <h2>Booking Details</h2>
+            </div>
+            <div class="confirmDetilas">
+              <img src="img/booking/booking-complete.png">
+              <div class="confirmInfo">
+
+                <div class="row">
+                  <div class="col-sm-4 col-xs-12">
+                    <dl class="dl-horizontal">
+                      <dt><i class="fa fa-calendar" aria-hidden="true"></i> From:</dt>
+                      <dd>25 Mar, 2016</dd>
+                      <dt><i class="fa fa-calendar" aria-hidden="true"></i> To:</dt>
+                      <dd>28 Mar, 2016</dd>
+                      <dt><i class="fa fa-user" aria-hidden="true"></i> Guests:</dt>
+                      <dd>2 Adults, 1 Child</dd>
+                    </dl>
+                  </div>
+                  <div class="col-sm-4 col-xs-12">
+                    <dl class="dl-horizontal">
+                      <dt><i class="fa fa-map-marker" aria-hidden="true"></i> Address:</dt>
+                      <dd>Abdullah Al Masum <br> Shyamoli, Babor Road, <br> Mohammadpur, Dhaka.</dd>
+                    </dl>
+                  </div>
+                  <div class="col-sm-4 col-xs-12 priceTotal">
+                    <h2>Total: <span>$6,500</span></h2>
+                  </div>
+                  <%= link_to 'Back to your bookings', my_bookings_path , :class => "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

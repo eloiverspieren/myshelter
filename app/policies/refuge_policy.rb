@@ -9,6 +9,10 @@ class RefugePolicy < ApplicationPolicy
     true
   end
 
+  def my_refuges?
+    true
+  end
+
   def index?
     true # All user can index
   end

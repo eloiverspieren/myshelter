@@ -5,8 +5,9 @@ class Refuge < ApplicationRecord
   has_many :guides
   has_many :refuge_to_hikes
   has_many :hikings, through: :refuge_to_hikes
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, as: :reviewable, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+  monetize :price_cents
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

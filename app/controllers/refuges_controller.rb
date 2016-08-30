@@ -2,6 +2,7 @@ class RefugesController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show]
   skip_after_action :verify_authorized, only:[:index, :show]
   before_action :set_refuge, only: [:show, :edit, :update, :destroy]
+  skip_after_action :verify_authorized, only: :my_refuges
   # GET /refuges
   # GET /refuges.json
   def index
@@ -15,6 +16,10 @@ class RefugesController < ApplicationController
     end
   end
 
+  def my_refuges
+    @user = current_user
+    @refuges = @user.refuges
+  end
   # GET /refuges/1
   def show
     date_killer

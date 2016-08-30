@@ -34,6 +34,8 @@ class BookingsController < ApplicationController
     redirect_to my_bookings_path
   end
 
+
+
   # GET /bookings/new
   def new
     @booking = Booking.new
@@ -46,6 +48,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.refuge = @refuge
     @booking.status = 0
+    @booking.amount = @refuge.price
     authorize @booking
     respond_to do |format|
       if @booking.save
@@ -57,6 +60,7 @@ class BookingsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /bookings/1
   def destroy
@@ -80,6 +84,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:start_day, :end_day, :hikers_nb, :user_id, :refuge_id)
+      params.require(:booking).permit(:start_day, :end_day, :hikers_nb, :user_id, :refuge_id, :status, :payment, :amount)
     end
 end

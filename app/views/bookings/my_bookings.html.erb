@@ -1,15 +1,14 @@
-<p id="notice"><%= notice %></p>
 
 <section class="mainContentSection packagesSection">
   <div class="container">
     <% @bookings.each do |booking| %>
           <div class="row">
-            <div class="col-sm-8 col-xs-12 col-sm-offset-2">
+            <div class="col-sm-10 col-xs-12 col-sm-offset-1">
               <div class="row sidebarPage">
                 <div class="col-xs-12">
                   <div class="media packagesList">
                     <a class="media-left fancybox-pop" href="img/packages/package-list-01.png">
-                      <img class="media-object" src="refugedupourri.jpg" alt="marche PO">
+                      <%= cl_image_tag(booking.refuge.photo, crop: :fill) %>
                     </a>
                     <div class="media-body">
                       <div class="bodyLeft">
@@ -24,12 +23,12 @@
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                           </ul>
                         </div>
-                        <ul class="list-inline detailsBtn">
+                        <ul class="list-inline detailsBtn" id="bookstatus">
                           <li><span class="textInfo"><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.start_day %></span></li>
                           <% days = (booking.end_day - booking.start_day).to_i %>
                           <li><span class="textInfo"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=days%> Days</span></li>
                           <li><span class="textInfo"><i class="fa fa-male" aria-hidden="true"></i> <%= booking.hikers_nb %> Hikers</span></li>
-                          <li><span class="textInfo"><%= booking.hikers_nb * booking.refuge.day_price * days unless booking.hikers_nb == nil %> €</span></li><br><br>
+                          <li><span class="textInfo"><%= booking.hikers_nb * booking.refuge.price * days unless booking.hikers_nb == nil %> €</span></li><br><br>
                           <% if booking.status == 2 %>
                             <% if booking.refuge.user == current_user %>
                               <%= link_to "Rejected", "", :class => "btn btn-danger" %>
@@ -39,16 +38,24 @@
                           <%elsif booking.status == 1%>
                             <% if booking.refuge.user == current_user %>
                               <%= link_to "Accepted", "", :class => "btn btn-success" %>
+                               <%= link_to "Not Paid Yet", "", :class => "btn btn-danger" %>
                             <%else%>
                               <%= link_to "Accepted", "", :class => "btn btn-success" %>
+                              <%= link_to "Pay your order", new_refuge_booking_payment_path(booking.refuge, booking), :class => "btn btn-primary" %>
                             <%end%>
-                          <%else%>
+                          <%elsif booking.status == 0 %>
                             <% if booking.refuge.user == current_user %>
                               <%= link_to "Accept", accept_booking_path(booking), :class => "btn btn-success" %>
                               <%= link_to "Reject", reject_booking_path(booking), :class => "btn btn-danger" %>
                             <%else%>
                               <%= link_to "Not accepted yet", "", :class => "btn btn-danger" %>
 
+                            <%end%>
+                          <%else%>
+                            <% if booking.refuge.user == current_user %>
+                              <%= link_to "Payment Confirmed", "", :class => "btn btn-success" %>
+                            <%else%>
+                              <%= link_to "Payment Confirmed", "", :class => "btn btn-success" %>
                             <%end%>
                           <%end%>
                          </ul>
