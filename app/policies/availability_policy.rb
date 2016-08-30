@@ -10,14 +10,18 @@ class AvailabilityPolicy < ApplicationPolicy
   end
 
   def create?
-    true # All user can create
+    record.refuge.user == user # All user can create
   end
 
   def destroy?
-    record.user == user || user.admin? # if user have created the restaurant  can destory
+    record.refuge.user == user # if user have created the restaurant  can destory
+  end
+
+  def edit?
+    record.refuge.user == user
   end
 
   def update?
-    record.user == user || user.admin?# user == current_user
+    record.refuge.user == user # user == current_user
   end
 end

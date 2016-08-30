@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+
 ActiveRecord::Schema.define(version: 20160829150614) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
-    t.date     "start_day"
-    t.date     "end_day"
+    t.datetime "start_day"
+    t.datetime "end_day"
     t.integer  "capacity"
     t.integer  "refuge_id"
     t.datetime "created_at", null: false

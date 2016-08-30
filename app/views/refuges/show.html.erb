@@ -35,12 +35,15 @@
             <p>Amazing shelter in <%= @refuge.address %></p>
             <h4><%= @refuge.price %> € per day per hiker</h4>
           </div><br><br><br>
-          <%= simple_form_for [@refuge, @booking] do |f| %>
-          <%= f.input :start_day %>
-          <%= f.input :end_day %>
-          <%= f.input :hikers_nb %>
-          <%= f.submit "Book it", :class => "btn btn-primary", :id => "bookit" %>
-          <%end%>
+
+          <% if @refuge.user == current_user %>
+            Availability
+            <%= render partial: 'availabilities/form', refuge: @refuge, url: refuge_availabilities_path(@refuge), method: :post %>
+          <% else %>
+            Booking
+            <%= render partial: 'bookings/form', refuge: @refuge, url: refuge_bookings_path(@refuge), method: :post %>
+          <% end %>
+
         </div>
       </aside>
     </div>
@@ -203,6 +206,9 @@
 
 <div class="text-center padded">
   <%= link_to 'Edit Your Shelter', edit_refuge_path(@refuge), class: "btn btn-success" %>
+  <% if policy(@refuge).destroy? %>
+  <td><%= link_to 'Destroy', refuges_path, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
   <%= link_to 'Back To Our Catalog', refuges_path, class: "btn btn-success" %>
 </div>
 
