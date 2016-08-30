@@ -1,11 +1,16 @@
 class PaymentsController < ApplicationController
-  before_action :set_booking
+  before_action :set_booking, except: :confirmation
 
   def new
     authorize(:payment)
   end
 
+  def confirmation
+    authorize(:payment)
+  end
+
   def create
+
     authorize(:payment)
     @amount_cents = @booking.amount_cents
 
@@ -21,8 +26,10 @@ class PaymentsController < ApplicationController
       currency:     'eur'
     )
 
-    @booking.pay
-    redirect_to my_bookings_path
+    @booking.pay!
+    redirect_to confirmation_path
+
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

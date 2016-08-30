@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resource :profile, controller: 'profile'
 
+  get 'confirmation', to: 'payments#confirmation'
   get 'my_refuges', to: 'refuges#my_refuges'
   get 'my_bookings', to: 'bookings#my_bookings'
   resources :bookings, only: [:index] do

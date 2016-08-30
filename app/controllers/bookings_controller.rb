@@ -34,10 +34,7 @@ class BookingsController < ApplicationController
     redirect_to my_bookings_path
   end
 
-  def pay
-    @booking.pay
-    redirect_to my_bookings_path
-  end
+
 
   # GET /bookings/new
   def new

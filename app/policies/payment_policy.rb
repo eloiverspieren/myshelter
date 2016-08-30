@@ -8,5 +8,9 @@ class PaymentPolicy < ApplicationPolicy
     user.present?
   end
 
+  def confirmation?
+    true
+  end
+
 end
 

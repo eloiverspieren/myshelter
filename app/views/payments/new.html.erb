@@ -1,15 +1,97 @@
 
-<%= form_tag refuge_booking_payments_path do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
-    </label>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Reservation"
-    data-description="Refuge<%= @booking.refuge_sku %>"
-    data-amount="<%= @booking.amount_cents %>"
-    data-currency="EUR"></script>
-<% end %>
+
+<section class="mainContentSection">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-4 col-sm-push-8 col-xs-12">
+            <aside>
+              <div class="infoTitle">
+                <h2>Booking Details</h2>
+              </div>
+              <div class="bookDetailsInfo">
+                <img src="img/booking/booking.png" alt="image">
+                <div class="infoArea">
+                  <h3><%= @booking.refuge.name %></h3>
+                  <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar" aria-hidden="true"></i>From:  <span><%= @booking.start_day %></span></li>
+                    <li><i class="fa fa-calendar" aria-hidden="true"></i>To:  <span><%= @booking.start_day %></span></li>
+                    <li><i class="fa fa-user" aria-hidden="true"></i>Guests:  <span><%= @booking.hikers_nb %> Hikers</span></li>
+                  </ul>
+                  <div class="priceTotal">
+                    <% days = (@booking.end_day - @booking.start_day).to_i %>
+                    <h3>Total: <span><%= @booking.hikers_nb * @booking.refuge.price * days unless @booking.hikers_nb == nil %> €</span></h3>
+                     <%= form_tag refuge_booking_payments_path do %>
+                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-name="My Reservation"
+                    data-description="Refuge<%= @booking.refuge_sku %>"
+                    data-amount="<%= @booking.amount_cents %>"
+                    data-currency="EUR">
+                    </script>
+                    <% end %>
+                  </div>
+
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-sm-8 col-sm-pull-4 col-xs-12">
+            <div class="infoTitle">
+              <h2>billing address</h2>
+            </div>
+            <div class="bookingForm">
+              <form action="" method="POST" role="form" class="form">
+                <div class="row">
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">Address 1</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">City</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">Zip Code</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">State/Region</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">Phone</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="">Country</label>
+                    <div class="bookingDrop">
+                      <select name="guiest_id3" id="guiest_id3" class="select-drop" sb="14588906" style="display: none;">
+                        <option value="0">Select Country</option>
+                        <option value="1">USA</option>
+                        <option value="2">UK</option>
+                        <option value="3">Canada</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+

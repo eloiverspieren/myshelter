@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :refuge
   monetize :amount_cents
 
-  def pay
+  def pay!
     self.status = 3
     self.save!
   end
