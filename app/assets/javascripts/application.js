@@ -17,4 +17,4 @@
 //= require underscore
 //= require gmaps/google
 //= require moment
-// require custom
+//= require custom
