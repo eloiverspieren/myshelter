@@ -75,45 +75,45 @@
         </div>
         <div class="row isotopeContainer">
           <% @count = 0 %>
-          <% @refuges.each do |refuge| %>
-            <% if refuge.range == "Alpes" && @count < 3 %>
+          <% @hikings.each do |hiking| %>
+            <% if hiking.range == "Alpes" && @count < 3 %>
               <% @count += 1 %>
               <div class="col-sm-4 isotopeSelector pays" id="hiking">
                   <figure>
-                    <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
-                    <h4><%=refuge.name%></h4>
+                    <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
+                    <h4><%=hiking.name%></h4>
                       <div id="refhiking">
-                        <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                        <%= link_to "View more", hiking, :class => "btn buttonTransparent"%>
                         </div>
                      </figure>
                      </div>
                   <%end%>
               <%end%>
             <% @count = 0 %>
-                  <% @refuges.each do |refuge| %>
-                    <% if refuge.range == "Pyrénées" && @count < 3 %>
+                  <% @hikings.each do |hiking| %>
+                    <% if hiking.range == "Pyrénées" && @count < 3 %>
                       <% @count += 1 %>
                         <div class="col-sm-4 isotopeSelector vallee" id="hiking">
                             <figure>
-                              <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
-                              <h4><%=refuge.name%></h4>
+                              <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
+                              <h4><%=hiking.name%></h4>
                               <div id="refhiking">
-                                  <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                                  <%= link_to "View more", hiking, :class => "btn buttonTransparent"%>
                               </div>
                             </figure>
                         </div>
                     <%end%>
                   <%end%>
             <% @count = 0 %>
-                  <% @refuges.each do |refuge| %>
-                    <% if refuge.range == "Vosges" && @count < 3 %>
+                  <% @hikings.each do |hiking| %>
+                    <% if hiking.range == "Vosges" && @count < 3 %>
                       <% @count += 1 %>
                         <div class="col-sm-4 isotopeSelector vosges" id="hiking">
                             <figure>
-                              <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
-                              <h4><%=refuge.name%></h4>
+                              <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
+                              <h4><%=hiking.name%></h4>
                               <div id="refhiking">
-                                  <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                                  <%= link_to "View more", hiking, :class => "btn buttonTransparent"%>
                               </div>
                             </figure>
                         </div>

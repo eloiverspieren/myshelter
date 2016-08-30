@@ -301,7 +301,7 @@ h2 = Hiking.create!({
     name: "Tour de la Bessanèse",
     difficulty: "Confirmé",
     range: "Alpes",
-    remote_photo_url: "https://i.ytimg.com/vi/YGQ5q9PZUD8/maxresdefault.jpg",
+    remote_photo_url: "http://www.tourist-destinations.net/wp-content/uploads/2014/10/vanoise-rhone-alpes-france-1920x1080.jpg",
     description: "Circuit de 4 jours et 3 nuits en refuges.,
 
 Cet itinéraire est idéal pour les randonneurs expérimentés qui aiment découvrir des paysages sauvages, des vallées diverses, franchir des cols à plus de 3000m d’altitude.
@@ -340,6 +340,68 @@ Du col de l'Autaret descendre vers l'ouest le long du thalweg (cairns) ; vers 27
 Durée : compter environ 7h  de marche. La descente est particulièrement longue dans le sauvage vallon de la Lombarde."
   })
 
+h3 = Hiking.create!({
+    name: "Rando dans les Alpes",
+    difficulty: "Expert",
+    range: "Alpes",
+    description: "Joli pti trip dans les Alpes",
+    remote_photo_url: "http://www.savoie-mont-blanc.com/var/smb/storage/images/media/images/activites-et-detente/rando/randonnee-au-lac-de-cerces-a-valloire/361903-1-fre-FR/Randonnee-au-lac-de-Cerces-a-Valloire_default_format.jpg"
+
+  })
+
+h4 = Hiking.create!({
+    name: "Rando dans les Alpes",
+    difficulty: "Expert",
+    range: "Alpes",
+    description: "Joli pti trip dans les Alpes",
+    remote_photo_url: "http://www.huwans-clubaventure.fr/upload_1000/1264515145alpes_tmb_05_stagexpe.jpg"
+
+  })
+
+h5 = Hiking.create!({
+    name: "Rando des Hautes-Vosges",
+    difficulty: "Expert",
+    range: "Vosges",
+    description: "Joli pti trip dans les vosges",
+    remote_photo_url: "http://skipass.fr/p/blogs/34534/48696.jpg"
+
+  })
+
+h6 = Hiking.create!({
+    name: "Rando des Hautes-Vosges",
+    difficulty: "Expert",
+    range: "Vosges",
+    description: "Joli pti trip dans les vosges",
+    remote_photo_url: "http://www.ville-thann.fr/var/thann/storage/images/mediatheque/entre-les-buissonnets-et-le-belacker-800x600/425487-1-fre-FR/entre-les-Buissonnets-et-le-Belacker-800x600_lightbox.jpg"
+
+  })
+
+h7 = Hiking.create!({
+    name: "Rando dans les Pyrénées",
+    difficulty: "Expert",
+    range: "Pyrénées",
+    description: "Joli pti trip dans les Pyrénées",
+    remote_photo_url: "http://kingofwallpapers.com/pyrenees/pyrenees-003.jpg"
+
+  })
+
+h8 = Hiking.create!({
+    name: "Rando dans les Pyrénées",
+    difficulty: "Expert",
+    range: "Pyrénées",
+    description: "Joli pti trip dans les Pyrénées",
+    remote_photo_url: "http://www.petitfute.com/medias/photo/835_501/84/a0/006853-cauterets-voie-verte-entre-pierrefite-nestalas-et-cauterets.jpg"
+
+  })
+
+h9 = Hiking.create!({
+    name: "Rando dans les Pyrénées",
+    difficulty: "Expert",
+    range: "Pyrénées",
+    description: "Joli pti trip dans les Pyrénées",
+    remote_photo_url: "https://hd.unsplash.com/photo-1446539020262-2eb0d2f63dfb"
+
+  })
 
 
 
