@@ -21,13 +21,15 @@ class RefugePolicy < ApplicationPolicy
     true # All user can create
   end
 
-  def destroy?
-    record.user == user || user.admin? # if user have created the refuge  can destory
-  end
-
   def update?
+    return false unless user
     record.user == user || user.admin?# user == current_user
   end
+
+  def destroy?
+    update?
+  end
+
 
 
 end

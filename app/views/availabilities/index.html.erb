@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th>Refuge</th>
+      <th>Capacity</th>
       <th>Start day</th>
       <th>End day</th>
-      <th>Capacity</th>
-      <th>Refuge</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,16 +16,17 @@
   <tbody>
     <% @availabilities.each do |availability| %>
       <tr>
-        <td><%= availability.start_day %></td>
-        <td><%= availability.end_day %></td>
-        <td><%= availability.capacity %></td>
-        <td><%= availability.refuge %></td>
-        <td><%= link_to 'Show', availability %></td>
+        <td><%= availability.refuge.name %></td><br>
+        <td><%= availability.capacity %></td><br>
+        <td><%= availability.start_day %></td><br>
+        <td><%= availability.end_day %></td><br>
         <% if current_user %>
-        <% if policy(availability).edit? %>
-          <td><%= link_to 'Edit', edit_refuge_availability_path(availability), class: "btn btn-success" %></td>
-        <% end %>
-        <td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if policy(availability).destroy? %>
+        <td><%= link_to 'Destroy', refuge_availabilities_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+        <% if policy(availability).create? %>
+        <%= link_to 'New Availability', new_refuge_availability_path, class: "btn btn-success"%>
+        <%end%>
       </tr>
     <% end %>
     <%end%>
@@ -34,4 +35,3 @@
 
 <br>
 
-<%= link_to 'New Availability', new_refuge_availability_path, class: "btn btn-success"%>

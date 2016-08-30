@@ -52,7 +52,6 @@
         <div class="thumbnail deals">
         <%= cl_image_tag(refuge.photo,
       width: 400, height: 300, crop: :fill) %>
-          <a href="single-package-right-sidebar.html" class="pageLink"></a>
           <div class="discountInfo">
             <ul class="list-inline rating homePage">
             <% i = 0 %>
@@ -83,15 +82,6 @@
                <%= link_to 'More Info', refuge, :class => "btn btn-primary btn"%>
             </div>
           </div>
-          <% if current_user %>
-            <% if policy(refuge).edit? %>
-              <td><%= link_to 'Edit', edit_refuge_path(refuge), class: "btn btn-success" %></td>
-            <% end %>
-            <% if policy(refuge).destroy? %>
-              <td><%= link_to 'Destroy', refuge, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          <%else %>
-          <%end%>
         </div>
       </div>
       <%end%>

@@ -1,13 +1,63 @@
-<%= simple_form_for [@refuge, @booking] do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :start_day %>
-    <%= f.input :end_day %>
-    <%= f.input :hikers_nb %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= form_for @booking, url: refuge_bookings_path(@refuge), method: :post, class: 'input-daterange input-group', id: 'datepicker' do |f| %>
+    <div>
+      <%= f.text_field :start_day, id: 'dpd3', class: 'input-sm form-control', placeholder: 'check-in date'%>
+      <span class="input-group-addon">to</span>
+      <%= f.text_field :end_day, id: 'dpd4', class: 'input-sm form-control', placeholder: 'check-out date'%>
+    </div>
+    <br>
+    <div>
+<!--         <% remaining_capacity = @refuge.capacity %>
+
+        <% booking_days(@refuge).each do |day| %>
+        <% possible_remaining_capacity = @refuge.capacity  %>
+           <%   @refuge.bookings.each do |booking| %>
+              <%    (booking.start_day.to_date..booking.end_day.to_date).each do |d| %>
+              <%    possible_remaining_capacity -= booking.hikers_nb if d == day %>
+              <% end %>
+           <% end %>
+           <% if possible_remaining_capacity < remaining_capacity %>
+          <% remaining_capacity = possible_remaining_capacity %>
+           <% end %>
+        <% end %> -->
+        <%= f.label :number_of_hikers %>
+        <%= f.select :hikers_nb, (1..@refuge.capacity).to_a, class: ' form-control', placeholder: 'number of hikers' %>
+      </div>
+      <br>
+    <div>
+      <%= f.submit %>
+    </div>
+<% end %>
+
+
+<% content_for(:after_js) do %>
+  <script>
+
+    $(function () {
+      var nowTemp = new Date();
+      var availabilities = <%= raw available_days(@refuge) %>
+
+      $('.input-sm').datepicker({
+        beforeShowDay: function(date) {
+          if (availabilities.includes(String(moment(date).format('L')))) {
+            return true;
+          } else {
+            return false;
+          }
+        },
+        format: 'dd/mm/yyyy',
+        startDate: new Date(),
+        autoclose: true,
+      });
+
+      $('#dpd3').datepicker()
+        .on('changeDate', function(e) {
+          $('#dpd4').datepicker('setStartDate', e.date);
+        });
+    });
+
+
+
+  </script>
 <% end %>

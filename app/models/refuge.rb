@@ -20,4 +20,8 @@ class Refuge < ApplicationRecord
     end
     return nil
   end
+
+  def availability
+    capacity - bookings
+  end
 end

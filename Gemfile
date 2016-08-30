@@ -23,6 +23,8 @@ gem 'omniauth-facebook'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'momentjs-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'money-rails'
 gem 'stripe'
 

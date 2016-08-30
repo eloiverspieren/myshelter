@@ -1,13 +1,37 @@
-<%= simple_form_for[@refuge, @availability] do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :start_day %>
-    <%= f.input :end_day %>
-    <%= f.input :capacity %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= form_for @availability, url: refuge_availabilities_path(@refuge), method: :post, class: 'input-daterange input-group datepicker', id: 'datepicker' do |f| %>
+    <div>
+      <%= f.text_field :start_day, id: 'dpd1', class: 'input-sm form-control' %>
+      <span class="input-group-addon">to</span>
+      <%= f.text_field :end_day, id: 'dpd2', class: 'input-sm form-control' %>
+      <div>
+        <%= f.number_field :capacity, class: 'input-sm form-control' %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
 <% end %>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(function () {
+      var nowTemp = new Date();
+      var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+      $('#dpd1').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: new Date(),
+        autoclose: true,
+        datesDisabled: <%= raw @availabilities %>
+      });
+      $('#dpd2').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: new Date(),
+        autoclose: true,
+        datesDisabled: <%= raw @availabilities %>
+      });
+    });
+
+  </script>
+<% end %>
+
