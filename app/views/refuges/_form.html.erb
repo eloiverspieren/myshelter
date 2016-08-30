@@ -1,60 +1,46 @@
-<section class="mainContentSection">
-  <div class="container">
-    <div class="row">
-    <div class="col-sm-8 col-xs-12">
-      <div class="infoTitle">
-        <h2>Infos about your Shelter</h2>
-      </div>
-      <div class="bookingForm">
         <%= simple_form_for(@refuge) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
           <div class="row">
-            <div class="form-group col-sm-6 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :name %>
             </div>
-            <div class="form-group col-sm-6 col-xs-12">
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :department %>
             </div>
-            <div class="form-group col-sm-6 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :address %>
             </div>
-            <div class="form-group col-sm-6 col-xs-12">
-              <%= f.input :photo %>
-              <%= f.input :photo_cache, as: :hidden %>
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
+               <%= f.input :price_cents %>
             </div>
-            <div class="form-group col-sm-6 col-xs-12">
-$              <%= f.input :price_cents %>
-            </div>
-            <div class="form-group col-sm-6 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :capacity %>
             </div>
-            <div class="form-group col-sm-6 col-xs-12">
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :altitude %>
             </div>
-            <div class="form-group col-sm-6 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :range %>
             </div>
-            <div class="form-group col-xs-12">
+             <div class="col-sm-2"></div>
+            <div class="form-group col-sm-4 col-xs-12" id="form-refuge">
               <%= f.input :description %>
-            </div>
-            <div class="checkbox col-xs-12">
-              <label>
-                <input type="checkbox"> I have read and accept the <a href="#">terms and conditions</a>
-              </label>
-            </div>
+            </div><br><br>
           </div>
-          <div class="form-actions">
+          <div class="form-actions" id="create">
+              <%= f.input :photo %>
+              <%= f.input :photo_cache, as: :hidden %><br><br>
+              <div id="refuge_cond"> <input type="checkbox" > I have read and accept the terms and conditions<br></div>
+              <p></p>
               <%= f.button :submit %>
             </div>
-        </form>
       </div>
-    </div>
-  </div>
-  <% end %>
-  </div>
-</div>
-</section>
+    <% end %>
+
 
 
 

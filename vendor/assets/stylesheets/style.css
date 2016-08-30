@@ -165,7 +165,7 @@ h4 {
 }
 
 a {
-  color: #ff891e;
+  color: white;
   text-decoration: none !important;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -222,8 +222,8 @@ a:focus {
   outline: 0;
 }
 .buttonTransparent:hover, .paginationCenter .pagination li:first-child a:hover, .paginationCenter .pagination li:last-child a:hover, .isotopeFilters ul.filter > li a:hover {
-  background-color: #ff891e;
-  border-color: #ff891e;
+  background-color: #3B5998;
+  border-color: #3B5998;
   color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)";
   filter: alpha(opacity=1);
@@ -2037,7 +2037,7 @@ a:focus {
   width: 100%;
   display: block;
   background-color: #262a2e;
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .footer-logo {
@@ -2648,7 +2648,7 @@ a:focus {
   transform: translate(-50%, -50%);
 }
 .isotopeSelector:hover h4 {
-  color: #ff891e;
+  color: white;
 }
 
 .isotopeSelector .overlay.galleryMasonry .fancybox-pop .overlayInfo h2 {
@@ -3298,7 +3298,7 @@ a:focus {
   width: 100%;
   display: block;
   background-color: #262a2e;
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .footer-logo {
@@ -3401,6 +3401,10 @@ a:focus {
   background-color: transparent;
   border: 0;
   color: #929497;
+}
+
+#logo {
+  margin-top:26%;
 }
 .footerContent .input-group .input-group-addon {
   border-radius: 4px;

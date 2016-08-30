@@ -119,7 +119,12 @@
                         </div>
                     <%end%>
                   <%end%>
+          </div><br>
+          <div class="row">
+          <div class="col-xs-12 text-center">
+               <%= link_to "Hikings Catalog", hikings_path, class: "btn btn-primary" %>
           </div>
+        </div><br>
     </section>
     <!-- BECOME HOST PARALLAX -->
     <section class="promotionWrapper">
@@ -132,7 +137,7 @@
                   <h2>Open the doors of your Shelter</h2>
                   <p>Let them dry their boots</p>
                   <p></p>
-                  <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-success" %></a>
+                  <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-primary" %></a>
                 </div>
               </div>
             </div>
@@ -182,7 +187,7 @@
                     <ul class="list-inline duration">
                       <li><%= refuge.altitude %> meters</li>
                       <li><%= refuge.capacity %> people</li>
-                      <li><%= refuge.day_price%> €</li>
+                      <li><%= refuge.price%> €</li>
                     </ul>
                   </div>
                   <div class="caption">
