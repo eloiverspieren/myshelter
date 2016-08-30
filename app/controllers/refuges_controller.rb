@@ -17,6 +17,9 @@ class RefugesController < ApplicationController
 
   # GET /refuges/1
   def show
+    date_killer
+    @availability = Availability.new
+    @availabilities = Availability.all
     @refuges = Refuge.all
     @refuge = Refuge.find(params[:id])
     @refuge_coordinates = { lat: @refuge.latitude, lng: @refuge.longitude }
@@ -91,4 +94,22 @@ class RefugesController < ApplicationController
     def refuge_params
       params.require(:refuge).permit(:name, :photo, :photo_cache, :capacity, :address, :day_price, :description, :lat, :lon, :altitude, :range, :department)
     end
+
+
+
+    def date_killer
+    @availabilities = []
+    @availabilities_formatted = []
+    if Availability.all
+      Availability.all.each do |availability|
+        if availability.start_day && availability.end_day
+          date = availability.start_day
+          while date.strftime("%m/%d/%Y") <= availability.end_day.strftime("%m/%d/%Y")
+            @availabilities << date.strftime("%m/%d/%Y")
+            date += 1.day
+          end
+        end
+      end
+    end
+  end
 end

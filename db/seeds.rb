@@ -9,7 +9,7 @@ RefugeToHike.destroy_all
 Refuge.destroy_all
 Hiking.destroy_all
 User.destroy_all
-
+Availability.destroy_all
 
 
 
@@ -30,6 +30,12 @@ r1 = u1.refuges.create!({
     department: "88"
 })
 
+r1.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 12
+  })
+
 r2 = u1.refuges.create!({
     name: "LE LANGENBERG",
     remote_photo_url: "http://www.auberge-refuge-neuweiher.fr/NEUWEIHER_WEB/FR/ACCUEIL/Auberge-refuge-neuweiher.jpg",
@@ -45,6 +51,12 @@ A proximité du sommet du Grand Langenberg sur le versant S.E. du Ballon d'Alsac
     department: "90"
 })
 
+r2.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 25
+  })
+
 r3 = u1.refuges.create!({
     name: "LE GRAND VENTRON",
     remote_photo_url: "http://www.sitlor.fr/photos/741/741000070_4.jpg",
@@ -58,6 +70,12 @@ r3 = u1.refuges.create!({
     range: "Vosges",
     department: "88"
 })
+
+r3.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 22
+  })
 
 r4 = u1.refuges.create!({
     name:  "LES COSMIQUES",
@@ -73,6 +91,12 @@ r4 = u1.refuges.create!({
     department: "73"
 })
 
+r4.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 148
+  })
+
 r5 = u1.refuges.create!({
     name:  "LE POURRI",
     remote_photo_url: "http://s.camptocamp.org/uploads/images/1259366642_1655889778BI.jpg",
@@ -86,6 +110,12 @@ r5 = u1.refuges.create!({
     range: "Alpes",
     department: "73"
 })
+
+r5.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 50
+  })
 
 r6 = u1.refuges.create!({
     name: "LE GOÛTER",
@@ -101,6 +131,12 @@ r6 = u1.refuges.create!({
     department: "74"
 })
 
+r6.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 120
+  })
+
 r7 = u1.refuges.create!({
     name:  "L’AIGLE",
     remote_photo_url: "https://www.petzl.com/fondation/foundation-refuge-aigle-vallee.jpeg?v=1",
@@ -115,6 +151,12 @@ r7 = u1.refuges.create!({
     department: "05"
 })
 
+r7.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 34
+  })
+
 r8 = u1.refuges.create!({
     name:  "LES AIGUILLES D’ARVES",
     remote_photo_url: "http://www.123savoie.com/pic/109/108307_t6.jpg",
@@ -128,6 +170,12 @@ r8 = u1.refuges.create!({
     range: "Alpes",
     department: "73"
 })
+
+r8.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 39
+  })
 
 r9 = u1.refuges.create!({
     name: "LES BANS",
@@ -144,6 +192,12 @@ r9 = u1.refuges.create!({
     department: "05"
 })
 
+r9.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 22
+  })
+
 r10 = u1.refuges.create!({
     name:  "ALBERT 1ER",
     remote_photo_url: "http://s.camptocamp.org/uploads/images/1344013894_1784147809.jpg",
@@ -157,6 +211,13 @@ r10 = u1.refuges.create!({
     range: "Alpes",
     department: "74"
 })
+
+r10.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 140
+  })
+
 
 r11 = u1.refuges.create!({
     name:  "L'ALPE DE VILLAR D'ARÈNE",
@@ -172,6 +233,12 @@ r11 = u1.refuges.create!({
     department: "05"
 })
 
+r11.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 94
+  })
+
 r12 = u1.refuges.create!({
     name:  "AMBIN",
     remote_photo_url: "http://surlessommets.blog.free.fr/public/Ambin/Ambin625.jpg",
@@ -185,6 +252,12 @@ r12 = u1.refuges.create!({
     range: "Alpes",
     department: "73"
 })
+
+r12.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 30
+  })
 
 r13 = u1.refuges.create!({
     name: "L’ARGENTIÈRE",
@@ -200,6 +273,12 @@ r13 = u1.refuges.create!({
     department: "74"
 })
 
+r13.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 94
+  })
+
 r14 = u1.refuges.create!({
     name: "L’AYOUS",
     remote_photo_url: "http://www.randozone.com/pict_mont/x960/im13389.jpg",
@@ -213,6 +292,12 @@ r14 = u1.refuges.create!({
     range: "Pyrénées",
     department: "64"
 })
+
+r14.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 47
+  })
 
 r17 = u1.refuges.create!({
     name: "RIFUGIO DI GASTALDI",
@@ -229,6 +314,12 @@ Etape entre le refuge des Evettes et le refuge d'Avérole sur le Tour de la Bess
     department: "73"
 })
 
+r17.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 99
+  })
+
 r16 = u1.refuges.create!({
     name: "RIFUGIO DI CIBRARIO",
     remote_photo_url: "http://www.sitlor.fr/photos/741/741000070_4.jpg",
@@ -242,6 +333,12 @@ r16 = u1.refuges.create!({
     range: "Alpes",
     department: "73"
 })
+
+r16.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 42
+  })
 
 r15 = u1.refuges.create!({
     name: "L'AVEROLE",
@@ -257,6 +354,12 @@ r15 = u1.refuges.create!({
     department: "73"
 })
 
+r15.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 85
+  })
+
 r18 = u1.refuges.create!({
     name: "LA POMBIE",
     remote_photo_url: "http://www.topopyrenees.com/wp-content/uploads/2010/06/randonnee-refuge-pombie_024.jpg",
@@ -270,6 +373,12 @@ r18 = u1.refuges.create!({
     range: "Pyrénées",
     department: "64"
 })
+
+r18.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 45
+  })
 
 r19 = u1.refuges.create!({
     name: "L’ARRÉMOULIT",
@@ -285,7 +394,11 @@ r19 = u1.refuges.create!({
     department: "64"
 })
 
-
+r19.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 28
+  })
 
 
 h1 = Hiking.create!({

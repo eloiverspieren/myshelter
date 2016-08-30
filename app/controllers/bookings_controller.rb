@@ -47,7 +47,6 @@ class BookingsController < ApplicationController
     @booking.refuge = @refuge
     @booking.status = 0
     authorize @booking
-
     respond_to do |format|
       if @booking.save
         format.html { redirect_to my_bookings_path, notice: 'Booking was successfully created.' }

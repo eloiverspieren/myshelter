@@ -1,8 +1,8 @@
 jQuery(document).ready(function(){
 //============================== CLOSE DROPDOWN SELECT =========================
-  $(".ed-datepicker input.form-control").focus(function() {
-    $(".sbOptions").css("display", "none");
-  });
+  // $(".ed-datepicker input.form-control").focus(function() {
+  //   $(".sbOptions").css("display", "none");
+  // });
 //============================== ALL DROPDOWN ON HOVER =========================
   $('.dropdown').hover(function() {
     $(this).addClass('open');
@@ -27,9 +27,9 @@ jQuery(document).ready(function(){
 
 //============================== CHANGE HEADER ON MOUSE SCROLL =========================
   var header = $("#changeHeader .navbar-fixed-top");
-  $(window).scroll(function() {    
+  $(window).scroll(function() {
     var scroll = $(window).scrollTop();
-    
+
     if (scroll >= 1) {
       header.addClass("lightHeader");
     } else {
@@ -41,10 +41,10 @@ jQuery(document).ready(function(){
   $('.select-drop').selectbox();
 
 //============================== Date-picker =========================
-  $('.datepicker').datepicker({
-    startDate: "dateToday",
-    autoclose: true
-  });
+  // $('.datepicker').datepicker({
+  //   startDate: "dateToday",
+  //   autoclose: true
+  // });
 
 //============================== COUNTER-UP =========================
   $(document).ready(function ($) {
@@ -55,27 +55,27 @@ jQuery(document).ready(function(){
   });
 
 //============================== PRICE SLIDER RANGER =========================
-  jQuery(document).ready(function() {
-    var minimum = 20;
-    var maximum = 300;
+  // jQuery(document).ready(function() {
+  //   var minimum = 20;
+  //   var maximum = 300;
 
-    $( "#price-range" ).slider({
-      range: true,
-      min: minimum,
-      max: maximum,
-      values: [ minimum, maximum ],
-      slide: function( event, ui ) {
-        $( "#price-amount-1" ).val( "$" + ui.values[ 0 ] );
-        $( "#price-amount-2" ).val( "$" + ui.values[ 1 ] );
-      }
-    });
+  //   $( "#price-range" ).slider({
+  //     range: true,
+  //     min: minimum,
+  //     max: maximum,
+  //     values: [ minimum, maximum ],
+  //     slide: function( event, ui ) {
+  //       $( "#price-amount-1" ).val( "$" + ui.values[ 0 ] );
+  //       $( "#price-amount-2" ).val( "$" + ui.values[ 1 ] );
+  //     }
+  //   });
 
-    $( "#price-amount-1" ).val( "$" + $( "#price-range" ).slider( "values", 0 ));
-    $( "#price-amount-2" ).val( "$" + $( "#price-range" ).slider( "values", 1 ));
-  });
+  //   $( "#price-amount-1" ).val( "$" + $( "#price-range" ).slider( "values", 0 ));
+  //   $( "#price-amount-2" ).val( "$" + $( "#price-range" ).slider( "values", 1 ));
+  // });
 
 //============================== ACCORDION OR COLLAPSE ICON CHANGE =========================
-  
+
   var allIcons = $(".singlePackage .panel-heading i.fa");
   $('.singlePackage .panel-heading').click(function(){
    allIcons.removeClass('fa-minus').addClass('fa-plus');
@@ -106,7 +106,7 @@ jQuery(document).ready(function(){
     $(this).find('i.fa').removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-up');
   });
 
-//============================== SELECT OPEN ACCORDION ITEM TITLE ========================= 
+//============================== SELECT OPEN ACCORDION ITEM TITLE =========================
   $(document).ready(function() {
     $('.accordionWrappar .panel-collapse, .accordionSolidTitle .panel-collapse, .accordionSolidBar .panel-collapse').on('show.bs.collapse', function () {
       $(this).siblings('.panel-heading').addClass('active');
