@@ -75,51 +75,56 @@
         </div>
         <div class="row isotopeContainer">
           <% @count = 0 %>
-          <% @refuges.each do |refuge| %>
-            <% if refuge.range == "Alpes" && @count < 3 %>
+          <% @hikings.each do |hiking| %>
+            <% if hiking.range == "Alpes" && @count < 3 %>
               <% @count += 1 %>
               <div class="col-sm-4 isotopeSelector pays" id="hiking">
                   <figure>
-                    <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
-                    <h4><%=refuge.name%></h4>
+                    <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
+                    <h4><%=hiking.name%></h4>
                       <div id="refhiking">
-                        <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                        <%= link_to "View more", hiking, :class => "btn buttonTransparent"%>
                         </div>
                      </figure>
                      </div>
                   <%end%>
               <%end%>
             <% @count = 0 %>
-                  <% @refuges.each do |refuge| %>
-                    <% if refuge.range == "Pyrénées" && @count < 3 %>
+                  <% @hikings.each do |hiking| %>
+                    <% if hiking.range == "Pyrénées" && @count < 3 %>
                       <% @count += 1 %>
                         <div class="col-sm-4 isotopeSelector vallee" id="hiking">
                             <figure>
-                              <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
-                              <h4><%=refuge.name%></h4>
+                              <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
+                              <h4><%=hiking.name%></h4>
                               <div id="refhiking">
-                                  <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                                  <%= link_to "View more", hiking, :class => "btn buttonTransparent"%>
                               </div>
                             </figure>
                         </div>
                     <%end%>
                   <%end%>
             <% @count = 0 %>
-                  <% @refuges.each do |refuge| %>
-                    <% if refuge.range == "Vosges" && @count < 3 %>
+                  <% @hikings.each do |hiking| %>
+                    <% if hiking.range == "Vosges" && @count < 3 %>
                       <% @count += 1 %>
                         <div class="col-sm-4 isotopeSelector vosges" id="hiking">
                             <figure>
-                              <%= cl_image_tag refuge.photo, height: 270, width: 360, crop: :fill %>
-                              <h4><%=refuge.name%></h4>
+                              <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
+                              <h4><%=hiking.name%></h4>
                               <div id="refhiking">
-                                  <%= link_to "View more", refuge, :class => "btn buttonTransparent"%>
+                                  <%= link_to "View more", hiking, :class => "btn buttonTransparent"%>
                               </div>
                             </figure>
                         </div>
                     <%end%>
                   <%end%>
+          </div><br>
+          <div class="row">
+          <div class="col-xs-12 text-center">
+               <%= link_to "Hikings Catalog", hikings_path, class: "btn btn-primary" %>
           </div>
+        </div><br>
     </section>
     <!-- BECOME HOST PARALLAX -->
     <section class="promotionWrapper">
@@ -132,7 +137,7 @@
                   <h2>Open the doors of your Shelter</h2>
                   <p>Let them dry their boots</p>
                   <p></p>
-                  <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-success" %></a>
+                  <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-primary" %></a>
                 </div>
               </div>
             </div>
@@ -182,7 +187,7 @@
                     <ul class="list-inline duration">
                       <li><%= refuge.altitude %> meters</li>
                       <li><%= refuge.capacity %> people</li>
-                      <li><%= refuge.day_price%> €</li>
+                      <li><%= refuge.price%> €</li>
                     </ul>
                   </div>
                   <div class="caption">
