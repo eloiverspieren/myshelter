@@ -2,4 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .container-profile {
+  padding-top: 100px;
+}
+
+.container-profile p {
+  color:  #262a2e;
+  font-size: 20px;
+}
+
+#profile-card{
+background-color: white;
+padding: 20px;
+border-radius: 10px;
 }
