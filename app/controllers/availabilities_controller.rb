@@ -1,6 +1,6 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_availability, only: [:show, :edit, :update, :destroy]
-  before_action :find_refuge, only: [:new, :edit, :create, :update, :destroy]
+  before_action :find_refuge, only: [:index, :new, :edit, :create, :update, :destroy]
   # GET /availabilities
   # GET /availabilities.json
   def index
@@ -20,6 +20,8 @@ class AvailabilitiesController < ApplicationController
 
   # GET /availabilities/1/edit
   def edit
+    @availability = Availability.find(params[:id])
+    authorize @availability
   end
 
   # POST /availabilities
@@ -27,10 +29,10 @@ class AvailabilitiesController < ApplicationController
   def create
     @availability = Availability.new(availability_params)
     @availability.refuge = @refuge
-
+    authorize @availability
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to refuge_availabilities_path(@refuge), notice: 'Availability was successfully created.' }
+        format.html { redirect_to refuge_availabilities_path, notice: 'Availability was successfully created.' }
       else
         format.html { render :new }
       end
@@ -41,6 +43,7 @@ class AvailabilitiesController < ApplicationController
   # PATCH/PUT /availabilities/1.json
   def update
     respond_to do |format|
+      authorize @availability
       if @availability.update(availability_params)
         format.html { redirect_to @availability, notice: 'Availability was successfully updated.' }
       else
@@ -53,6 +56,7 @@ class AvailabilitiesController < ApplicationController
   # DELETE /availabilities/1.json
   def destroy
     @availability.destroy
+    authorize @availability
     respond_to do |format|
       format.html { redirect_to availabilities_url, notice: 'Availability was successfully destroyed.' }
     end
@@ -62,10 +66,12 @@ class AvailabilitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_availability
       @availability = Availability.find(params[:id])
+      authorize @availability
     end
 
      def find_refuge
-    @refuge = Refuge.find(params[:refuge_id])
+        @refuge = Refuge.find(params[:refuge_id])
+        authorize @refuge
      end
 
 

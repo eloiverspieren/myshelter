@@ -27,20 +27,17 @@
     $(function () {
       var nowTemp = new Date();
       var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-      $('#dpd1').datepicker({
+      $('.input-sm').datepicker({
         format: 'mm/dd/yyyy',
         startDate: new Date(),
         autoclose: true,
-        datesDisabled: <%= raw @availabilities %>
       });
       $('#dpd2').datepicker({
         format: 'mm/dd/yyyy',
         startDate: new Date(),
         autoclose: true,
-        datesDisabled: <%= raw @availabilities %>
       });
     });
 
   </script>
 <% end %>
-
