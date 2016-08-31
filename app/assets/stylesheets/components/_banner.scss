@@ -13,11 +13,16 @@
   left:11%;
 }
 
-.darkSection {
+.darkSectionHome {
   position:absolute;
   bottom:0%;
   opacity:1;
+  width: 100%;
+  padding: 30px 0;
+  background-color: #262a2e;
+  display: block;
 }
+
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
