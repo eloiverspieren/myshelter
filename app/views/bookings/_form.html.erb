@@ -1,34 +1,25 @@
-
-
-<%= form_for @booking, url: refuge_bookings_path(@refuge), method: :post, class: 'input-daterange input-group', id: 'datepicker' do |f| %>
+<div class="form-container">
+  <%= form_for @booking, url: refuge_bookings_path(@refuge), method: :post, class: 'input-daterange input-group', id: 'datepicker' do |f| %>
     <div>
+    <div class="col-xs-12 col-sm-6 col-lg-6">
       <%= f.text_field :start_day, id: 'dpd3', class: 'input-sm form-control', placeholder: 'check-in date'%>
-      <span class="input-group-addon">to</span>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-6">
       <%= f.text_field :end_day, id: 'dpd4', class: 'input-sm form-control', placeholder: 'check-out date'%>
     </div>
+    </div>
     <br>
-    <div>
-<!--         <% remaining_capacity = @refuge.capacity %>
-
-        <% booking_days(@refuge).each do |day| %>
-        <% possible_remaining_capacity = @refuge.capacity  %>
-           <%   @refuge.bookings.each do |booking| %>
-              <%    (booking.start_day.to_date..booking.end_day.to_date).each do |d| %>
-              <%    possible_remaining_capacity -= booking.hikers_nb if d == day %>
-              <% end %>
-           <% end %>
-           <% if possible_remaining_capacity < remaining_capacity %>
-          <% remaining_capacity = possible_remaining_capacity %>
-           <% end %>
-        <% end %> -->
+    <div><br>
+        <div class="col-xs-12 col-sm-6 col-lg-10">
         <%= f.label :number_of_hikers %>
         <%= f.select :hikers_nb, (1..@refuge.capacity).to_a, class: ' form-control', placeholder: 'number of hikers' %>
-      </div>
+        </div>
       <br>
-    <div>
-      <%= f.submit %>
+    <div class="col-xs-12 col-sm-6 col-lg-5">
+      <%= f.submit :class => "btn btn-success" %>
     </div>
 <% end %>
+</div>
 
 
 <% content_for(:after_js) do %>

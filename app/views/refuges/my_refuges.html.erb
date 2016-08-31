@@ -31,13 +31,10 @@
           </div>
           <div class="caption">
             <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= refuge.name %></a></h4>
-            <h5><%= refuge.address %></h5>
+            <h5><%= refuge.address %></h5><br><br><br>
             <div class="detailsInfo">
-              <br>
-               <%= link_to 'More Info', refuge, :class => "btn btn-primary btn"%>
-            </div>
-          </div>
-          <% if current_user %>
+               <%= link_to 'Set Your Availabilities', refuge, :class => "btn btn-primary btn"%>
+             <% if current_user %>
             <% if policy(refuge).edit? %>
               <td><%= link_to 'Edit', edit_refuge_path(refuge), class: "btn btn-success" %></td>
             <% end %>
@@ -46,6 +43,8 @@
             <% end %>
           <%else %>
           <%end%>
+            </div>
+          </div>
         </div>
       </div>
       <%end%>
