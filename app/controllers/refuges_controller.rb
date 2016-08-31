@@ -84,7 +84,7 @@ class RefugesController < ApplicationController
     @refuge.destroy
     authorize @refuge
     respond_to do |format|
-      format.html { redirect_to refuges_url, notice: 'Refuge was successfully destroyed.' }
+      format.html { redirect_to my_refuges_path, notice: 'Refuge was successfully destroyed.' }
     end
   end
 
