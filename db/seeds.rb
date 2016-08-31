@@ -400,9 +400,121 @@ r19.availabilities.create!({
   capacity: 28
   })
 
+r20 = u1.refuges.create!({
+    name: "Les Paris",
+    remote_photo_url: "http://static.sitra-tourisme.com/filestore/objets-touristiques/images/1685226-diaporama.jpg",
+    capacity: 22,
+    address: "St Jacques en Valgaudemar",
+    price_cents: 3820,
+    description: "Magnifique décor pour ce Gite, départ du tour du vieux Chaillol, 5h30 de marche jusqu'au Gite du Casset",
+    latitude: "45.522294 N",
+    longitude: "6.53763 E",
+    altitude: 980,
+    range: "Alpes",
+    department: "05"
+})
+
+r20.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 22
+  })
+
+r21 = u1.refuges.create!({
+    name: "Le Casset",
+    remote_photo_url: "http://static.sitra-tourisme.com/filestore/objets-touristiques/images/122/39/1386362-diaporama.jpg",
+    capacity: 20,
+    address: "la Chapelle-en-Valgaudemar",
+    price_cents: 4100,
+    description: "Magnifique décor pour ce Gite, qui fait partie du tour du vieux Chaillol, 5h30 de marche depuis le Gîte Les Paris et 4h50 jusqu'au refuge de Vallonpierre",
+    latitude: "45.522294 N",
+    longitude: "6.53763 E",
+    altitude: 1100,
+    range: "Alpes",
+    department: "64"
+})
+
+r21.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 20
+  })
+
+r22 = u1.refuges.create!({
+    name: "Refuge de Vallonpierre",
+    remote_photo_url: "http://www.altituderando.com/IMG/jpg/d/6/1/4_nouveau_et_ancien_refuges_de_vallonpierre.jpg",
+    capacity: 35,
+    address: "la Chapelle-en-Valgaudemar",
+    price_cents: 4770,
+    description: "Sur la commune de la Chapelle-en-Valgaudémar, au cœur du parc national des Ecrins, Florence, Guillaume et leurs trois enfants vous accueillent dans ce petit coin de paradis.
+Venez profitez d'une belle bâtisse en bois et en pierre rénovée en 2001 au bord d'un petit lac où foisonnent têtards et grenouilles. Le matin vous pouvez découvrir les chamois gambadant dans la grande prairie proche du refuge.
+
+Ce refuge peut être un but de randonnée en famille, à la journée ou pour séjourner. Il est une étape du fameux tour de l'Oisans (GR54) et du sympathique tour du Vieux Challiol.
+C'est également le départ de belles escalades sur le Banc des Aiguilles, et des courses d'alpinisme au Sirac, ce sommet engagé qui surplombe admirablement le refuge.
+  4h50 de marche depuis le Gîte Le Casset et 7h50 jusqu'au gîte Les Gondoins",
+    latitude: "45.522294 N",
+    longitude: "6.53763 E",
+    altitude: 2273,
+    range: "Alpes",
+    department: "64"
+})
+
+r22.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 35
+  })
+
+r23 = u1.refuges.create!({
+    name: "Les Gondoins",
+    remote_photo_url: "http://www.champsaur.net/wp-content/uploads/2015/03/Restaurant-des-gondoins.jpg",
+    capacity: 30,
+    address: "Champoléon",
+    price_cents: 3900,
+    description: "Au fond de la vallée de Champoléon, gîte auberge composé d'un dortoir de 10 places avec sanitaires et douches communs, de 4 chambres, la plupart en sous pente, avec sanitaires et douches privatifs, cuisine en gestion libre et salle commune avec cheminée.
+    7h50 de marche depuis le refuge de Vallonpierre, 7h jusqu'au gîte du Chamois",
+    latitude: "45.522294 N",
+    longitude: "6.53763 E",
+    altitude: 1300,
+    range: "Alpes",
+    department: "64"
+})
+
+r23.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 30
+  })
+
+r24 = u1.refuges.create!({
+    name: "Le Chamois",
+    remote_photo_url: "http://www.leschamois.net/wp-content/uploads/2015/09/photo-hiver.jpg",
+    capacity: 25,
+    address: "Les Marrons",
+    price_cents: 3600,
+    description: "Au pied du Parc National des Écrins, dans le département des Hautes Alpes,
+Au cœur de la vallée du Champsaur, dans la station de Chaillol 1600,
+Brigitte et René vous accueillent toute l'année dans leur gîte d'étape.
+Hospitalité, Convivialité, Gastronomie Traditionnelle,
+Dans un cadre authentique et charmant.
+7h de marche depuis Les Gondoins et 7h jusqu'au gîte Le Paris",
+    latitude: "45.522294 N",
+    longitude: "6.53763 E",
+    altitude: 1425,
+    range: "Alpes",
+    department: "64"
+})
+
+r24.availabilities.create!({
+  start_day: '30/08/2016',
+  end_day: '30/08/2020',
+  capacity: 28
+  })
+
+
 
 h1 = Hiking.create!({
-    name: "Rando des Hautes-Vosges",
+    name: "Autour du Markstein",
     difficulty: "Expert",
     range: "Vosges",
     description: "Joli pti trip dans les vosges",
@@ -454,25 +566,40 @@ Durée : compter environ 7h  de marche. La descente est particulièrement longue
   })
 
 h3 = Hiking.create!({
-    name: "Rando dans les Alpes",
-    difficulty: "Expert",
+    name: "GR® 54 - Ecrins",
+    difficulty: "Avancé",
     range: "Alpes",
-    description: "Joli pti trip dans les Alpes",
+    description: "Au départ du Bourg d’Oisans, le GR 54 entame son grand tour par des mains courantes pour atteindre ses petits hameaux accrochés à flanc de montagne.
+    Il redescend sur le torrent de Sarenne pour remonter jusqu’au col, point de vue sur les Monts de Lans.
+    Vient alors une descente sur Clavans et la vallée du Ferrand suivie d'une belle montée jusqu’à Besse-en-Oisans à la frontière du vaste plateau d’Emparis.
+    Au-dessus, le col de Souchet offre une vue cinq étoiles sur la Meije.
+    Près de 1000 mètres de dénivelé négatif permettent de rejoindre La Grave .
+    Il faut ici continuer le long de La Romanche jusqu’à ses sources sur l’alpage de Villar d’Arène.
+    Arrivé au col d’Arsine, le spectacle est saisissant.
+    L’univers de haute montagne invite à rendre visite au lac glacière d’Arsine avant d’entamer une longue descente le long du torrent du Petit Tabuc jusqu’à la vallée de la Guisane et Monêtier-les-Bains.
+    Objectif La Vallouise par le col de l’Eychauda et les paisibles chalets de Chambran. Huit kms de route carrossable le long du torrent de l’Onde et voici l’alpage de Jas Lacroix.
+    Le passage du Col de l’Aup Martin, le plus haut de tout l’itinéraire, est toujours un moment fort de l’aventure, et la descente sur le Pré de la Chaumette est tout aussi sportive.
+     Pour atteindre le lac de Vallonpierre et le Valgaudemar, pas moins de trois cols taillés dans le schiste sont à négocier avec prudence. Le long de la Séveraisse, le sentier rejoint La Chapelle en Valgaudemar et reprend de la hauteur à Villar Loubière jusqu’au refuge des Souffles et l’impressionnant col de la Vaurze.
+     Tout aussi impressionnante est la descente sur le Valjouffrey sauvage. Le col de Côte Belle, bien vert, contraste avec les paysages de schiste rencontrés précédemment. Valsenestre, dans le vallon du Béranger, est une halte salvatrice avant de repartir pour les derniers méandres.
+     Place au vertical col de la Muzelle, porte d’entrée pour le Vénéon. Un dernier col pour atteindre le plus grand lac de l’Oisans, le Lauvitel et revoici Le Bourg d’Oisans. La boucle est bouclée !",
     remote_photo_url: "http://www.savoie-mont-blanc.com/var/smb/storage/images/media/images/activites-et-detente/rando/randonnee-au-lac-de-cerces-a-valloire/361903-1-fre-FR/Randonnee-au-lac-de-Cerces-a-Valloire_default_format.jpg"
 
   })
 
 h4 = Hiking.create!({
-    name: "Rando dans les Alpes",
-    difficulty: "Expert",
+    name: "Tour du Vieux Chaillol",
+    difficulty: "Avancé",
     range: "Alpes",
-    description: "Joli pti trip dans les Alpes",
+    description: "Le Tour du Vieux Chaillol est un GR de pays reliant la vallée de hautes montagne du Valgaudemar aux paysages de bocage du Champsaur
+Au cœur du Parc National des Ecrins, vous découvrirez la richesse de la faune et de la flore, chamois, marmottes, aigles, lys orangés...
+Vous serez accueillis en gîte d'étape et en refuge où vous trouverez confort, authenticité, convivialité.
+",
     remote_photo_url: "http://www.huwans-clubaventure.fr/upload_1000/1264515145alpes_tmb_05_stagexpe.jpg"
 
   })
 
 h5 = Hiking.create!({
-    name: "Rando des Hautes-Vosges",
+    name: "Circuit du Ventron",
     difficulty: "Expert",
     range: "Vosges",
     description: "Joli pti trip dans les vosges",
@@ -481,7 +608,7 @@ h5 = Hiking.create!({
   })
 
 h6 = Hiking.create!({
-    name: "Rando des Hautes-Vosges",
+    name: "Tour du ballon d'alsace",
     difficulty: "Expert",
     range: "Vosges",
     description: "Joli pti trip dans les vosges",
@@ -490,7 +617,7 @@ h6 = Hiking.create!({
   })
 
 h7 = Hiking.create!({
-    name: "Rando dans les Pyrénées",
+    name: "Le Massif du Vignemale",
     difficulty: "Expert",
     range: "Pyrénées",
     description: "Joli pti trip dans les Pyrénées",
@@ -499,7 +626,7 @@ h7 = Hiking.create!({
   })
 
 h8 = Hiking.create!({
-    name: "Rando dans les Pyrénées",
+    name: "Tour du Val d'Azun",
     difficulty: "Expert",
     range: "Pyrénées",
     description: "Joli pti trip dans les Pyrénées",
@@ -508,7 +635,7 @@ h8 = Hiking.create!({
   })
 
 h9 = Hiking.create!({
-    name: "Rando dans les Pyrénées",
+    name: "Vallée des Cauterets",
     difficulty: "Expert",
     range: "Pyrénées",
     description: "Joli pti trip dans les Pyrénées",
@@ -542,7 +669,39 @@ refuge_to_hikes_attributes = [
   {
     refuge: r17,
     hiking: h2
-  }
+  },
+  {
+    refuge: r8,
+    hiking: h3
+  },
+    {
+    refuge: r9,
+    hiking: h3
+  },
+    {
+    refuge: r11,
+    hiking: h3
+  },
+   {
+    refuge: r21,
+    hiking: h4
+  },
+  {
+    refuge: r22,
+    hiking: h4
+  },
+  {
+    refuge: r23,
+    hiking: h4
+  },
+    {
+    refuge: r24,
+    hiking: h4
+  },
+    {
+    refuge: r20,
+    hiking: h4
+  },
 ]
 
 refuge_to_hikes_attributes.each { |params| RefugeToHike.create!(params) }
