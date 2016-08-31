@@ -56,9 +56,6 @@
                     <li role="presentation" class="">
                       <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
                     </li>
-                    <li role="presentation" class="">
-                      <a href="#location-map" aria-controls="location-map" role="tab" data-toggle="tab" aria-expanded="false">Location map</a>
-                    </li>
                     <li role="presentation" class="active">
                       <a href="#refuges" aria-controls="refuges" role="tab" data-toggle="tab" aria-expanded="false">Shelters</a>
                     </li>
@@ -154,32 +151,7 @@
                         </div>
 
 
-                         <div role="tabpanel" class="tab-pane" id="location-map">
-                            <div class="row">
-                              <div class="col-sm-8 col-xs-12 col-sm-offset-2">
-                                <div class="commonInfo">
-                                  <div id="map" style="width: 100%; height: 600px;"></div>
-                                  <% content_for(:after_js) do %>
-                                  <%= javascript_tag do %>
-                                  $(document).on('ready', function() {
-                                  var handler = Gmaps.build('Google');
-                                  handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
-                                  markers = handler.addMarkers(<%= raw @hash.to_json %>);
-                                  handler.bounds.extendWith(markers);
-                                  handler.fitMapToBounds();
-                                  if (markers.length == 0) {
-                                  handler.getMap().setZoom(2);
-                                } else if (markers.length == 1) {
-                                handler.getMap().setZoom(14);
-                                    }
-                                  });
-                                });
-                                <% end %>
-                                <% end %>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+
 
                         <div role="tabpanel" class="tab-pane active" id="refuges">
                           <div class="row">
@@ -231,6 +203,32 @@
  </div>
  </div>
  </div>
+ <br>
+ <br>
+
+                              <div class="col-sm-8 col-xs-12 col-sm-offset-2">
+                                <div class="commonInfo">
+                                  <div id="map" style="width: 100%; height: 600px;"></div>
+                                  <% content_for(:after_js) do %>
+                                  <%= javascript_tag do %>
+                                  $(document).on('ready', function() {
+                                  var handler = Gmaps.build('Google');
+                                  handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
+                                  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                                  handler.bounds.extendWith(markers);
+                                  handler.fitMapToBounds();
+                                  if (markers.length == 0) {
+                                  handler.getMap().setZoom(2);
+                                } else if (markers.length == 1) {
+                                handler.getMap().setZoom(14);
+                                    }
+                                  });
+                                });
+                                <% end %>
+                                <% end %>
+                              </div>
+                            </div>
+
  </div>
  </section>
 
