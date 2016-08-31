@@ -1,33 +1,19 @@
-<h1>Availabilities</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Refuge</th>
-      <th>Capacity</th>
-      <th>Start day</th>
-      <th>End day</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @availabilities.each do |availability| %>
-      <tr>
-        <td><%= availability.refuge.name %></td><br>
-        <td><%= availability.capacity %></td><br>
-        <td><%= availability.start_day %></td><br>
-        <td><%= availability.end_day %></td><br>
-        <% if current_user %>
-          <% if policy(availability).destroy? %>
-        <td><%= link_to 'Destroy', refuge_availabilities_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-        <% if policy(availability).create? %>
-        <%= link_to 'New Availability', new_refuge_availability_path, class: "btn btn-success"%>
-        <%end%>
-      </tr>
-    <% end %>
-    <%end%>
-  </tbody>
-</table>
-
+<div class="text-center padded">
+<h1>List of availabilities for <%= @refuge.name %></h1>
+<% @refuge.availabilities.each do |availability| %>
+  <div class="col-sm-6 col-xs-12 col-lg-6 col-sm-offset-3" id="card-availabilities">
+    <h4><%= availability.refuge.name %></h4>
+    Capacity: <%= availability.capacity %><br>
+    Available From: <%= availability.start_day %><br>
+    Until: <%= availability.end_day %>
+    <br>
+  </div>
+  <br>
+<%end%>
 <br>
-
+<br>
+</div>
+<br>
+<div class="text-center padded">
+  <%= link_to 'Back to Your Shelter', @refuge, class: "btn btn-success"%>
+</div>

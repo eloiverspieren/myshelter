@@ -29,7 +29,4 @@ class RefugePolicy < ApplicationPolicy
   def destroy?
     update?
   end
-
-
-
 end
