@@ -30,7 +30,7 @@ class AvailabilitiesController < ApplicationController
 
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to refuge_availabilities_path, notice: 'Availability was successfully created.' }
+        format.html { redirect_to refuge_availabilities_path(@refuge), notice: 'Availability was successfully created.' }
       else
         format.html { render :new }
       end

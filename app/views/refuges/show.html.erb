@@ -34,15 +34,19 @@
             <%= @refuge.reviews.size %>  reviews<br><br>
             <p>Amazing shelter in <%= @refuge.address %></p>
             <h4><%= @refuge.price %> € per day per hiker</h4>
-          </div><br><br><br>
-
-          <% if @refuge.user == current_user %>
-            Availability
+          </div><br>
+          <div class="container-form">
+          <div class="col-sm-8 col-xs-12" col-xs-12" id='form-card'>
+            <% if @refuge.user == current_user %>
+            <h3> Set Your Availabilities</h3>
             <%= render partial: 'availabilities/form', refuge: @refuge, url: refuge_availabilities_path(@refuge), method: :post %>
           <% else %>
-            Booking
+            <h3>Book this Shelter </h3>
             <%= render partial: 'bookings/form', refuge: @refuge, url: refuge_bookings_path(@refuge), method: :post %>
           <% end %>
+          </div>
+          </div>
+
 
         </div>
       </aside>
