@@ -84,7 +84,7 @@ class RefugesController < ApplicationController
     @refuge.destroy
     authorize @refuge
     respond_to do |format|
-      format.html { redirect_to refuges_url, notice: 'Refuge was successfully destroyed.' }
+      format.html { redirect_to my_refuges_path, notice: 'Refuge was successfully destroyed.' }
     end
   end
 
@@ -97,7 +97,7 @@ class RefugesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def refuge_params
-      params.require(:refuge).permit(:name, :photo, :photo_cache, :capacity, :address, :day_price, :description, :lat, :lon, :altitude, :range, :department)
+      params.require(:refuge).permit(:name, :photo, :photo_cache, :capacity, :address, :description, :lat, :lon, :altitude, :range, :department, :price_cents)
     end
 
 
