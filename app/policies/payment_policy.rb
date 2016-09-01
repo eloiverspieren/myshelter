@@ -12,5 +12,6 @@ class PaymentPolicy < ApplicationPolicy
     true
   end
 
+
 end
 

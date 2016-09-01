@@ -6,6 +6,8 @@ class PaymentsController < ApplicationController
   end
 
   def confirmation
+    @booking = Booking.where(status: 3).find(params[:booking_id])
+
     authorize(:payment)
   end
 
@@ -27,14 +29,16 @@ class PaymentsController < ApplicationController
     )
 
     @booking.pay!
-    redirect_to confirmation_path
+    redirect_to confirmation_refuge_booking_payments_path(Refuge.find(params[:refuge_id]), Booking.find(params[:booking_id]))
 
 
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_booking_payment_path(@booking)
-  end
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_booking_payment_path(@booking)
+      end
+
+
 
 
 private
@@ -42,4 +46,6 @@ private
   def set_booking
     @booking = Booking.where(status: 1).find(params[:booking_id])
   end
+
+
 end

@@ -36,6 +36,8 @@ class BookingsController < ApplicationController
 
 
 
+
+
   # GET /bookings/new
   def new
     @booking = Booking.new
@@ -48,7 +50,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.refuge = @refuge
     @booking.status = 0
-    @booking.amount = @refuge.price
+    @booking.amount = @refuge.day_price * @booking.hikers_nb * (@booking.end_day - @booking.start_day).to_i
     authorize @booking
     respond_to do |format|
       if @booking.save

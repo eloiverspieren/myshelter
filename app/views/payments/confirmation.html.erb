@@ -31,29 +31,20 @@
               <h2>Booking Details</h2>
             </div>
             <div class="confirmDetilas">
-              <img src="img/booking/booking-complete.png">
-              <div class="confirmInfo">
+              <div class="col-sm-8">
+              <%= cl_image_tag(@booking.refuge.photo, crop: :fill) %>
+              </div>
+              <div class="col-sm-4">
 
                 <div class="row">
-                  <div class="col-sm-4 col-xs-12">
-                    <dl class="dl-horizontal">
-                      <dt><i class="fa fa-calendar" aria-hidden="true"></i> From:</dt>
-                      <dd>25 Mar, 2016</dd>
-                      <dt><i class="fa fa-calendar" aria-hidden="true"></i> To:</dt>
-                      <dd>28 Mar, 2016</dd>
-                      <dt><i class="fa fa-user" aria-hidden="true"></i> Guests:</dt>
-                      <dd>2 Adults, 1 Child</dd>
-                    </dl>
-                  </div>
-                  <div class="col-sm-4 col-xs-12">
-                    <dl class="dl-horizontal">
-                      <dt><i class="fa fa-map-marker" aria-hidden="true"></i> Address:</dt>
-                      <dd>Abdullah Al Masum <br> Shyamoli, Babor Road, <br> Mohammadpur, Dhaka.</dd>
-                    </dl>
-                  </div>
-                  <div class="col-sm-4 col-xs-12 priceTotal">
-                    <h2>Total: <span>$6,500</span></h2>
-                  </div>
+                 <div class="infoArea">
+                  <h3><%= @booking.refuge.name %></h3>
+                  <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar" aria-hidden="true"></i>From:  <span><%= @booking.start_day %></span></li>
+                    <li><i class="fa fa-calendar" aria-hidden="true"></i>To:  <span><%= @booking.start_day %></span></li>
+                    <li><i class="fa fa-user" aria-hidden="true"></i>Guests:  <span><%= @booking.hikers_nb %> Hikers</span></li>
+                    <li><i class="fa fa-user" aria-hidden="true"></i>Price:  <span><%= @booking.amount %> €</span></li>
+                  </ul>
                   <%= link_to 'Back to your bookings', my_bookings_path , :class => "btn btn-primary" %>
                 </div>
               </div>
