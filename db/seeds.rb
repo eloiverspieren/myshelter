@@ -10,10 +10,13 @@ Refuge.destroy_all
 Hiking.destroy_all
 User.destroy_all
 Availability.destroy_all
+Review.destroy_all
 
 
 
 u1 = User.create!(email: "eloi.verspieren@gmail.com", password: "verchu", admin: true)
+
+u2 = User.create!(email: "brieucsartorius@gmail.com", password: "montagne", admin: true)
 
 
 r1 = u1.refuges.create!({
@@ -34,6 +37,31 @@ r1.availabilities.create!({
   start_day: '30/08/2016',
   end_day: '30/08/2020',
   capacity: 12
+  })
+
+r1.reviews.create!( {
+    rating: 5,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r1.reviews.create!({
+    rating: 4,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r1.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
   })
 
 r2 = u1.refuges.create!({
@@ -57,6 +85,31 @@ r2.availabilities.create!({
   capacity: 25
   })
 
+r2.reviews.create!( {
+    rating: 5,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r2.reviews.create!({
+    rating: 4,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r2.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 r3 = u1.refuges.create!({
     name: "LE GRAND VENTRON",
     remote_photo_url: "http://www.sitlor.fr/photos/741/741000070_4.jpg",
@@ -75,6 +128,31 @@ r3.availabilities.create!({
   start_day: '30/08/2016',
   end_day: '30/08/2020',
   capacity: 22
+  })
+
+r3.reviews.create!( {
+    rating: 5,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r3.reviews.create!({
+    rating: 4,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r3.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
   })
 
 r4 = u1.refuges.create!({
@@ -97,6 +175,32 @@ r4.availabilities.create!({
   capacity: 148
   })
 
+r4.reviews.create!( {
+    rating: 5,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r4.reviews.create!({
+    rating: 4,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r4.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+
 r5 = u1.refuges.create!({
     name:  "LE POURRI",
     remote_photo_url: "http://s.camptocamp.org/uploads/images/1259366642_1655889778BI.jpg",
@@ -116,6 +220,31 @@ r5.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 50
   })
+r5.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r5.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r5.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 
 r6 = u1.refuges.create!({
     name: "LE GOÛTER",
@@ -137,6 +266,32 @@ r6.availabilities.create!({
   capacity: 120
   })
 
+r6.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r6.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r6.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+
 r7 = u1.refuges.create!({
     name:  "L’AIGLE",
     remote_photo_url: "https://www.petzl.com/fondation/foundation-refuge-aigle-vallee.jpeg?v=1",
@@ -157,6 +312,33 @@ r7.availabilities.create!({
   capacity: 34
   })
 
+r7.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r7.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r7.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+
+
 r8 = u1.refuges.create!({
     name:  "LES AIGUILLES D’ARVES",
     remote_photo_url: "http://www.123savoie.com/pic/109/108307_t6.jpg",
@@ -176,6 +358,31 @@ r8.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 39
   })
+
+r8.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r8.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r8.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 
 r9 = u1.refuges.create!({
     name: "LES BANS",
@@ -198,6 +405,31 @@ r9.availabilities.create!({
   capacity: 22
   })
 
+r9.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r9.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r9.reviews.create!( {
+    rating: 5,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r10 = u1.refuges.create!({
     name:  "ALBERT 1ER",
     remote_photo_url: "http://s.camptocamp.org/uploads/images/1344013894_1784147809.jpg",
@@ -217,6 +449,31 @@ r10.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 140
   })
+
+r10.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r10.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r10.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 
 
 r11 = u1.refuges.create!({
@@ -239,6 +496,31 @@ r11.availabilities.create!({
   capacity: 94
   })
 
+r11.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r11.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r11.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r12 = u1.refuges.create!({
     name:  "AMBIN",
     remote_photo_url: "http://surlessommets.blog.free.fr/public/Ambin/Ambin625.jpg",
@@ -258,6 +540,31 @@ r12.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 30
   })
+
+r12.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r12.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r12.reviews.create!( {
+    rating: 5,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 
 r13 = u1.refuges.create!({
     name: "L’ARGENTIÈRE",
@@ -279,6 +586,31 @@ r13.availabilities.create!({
   capacity: 94
   })
 
+r13.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r13.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r13.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r14 = u1.refuges.create!({
     name: "L’AYOUS",
     remote_photo_url: "http://www.randozone.com/pict_mont/x960/im13389.jpg",
@@ -299,6 +631,30 @@ r14.availabilities.create!({
   capacity: 47
   })
 
+r14.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r14.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r14.reviews.create!( {
+    rating: 3,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 r17 = u1.refuges.create!({
     name: "RIFUGIO DI GASTALDI",
     remote_photo_url: "https://www.turismovallidilanzo.it/wp-content/uploads/2014/10/profilo23.jpg",
@@ -320,6 +676,31 @@ r17.availabilities.create!({
   capacity: 99
   })
 
+r17.reviews.create!({
+    rating: 5,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r17.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r17.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r16 = u1.refuges.create!({
     name: "RIFUGIO DI CIBRARIO",
     remote_photo_url: "http://www.sitlor.fr/photos/741/741000070_4.jpg",
@@ -339,6 +720,31 @@ r16.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 42
   })
+
+r16.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r16.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r16.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 
 r15 = u1.refuges.create!({
     name: "L'AVEROLE",
@@ -360,6 +766,31 @@ r15.availabilities.create!({
   capacity: 85
   })
 
+r15.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r15.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r15.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r18 = u1.refuges.create!({
     name: "LA POMBIE",
     remote_photo_url: "http://www.topopyrenees.com/wp-content/uploads/2010/06/randonnee-refuge-pombie_024.jpg",
@@ -379,6 +810,31 @@ r18.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 45
   })
+
+r18.reviews.create!({
+    rating: 2,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r18.reviews.create!({
+  rating: 4,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r18.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 
 r19 = u1.refuges.create!({
     name: "L’ARRÉMOULIT",
@@ -400,6 +856,31 @@ r19.availabilities.create!({
   capacity: 28
   })
 
+r19.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r19.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r19.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r20 = u1.refuges.create!({
     name: "Les Paris",
     remote_photo_url: "http://static.sitra-tourisme.com/filestore/objets-touristiques/images/1685226-diaporama.jpg",
@@ -420,6 +901,31 @@ r20.availabilities.create!({
   capacity: 22
   })
 
+r20.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r20.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r20.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 r21 = u1.refuges.create!({
     name: "Le Casset",
     remote_photo_url: "http://static.sitra-tourisme.com/filestore/objets-touristiques/images/122/39/1386362-diaporama.jpg",
@@ -439,6 +945,32 @@ r21.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 20
   })
+
+r21.reviews.create!({
+    rating: 3,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r21.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r21.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
 
 r22 = u1.refuges.create!({
     name: "Refuge de Vallonpierre",
@@ -465,6 +997,31 @@ r22.availabilities.create!({
   capacity: 35
   })
 
+r22.reviews.create!({
+  rating: 5,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r22.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r22.reviews.create!({
+    rating: 2,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
 r23 = u1.refuges.create!({
     name: "Les Gondoins",
     remote_photo_url: "http://www.champsaur.net/wp-content/uploads/2015/03/Restaurant-des-gondoins.jpg",
@@ -485,6 +1042,33 @@ r23.availabilities.create!({
   end_day: '30/08/2020',
   capacity: 30
   })
+
+r23.reviews.create!({
+  rating: 4,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r23.reviews.create!({
+    rating: 2,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+r23.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+
 
 r24 = u1.refuges.create!({
     name: "Le Chamois",
@@ -511,6 +1095,30 @@ r24.availabilities.create!({
   capacity: 25
   })
 
+r24.reviews.create!({
+  rating: 4,
+  content: "Excellent Accueil, refuge idéalement situé, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+r24.reviews.create!( {
+    rating: 4,
+    content: "Refuge accueillant et confortable",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+r24.reviews.create!({
+    rating: 2,
+    content: "Le refuge est cool, en revanche l'accueil laisse à désirer",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
 
 
 h1 = Hiking.create!({
