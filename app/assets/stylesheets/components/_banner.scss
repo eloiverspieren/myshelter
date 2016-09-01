@@ -9,8 +9,8 @@
 
 .banner-content {
   position:absolute;
-  top:40%;
-  left:11%;
+  top:30%;
+  width: 100%;
 }
 
 .darkSectionHome {
@@ -29,6 +29,13 @@
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   color: white;
 }
+
+.banner h3 {
+  font-size:25px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
 .banner p {
   font-size: 20px;
   font-weight: lighter;
