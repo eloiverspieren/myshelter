@@ -1130,6 +1130,31 @@ h1 = Hiking.create!({
 
   })
 
+h1.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte des Vosges. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h1.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h1.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 h2 = Hiking.create!({
     name: "Tour de la Bessanèse",
     difficulty: "Confirmé",
@@ -1139,38 +1164,32 @@ h2 = Hiking.create!({
 
 Cet itinéraire est idéal pour les randonneurs expérimentés qui aiment découvrir des paysages sauvages, des vallées diverses, franchir des cols à plus de 3000m d’altitude.
 Vous apprécierez le charme et la convivialité des 3 refuges de ce circuit Franco-Italien.
-Ce circuit est entièrement balisé pour vous permettre d’apprécier le paysage sans vous soucier de l’itinéraire.
+Ce circuit est entièrement balisé pour vous permettre d’apprécier le paysage sans vous soucier de l’itinéraire."
+  })
 
-Étape 1: Refuge d’Avérole – passage du Collerin – Glacier de Pian Gias – Refuge GastaldiD+ ~ 1200m, D- ~ 700m
-Derrière le refuge d’Avérole se trouve la ruine de l’ancien refuge, c’est là que s’amorce le chemin balisé de blanc et rouge et de cairns. Se diriger vers le ruisseau du Veilet que l’on franchit une première fois, puis que l’on remonte en rive droite. Au premier replat (2325m), laisser sur la gauche le chemin qui conduit au clapier de Rocafort (panneau indicateur). Poursuivre la montée en rive droite du ruisseau principal, progresser ensuite entre les deux cours d’eau. Vers 2600m, à hauteur d’une moraine frontale bien marquée, traverser le ruisseau principal. Gravir en zigzag, tandis que le sentier tend à s’estomper, et parvenir à une petite barre rocheuse. Repasser en rive droite du ruisseau. Gagner un col, poursuivre vers le nord-ouest, en parcourant un système de petits vallons à blocs schisteux pour gagner la cuvette qui conduit au col des Audras, traverser à l’horizontale sur les reliquats du glacier du Collerin. On peut également suivre la crête de schistes qui longe la pointe des Audras pour gagner le passage du Collerin.
+h2.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte de la Bessanèse. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
 
-Ne pas descendre trop précipitamment sur le versant italien (les premiers couloirs sont infranchissables). Le vrai passage est le quatrième couloir, le plus large, situé le plus au nord, sous la pointe du Collerin, altitude : 3207m. Ici, la descente côté Italien est plus facile.
+h2.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
 
-Cette descente n’est pas aussi difficile que cela, mais à condition que le col soit « sec ». Cela peut être plus compliqué lorsqu’un couloir de neige gelée persiste, gagner le glacier de Pian Gias. Il est possible de progresser sans crampons sur ce glacier pas trop incliné et le plus souvent couvert de cailloux. La descente se poursuit doucement, dans l’axe de la vallée. Lorsque le torrent émerge du glacier, on retrouve des cairns et le balisage en rive gauche ainsi que des marques de peinture rouge et blanc.
-
-Au niveau d’un second verrou de roches moutonnées, traverser définitivement en rive droite du torrent pour atteindre le début du chemin. Vers la côte 2550m, laisser le chemin qui descend au plan della Mussa et au village de Balme pour emprunter, sur la droite, l’itinéraire qui remonte au refuge Gastaldi. Traverser un éboulis puis une pente raide sur une quarantaine de mètres afin de parvenir à un petit col, gagner une bâtisse en ruine et un ancien monte-charge. De-là, le chemin se métamorphose en une large piste étayée de murets, à 5 minutes se trouve le refuge à 2658m d’altitude.
-
-Durée: 5 à 6 heures (la traversée du glacier de Pian Gias est sans difficulté technique mais nécessite du temps).
-Étape 2: R. Gastaldi – Lago della Rossa – Colle Altare – R. CibrarioD+ ~ 700m, D- ~ 770m
-Prendre le chemin à droite du nouveau refuge, ou se dresse un petit oratoire dédié à la Madonna. Descendre vers le sud en direction de la cuvette qui s'étale au pied du glacier de la Bessanèse, puis suivre en traversée l’affluent aux eaux de cristal qui contrastent avec les précédentes.
-
-
-Après une courte montée, on atteint une première bifurcation pour le col d'Arnès. Poursuivre dans la direction indiquée du Lago della Rossa, (marques de peintures: itinéraire 122), par une sente à gauche au travers de magnifiques blocs de serpentines et gagner un chaos de blocs énormes (Rocca Affinau).Grimper jusqu’au barres schisteuses rouges. Il faut ensuite traverser une pente schisteuse pour gagner le Collerin d'Arnès où est situé un petit lac (2 heures).
-Au niveau de ce col, ne pas chercher à descendre directement  au lago della Rossa. Le sentier tire à flanc en direction du sud-est.Du haut de la croupe suivante, on découvre le plan d'eau qui constitue une importante retenue hydroélectrique.
-Descendre au travers de roches moutonnées et gagner le barrage (2690m). En amont d'une petite chapelle au toit blanc est édifié le confortable bivouac San Camillo, qui possède 20 places et un chauffage électrique grâce à la proximité du barrage.
-
-
-Traverser sur la voûte du barrage en direction du refuge Cibrario. Une brève portion d'un large chemin, puis tourner à gauche. Traverser à gué un ruisseau sur des dalles schisteuses et reprendre en rive gauche. Longer un petit canal puis suivre la trace vers le fond d'un cirque. Emprunter une rampe qui débute au niveau d'une cascade et se termine par un chemin facile qui conduit jusqu'au col Altare (2962m) et franchir une barre rocheuse  un peu plus raide  à l'aide d'une fracture maculée d'oxydes métalliques grenat. Le premier lac de Pera Ciaval est alors visible sur la droite.
-Descendre une nouvelle croupe, ce n'est qu'au dernier moment que l'on aperçoit le refuge et  sa DZ d'hélicoptère, descendre une dernière barre afin de gagner le refuge Luigi Cibrario (2615m), accessible également par la vallée d'Usseglio à partir du village de Villaretto.
-
-Durée : compter au moins 4 heures sans les haltes
-Étape 3: Refuge Cibrario – Col Sulè – Col de l’Autaret –  Vallon de la Lombarde - Refuge AvéroleD+ ~ 750m, D- ~ 1550m
-Traverser direction W le Pian de Sabiunin où se situe le refuge, puis direction S, monter rapidement à travers les névés et éboulis jusqu’au Pian Sulè, à environ 2900m d’altitude : à partir de là, prendre de nouveau direction W vers le Col. Descendre sur des éboulis jusqu’à croiser le sentier n. 116 provenant de Malciaussia. Suivre ce sentier qui tourne à gauche en montant au lac supérieur de l’Autaret ; à gauche du Lac, après une brève montée et une longue traversée sur éboulis,on arrive au Col de l'Autaret (3072m, croix).
-
-
-Du col de l'Autaret descendre vers l'ouest le long du thalweg (cairns) ; vers 2700m s’orienter au N en restant en rive droite du torrent de la Lombarde (névés tard dans l’été), jusqu’au gué des Larges (2530). Passer en rive gauche et continuer jusqu’à la cabane des bergers (2420m). Descendre jusqu'au torrent (passerelle) et remonter en face au Pas de la Mule, puis au Pas des Eublats et (passages escarpés) au Plan de Revallon (2135m). Remonter de 50m au sentier du col d’Arnès et se diriger vers la gauche au refuge d’Avérole.
-
-Durée : compter environ 7h  de marche. La descente est particulièrement longue dans le sauvage vallon de la Lombarde."
+h2.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
   })
 
 h3 = Hiking.create!({
@@ -1194,6 +1213,31 @@ h3 = Hiking.create!({
 
   })
 
+h3.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte du parc des Ecrins. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h3.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h3.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 h4 = Hiking.create!({
     name: "Tour du Vieux Chaillol",
     difficulty: "Avancé",
@@ -1206,6 +1250,32 @@ Vous serez accueillis en gîte d'étape et en refuge où vous trouverez confort,
 
   })
 
+h4.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte des Ecrins. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h4.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h4.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+
 h5 = Hiking.create!({
     name: "Circuit du Ventron",
     difficulty: "Expert",
@@ -1214,6 +1284,32 @@ h5 = Hiking.create!({
     remote_photo_url: "http://skipass.fr/p/blogs/34534/48696.jpg"
 
   })
+
+h5.reviews.create!( {
+    rating: 4,
+    content: "Magnifique Tour à la découverte des Vosges. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h5.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h5.reviews.create!({
+  rating: 3,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 
 h6 = Hiking.create!({
     name: "Tour du ballon d'alsace",
@@ -1224,6 +1320,32 @@ h6 = Hiking.create!({
 
   })
 
+h6.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte du ballon d'Alsace. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h6.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h6.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+
 h7 = Hiking.create!({
     name: "Le Massif du Vignemale",
     difficulty: "Expert",
@@ -1232,6 +1354,32 @@ h7 = Hiking.create!({
     remote_photo_url: "http://kingofwallpapers.com/pyrenees/pyrenees-003.jpg"
 
   })
+
+h7.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte des Pyrénées. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h7.reviews.create!({
+    rating: 4,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h7.reviews.create!({
+  rating: 5,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 
 h8 = Hiking.create!({
     name: "Tour du Val d'Azun",
@@ -1242,6 +1390,32 @@ h8 = Hiking.create!({
 
   })
 
+h8.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte des Pyrénées. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h8.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h8.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
+
 h9 = Hiking.create!({
     name: "Vallée des Cauterets",
     difficulty: "Expert",
@@ -1250,6 +1424,32 @@ h9 = Hiking.create!({
     remote_photo_url: "https://hd.unsplash.com/photo-1446539020262-2eb0d2f63dfb"
 
   })
+
+h9.reviews.create!( {
+    rating: 5,
+    content: "Magnifique Tour à la découverte des Pyrénées. Les refuges conseillés par le site sont confortables et accueillants.",
+    remote_photo_url: "http://www.makertour.fr/wp-content/uploads/2016/08/mat.png",
+    user: u2,
+    name: "Matt"
+    })
+
+h9.reviews.create!({
+    rating: 3,
+    content: "Très jolie randonnée, à faire en couple ou entre amis",
+    remote_photo_url: "http://www.doum.it/images/fx.jpg",
+    user: u2,
+    name: "Flix"
+    }
+  )
+
+h9.reviews.create!({
+  rating: 4,
+  content: "Paysages magnifiques, refuges idéalement situés, allez-y les yeux fermés!",
+  remote_photo_url: "https://i.vimeocdn.com/portrait/14038520_300x300",
+  user: u2,
+  name: "Lusac"
+  })
+
 
 
 

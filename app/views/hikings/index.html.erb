@@ -4,33 +4,38 @@
   <div class="container">
     <div class="row">
       <% @hikings.each do |hiking| %>
-        <div class="col-sm-4 col-xs-12">
-          <div class="thumbnail deals">
-          <%= cl_image_tag(hiking.photo,
-        width: 400, height: 300, crop: :fill) %>
-            <a href="single-package-right-sidebar.html" class="pageLink"></a>
-            <div class="discountInfo">
-              <ul class="list-inline rating homePage">
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-              </ul>
+      <div class="col-sm-4 col-xs-12">
+        <div class="thumbnail deals">
+        <%= cl_image_tag(hiking.photo,
+      width: 400, height: 300, crop: :fill) %>
+
+          <div class="caption">
+            <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= hiking.name %></a></h4>
+            <ul class="list-inline rating homePage">
+            <% i = 0 %>
+            <% ratingtotal = 0 %>
+            <% hiking.reviews.each do |r| %>
+            <% i += 1 %>
+            <% ratingtotal += r.rating if r.rating != nil %>
+            <% end %>
+            <% i = ratingtotal / i if i != 0 %>
+            <% i.to_i.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - i.to_i).times do %>
+            <i class="fa fa-star-o " aria-hidden="true"></i>
+            <% end %>
+            </ul>
+            <h5><%= hiking.range %></h5>
+
+            <div class="detailsInfo">
+              <br>
+               <%= link_to 'More Info', hiking, :class => "btn btn-primary btn"%>
             </div>
-            <div class="caption">
-              <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= hiking.name %></a></h4>
-              <p><%= hiking.range %></p>
-              <div class="detailsInfo">
-                <br>
-                 <%= link_to 'More Info', hiking, :class => "btn btn-primary btn"%>
-              </div>
-            </div>
-            </div>
-            </div>
+          </div>
+        </div>
+      </div>
       <%end%>
     </div>
   </div>
-</section>
-
 
