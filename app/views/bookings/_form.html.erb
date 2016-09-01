@@ -1,5 +1,5 @@
 <div class="form-container">
-  <%= form_for @booking, url: refuge_bookings_path(@refuge), method: :post, class: 'input-daterange input-group', id: 'datepicker' do |f| %>
+  <%= form_for @booking, url: refuge_bookings_path(@refuge), class: 'input-daterange input-group', id: 'datepicker' do |f| %>
     <div>
     <div class="col-xs-12 col-sm-6 col-lg-6">
       <%= f.text_field :start_day, id: 'dpd3', class: 'input-sm form-control', placeholder: 'check-in date'%>
@@ -15,8 +15,13 @@
         <%= f.select :hikers_nb, (1..@refuge.capacity).to_a, class: ' form-control', placeholder: 'number of hikers' %>
         </div>
       <br>
+      <br>
     <div class="col-xs-12 col-sm-6 col-lg-5">
-      <%= f.submit :class => "btn btn-success" %>
+      <% if current_user %>
+       <%= f.submit :class => "btn btn-success" %>
+       <%else %>
+       <%= link_to 'Log In Before Booking', new_user_session_path, class: 'btn btn-primary' %>
+      <%end %>
     </div>
 <% end %>
 </div>
