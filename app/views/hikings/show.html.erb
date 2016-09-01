@@ -38,11 +38,23 @@
                         <%= @hiking.reviews.size %>  reviews<br><br>
                       <p>Amazing hiking in <%= @hiking.range %></p>
                       <p> Difficulty : <%= @hiking.difficulty %></p><br>
-                    </div><br><br><br>
+                    </div>
+                    <h4>Shelters on this hike </h4>
+                 <div class="row">
+                  <div class="list in-line shelters">
+                    <% @hiking.refuges.each do |refuge| %>
+                      <div class="col-sm-4 col-xs-6"%>
+                        <%= cl_image_tag( refuge.photo, width: 200, height: 150, crop: :fill) %>
+                        <p><%= refuge.name %></p>
+                        <%= link_to 'More Infos', refuge, :class=>'btn btn-primary btn' %>
+                      </div>
+                    <%end%>
+                  </div>
                  </div>
-                </aside>
-              </div>
-            </div>
+                 </div>
+            </aside>
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-xs-12">
@@ -50,13 +62,13 @@
                 <div role="tabpanel" class="countryTabs">
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="">
+                    <li role="presentation" class="active">
                       <a href="#over-view" aria-controls="over-view" role="tab" data-toggle="tab" aria-expanded="false">Basic Infos</a>
                     </li>
                     <li role="presentation" class="">
                       <a href="#tour-guide" aria-controls="tour-guide" role="tab" data-toggle="tab" aria-expanded="false">Reviews</a>
                     </li>
-                    <li role="presentation" class="active">
+                    <li role="presentation" class="">
                       <a href="#refuges" aria-controls="refuges" role="tab" data-toggle="tab" aria-expanded="false">Shelters</a>
                     </li>
                     <li class="pull-right">
@@ -74,7 +86,7 @@
               <!-- Tab panes -->
               <div class="tab-content">
 
-                        <div role="tabpanel" class="tab-pane" id="over-view">
+                        <div role="tabpanel" class="tab-pane active" id="over-view">
                           <div class="row">
                             <div class="col-sm-8 col-xs-12">
                               <div class="commonInfo">
@@ -153,7 +165,7 @@
 
 
 
-                        <div role="tabpanel" class="tab-pane active" id="refuges">
+                        <div role="tabpanel" class="tab-pane" id="refuges">
                           <div class="row">
 
 
