@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
 
   protect_from_forgery with: :exception
+  before_filter :store_current_location, :unless => :devise_controller?
   before_action :authenticate_user!
 
   after_action :verify_authorized, :except => :index, unless: :devise_controller?
@@ -20,5 +21,12 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
+
+  def after_sign_out_path_for(resource)
+    request.referrer || rooth_path
+  end
 
 end
