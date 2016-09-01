@@ -97,7 +97,7 @@ class RefugesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def refuge_params
-      params.require(:refuge).permit(:name, :photo, :photo_cache, :capacity, :address, :description, :lat, :lon, :altitude, :range, :department, :price_cents)
+      params.require(:refuge).permit(:name, :photo, :photo_cache, :day_price, :capacity, :address, :description, :lat, :lon, :altitude, :range, :department, :price_cents)
     end
 
 
