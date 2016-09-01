@@ -16,7 +16,7 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if current_user.profile.photo %>
+          <% if current_user.profile && current_user.profile.photo %>
             <% avatar_url = current_user.profile.photo %>
           <% else %>
             <% avatar_url = current_user.facebook_picture_url || "https://www.latoilescoute.net/IMG/jpg/visualbug-facebook1.jpg" %>

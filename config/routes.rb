@@ -6,12 +6,16 @@ Rails.application.routes.draw do
     resources :availabilities
     resources :reviews
     resources :bookings do
-      resources :payments, only: [:new, :create]
+      resources :payments, only: [:new, :create] do
+        collection do
+          get 'confirmation'
+        end
+      end
     end
   end
   resource :profile, controller: 'profile'
 
-  get 'confirmation', to: 'payments#confirmation'
+
   get 'my_refuges', to: 'refuges#my_refuges'
   get 'my_bookings', to: 'bookings#my_bookings'
   resources :bookings, only: [:index] do

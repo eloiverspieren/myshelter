@@ -11,7 +11,8 @@
                 <h2>Booking Details</h2>
               </div>
               <div class="bookDetailsInfo">
-                <img src="img/booking/booking.png" alt="image">
+                <%= cl_image_tag(@booking.refuge.photo,
+                  width: 360, height: 280, crop: :fill) %>
                 <div class="infoArea">
                   <h3><%= @booking.refuge.name %></h3>
                   <ul class="list-unstyled">
@@ -21,12 +22,12 @@
                   </ul>
                   <div class="priceTotal">
                     <% days = (@booking.end_day - @booking.start_day).to_i %>
-                    <h3>Total: <span><%= @booking.hikers_nb * @booking.refuge.price * days unless @booking.hikers_nb == nil %> €</span></h3>
+                    <h3>Total: <span><%= @booking.hikers_nb * @booking.refuge.day_price * days unless @booking.hikers_nb == nil %> €</span></h3>
                      <%= form_tag refuge_booking_payments_path do %>
                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-name="My Reservation"
-                    data-description="Refuge<%= @booking.refuge_sku %>"
+                    data-description="<%= @booking.refuge.name %>"
                     data-amount="<%= @booking.amount_cents %>"
                     data-currency="EUR">
                     </script>

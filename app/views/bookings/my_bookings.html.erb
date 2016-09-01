@@ -28,7 +28,8 @@
                           <% days = (booking.end_day - booking.start_day).to_i %>
                           <li><span class="textInfo"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=days%> Days</span></li>
                           <li><span class="textInfo"><i class="fa fa-male" aria-hidden="true"></i> <%= booking.hikers_nb %> Hikers</span></li>
-                          <li><span class="textInfo"><%= booking.hikers_nb * booking.refuge.price * days unless booking.hikers_nb == nil %> €</span></li><br><br>
+                          <li><span class="textInfo"><%= booking.hikers_nb * booking.refuge.day_price * days unless booking.hikers_nb == nil %> €</span></li><br><br>
+
                           <% if booking.status == 2 %>
                             <% if booking.refuge.user == current_user %>
                               <%= link_to "Rejected", "", :class => "btn btn-danger" %>
