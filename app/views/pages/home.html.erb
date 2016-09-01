@@ -21,9 +21,9 @@
           </div>
         </div>
 
-        <section class="mainContentSection packagesSection">
+        <section class="mainContentSection packagesSection" id="homerefuge">
           <div class="container">
-            <div class="row">
+            <div class="row col-xs-12">
               <% @sample = @refuges.sample(9) %>
               <% @sample.each do |refuge| %>
               <div class="col-sm-4 col-xs-12">
@@ -90,7 +90,7 @@
     </section>
 
  <!-- TOUR PACKAGES -->
-    <section class="whiteSection">
+    <section class="whiteSection" id="homehiking">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -115,7 +115,7 @@
           <% @hikings.each do |hiking| %>
             <% if hiking.range == "Alpes" && @count < 3 %>
               <% @count += 1 %>
-              <div class="col-sm-4 isotopeSelector pays" id="hiking">
+              <div class="col-sm-4 col-xs-12 isotopeSelector pays" id="hiking">
                   <figure>
                     <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
                     <h4><%=hiking.name%></h4>
@@ -130,7 +130,7 @@
                   <% @hikings.each do |hiking| %>
                     <% if hiking.range == "Pyrénées" && @count < 3 %>
                       <% @count += 1 %>
-                        <div class="col-sm-4 isotopeSelector vallee" id="hiking">
+                        <div class="col-sm-4 col-xs-12 isotopeSelector vallee" id="hiking">
                             <figure>
                               <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
                               <h4><%=hiking.name%></h4>
@@ -145,7 +145,7 @@
                   <% @hikings.each do |hiking| %>
                     <% if hiking.range == "Vosges" && @count < 3 %>
                       <% @count += 1 %>
-                        <div class="col-sm-4 isotopeSelector vosges" id="hiking">
+                        <div class="col-sm-4 col-xs-12 isotopeSelector vosges" id="hiking">
                             <figure>
                               <%= cl_image_tag hiking.photo, height: 270, width: 360, crop: :fill %>
                               <h4><%=hiking.name%></h4>
@@ -181,18 +181,27 @@
       <section class="mainContentSection packagesSection">
       <div class="container">
         <div class="row">
-          <div class="col-sm-3 col-sm-offset-1 col-xs-12 triedus">
-            <%= cl_image_tag("http://cdn1.businessmanagementdaily.com/res/images/el_featured_profiles/Yvon-Chouinard.jpg", width: 150, height: 150, crop: :crop) %>
-            <p><br> Yvon Chouinard, founder of Patagonia: "MyShelter.com is amazingly useful for the mountaineering enthusiasts"</p>
+          <div class="col-sm-4 col-xs-12 triedus text-center">
+            <%= cl_image_tag("http://cdn1.businessmanagementdaily.com/res/images/el_featured_profiles/Yvon-Chouinard.jpg", width: 150, height: 150, crop: :crop) %><br>
+            <div id="texttried">
+            <p><br> Yvon Chouinard, founder of Patagonia</p><br>
+            <p> "MyShelter.com is amazingly useful for the mountaineering enthusiasts"</p>
+            </div>
           </div>
-            <div class="col-sm-3 col-sm-offset-1 col-xs-12 triedus">
+            <div class="col-sm-4 col-xs-12 triedus text-center">
             <%= cl_image_tag("http://cdn.programme-television.org/var/premiere/storage/images/tele-7-jours/diapos-tv/le-match-des-aventuriers-du-paf-mike-horn-vs-bear-grylls-4315961/les-exploits-bear-grylls/77700927-1-fre-FR/Les-exploits-Bear-Grylls_photo_full.png", width: 150, height: 150, crop: :fill) %>
-            <p><br> Bear Grills "I am glad I knew this website, it's been of great help during my trip around the world!"</p>
+            <div id="texttried">
+            <p><br> Bear Grills </p><br>
+            <p>"I am glad I knew this website, it's been of great help during my trip around the world!"</p>
+            </div>
 
           </div>
-          <div class="col-sm-3 col-sm-offset-1 col-xs-12 triedus">
+          <div class="col-sm-4  col-xs-12 triedus text-center">
             <%= cl_image_tag("http://s2.lemde.fr/image/2013/09/24/534x0/3483702_4_7b6e_kilian-poste-regulierement-sur-son-compte_61a617305f7d995a6735b745dda83405.jpg", width: 150, height: 150, crop: :fill) %>
-            <p><br> Kilian Jornet "MyShelter.com is the most convenient solution for a runner like me!"</p>
+            <div id="texttried">
+            <p><br> Kilian Jornet</p><br>
+            <p>"MyShelter.com is the most convenient solution for a runner like me!"</p>
+            </div>
           </div>
           </div>
         </div>
