@@ -92,12 +92,19 @@
                 <div class="row_review">
                   <div class="col-md-3 text-center space-2">
                     <div class="avatar_review">
-                      <% if user_signed_in? && current_user.facebook_picture_url %>
-                      <%= image_tag current_user.facebook_picture_url, height: 70, width: 70 %><br><br>
+                     <% if review.user.facebook_picture_url %>
+                       <%= cl_image_tag(review.user.facebook_picture_url, width: 70, height: 70) %><br>
                       <p><%= review.user.first_name %></p>
-                      <%else%>
+                    <% elsif review.user.profile != nil && review.user.profile.photo != nil %>
+                      <%= cl_image_tag(review.user.profile.photo, width: 70, height: 70) %><br>
+                        <p><%= review.user.first_name %></p>
+                    <%elsif review.photo != nil %>
+                      <%= cl_image_tag(review.photo, width: 70, height: 70) %><br>
+                        <p><%= review.name %></p>
+                    <%else%>
                       <img src="http://placehold.it/35x35" style="height: 70px; width: 70px;" ><br>
-                      <% end %>
+                        <p><%= review.user.first_name %></p>
+                    <% end %>
                     </div>
                   </div>
                   <div class="col-md-9">
