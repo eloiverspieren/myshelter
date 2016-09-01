@@ -442,7 +442,7 @@ r21.availabilities.create!({
 
 r22 = u1.refuges.create!({
     name: "Refuge de Vallonpierre",
-    remote_photo_url: "http://www.altituderando.com/IMG/jpg/d/6/1/4_nouveau_et_ancien_refuges_de_vallonpierre.jpg",
+    remote_photo_url: "http://usbmt.free.fr/photo/oisans/j6/369a.JPG",
     capacity: 35,
     address: "la Chapelle-en-Valgaudemar",
     day_price: 47.7,
@@ -508,7 +508,7 @@ Dans un cadre authentique et charmant.
 r24.availabilities.create!({
   start_day: '30/08/2016',
   end_day: '30/08/2020',
-  capacity: 28
+  capacity: 25
   })
 
 

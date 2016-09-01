@@ -1,7 +1,7 @@
 class AvailabilityPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all # Admin can show all restaurants
+      scope.where(:user => user) # Admin can show all restaurants
     end
   end
 

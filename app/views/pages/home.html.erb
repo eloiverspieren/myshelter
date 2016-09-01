@@ -2,6 +2,7 @@
 <div class="banner">
   <div class="banner-content">
     <h1>Home is where you dry your boots</h1>
+    <h3> Book mountain shelters online in more than 25 countries</h3>
     <br><%= link_to 'See All our Shelters', refuges_path , :class => "btn btn-success" %>
   </div>
   <section class="darkSectionHome">
@@ -50,10 +51,87 @@
 </div>
 
 <!-- SEARCH TOUR -->
+   <!-- TOP DEALS -->
+    <section class="mainContentSection packagesSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="sectionTitle">
+              <h2><span class="lightBg">Our Shelters' Suggestions</span></h2>
+              <p>-- Check  out some of our shelters --</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="mainContentSection packagesSection">
+          <div class="container">
+            <div class="row">
+              <% @sample = @refuges.sample(9) %>
+              <% @sample.each do |refuge| %>
+              <div class="col-sm-4 col-xs-12">
+                <div class="thumbnail deals">
+                  <%= cl_image_tag(refuge.photo,
+                  width: 400, height: 300, crop: :fill) %>
+                  <div class="discountInfo">
+                    <ul class="list-inline rating homePage">
+                     <% i = 0 %>
+                      <% ratingtotal = 0 %>
+                      <% refuge.reviews.each do |r| %>
+                      <% i += 1 %>
+                      <% ratingtotal += r.rating if r.rating != nil %>
+                      <% end %>
+                      <% i = ratingtotal / i if i != 0 %>
+                      <% i.to_i.times do %>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <% end %>
+                      <% (5 - i.to_i).times do %>
+                      <i class="fa fa-star-o " aria-hidden="true"></i>
+                      <% end %>
+                    </ul>
+                    <ul class="list-inline duration">
+                      <li><%= refuge.altitude %> meters</li>
+                      <li><%= refuge.capacity %> people</li>
+                      <li><%= refuge.price%> €</li>
+                    </ul>
+                  </div>
+                  <div class="caption">
+                    <h4><%= refuge.name %></h4>
+                    <h5><%= refuge.address %></h5>
+                    <div class="detailsInfo">
+                      <%= link_to 'More Info', refuge, :class => "btn btn-primary btn"%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
-    <!-- TOUR PACKAGES -->
+    <!-- BECOME HOST PARALLAX -->
+    <section class="promotionWrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="promotionTable">
+              <div class="promotionTableInner">
+                <div class="promotionInfo">
+                  <h2>Open the doors of your Shelter</h2>
+                  <p>Let them dry their boots</p>
+                  <p></p>
+                  <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-primary" %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <!-- TOUR PACKAGES -->
     <section class="whiteSection">
       <div class="container">
         <div class="row">
@@ -127,84 +205,8 @@
           </div>
         </div><br>
     </section>
-    <!-- BECOME HOST PARALLAX -->
-    <section class="promotionWrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="promotionTable">
-              <div class="promotionTableInner">
-                <div class="promotionInfo">
-                  <h2>Open the doors of your Shelter</h2>
-                  <p>Let them dry their boots</p>
-                  <p></p>
-                  <a <%= link_to 'Becom Host', new_refuge_path , :class => "btn btn-primary" %></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
-    <!-- TOP DEALS -->
-    <section class="mainContentSection packagesSection">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="sectionTitle">
-              <h2><span class="lightBg">Our Shelters' Suggestions</span></h2>
-              <p>-- Check  out some of our shelters --</p>
-            </div>
-          </div>
-        </div>
-
-        <section class="mainContentSection packagesSection">
-          <div class="container">
-            <div class="row">
-              <% @sample = @refuges.sample(9) %>
-              <% @sample.each do |refuge| %>
-              <div class="col-sm-4 col-xs-12">
-                <div class="thumbnail deals">
-                  <%= cl_image_tag(refuge.photo,
-                  width: 400, height: 300, crop: :fill) %>
-                  <div class="discountInfo">
-                    <ul class="list-inline rating homePage">
-                     <% i = 0 %>
-                      <% ratingtotal = 0 %>
-                      <% refuge.reviews.each do |r| %>
-                      <% i += 1 %>
-                      <% ratingtotal += r.rating if r.rating != nil %>
-                      <% end %>
-                      <% i = ratingtotal / i if i != 0 %>
-                      <% i.to_i.times do %>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <% end %>
-                      <% (5 - i.to_i).times do %>
-                      <i class="fa fa-star-o " aria-hidden="true"></i>
-                      <% end %>
-                    </ul>
-                    <ul class="list-inline duration">
-                      <li><%= refuge.altitude %> meters</li>
-                      <li><%= refuge.capacity %> people</li>
-                      <li><%= refuge.day_price%> €</li>
-                    </ul>
-                  </div>
-                  <div class="caption">
-                    <h4><%= refuge.name %></h4>
-                    <h5><%= refuge.address %></h5>
-                    <div class="detailsInfo">
-                      <%= link_to 'More Info', refuge, :class => "btn btn-primary btn"%>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <%end%>
-            </div>
-          </div>
-        </div>
-      </section>
 
     <section class="mainContentSection packagesSection">
       <div class="container">
@@ -222,41 +224,21 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 col-xs-12" id="triedus">
-            <% if user_signed_in? && current_user.facebook_picture_url %>
-                <%= image_tag current_user.facebook_picture_url, height: 150, width: 150, :class => "avatar-exp" %>
-                <%else%>
-                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 150px; width: 150px;" >
-            <% end %>
+            <%= cl_image_tag("http://cdn1.businessmanagementdaily.com/res/images/el_featured_profiles/Yvon-Chouinard.jpg", width: 150, height: 150, crop: :crop) %>
+            <p><br> Yvon Chouinard, founder of Patagonia: "MyShelter.com is amazingly useful for the mountaineering enthusiasts"</p>
           </div>
             <div class="col-sm-4 col-xs-12" id="triedus">
-            <% if user_signed_in? && current_user.facebook_picture_url %>
-                <%= image_tag current_user.facebook_picture_url, height: 150, width: 150, :class => "avatar-exp" %>
-                <%else%>
-                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 150px; width: 150px;" >
-            <% end %>
+            <%= cl_image_tag("http://cdn.programme-television.org/var/premiere/storage/images/tele-7-jours/diapos-tv/le-match-des-aventuriers-du-paf-mike-horn-vs-bear-grylls-4315961/les-exploits-bear-grylls/77700927-1-fre-FR/Les-exploits-Bear-Grylls_photo_full.png", width: 150, height: 150, crop: :fill) %>
+            <p><br> Bear Grills "I was fortunate enough to know this website during my trip around the world!"</p>
+
           </div>
           <div class="col-sm-4 col-xs-12" id="triedus">
-            <% if user_signed_in? && current_user.facebook_picture_url %>
-                <%= image_tag current_user.facebook_picture_url, height: 150, width: 150, :class => "avatar-exp" %>
-                <%else%>
-                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 150px; width: 150px;" >
-            <% end %>
+            <%= cl_image_tag("http://s2.lemde.fr/image/2013/09/24/534x0/3483702_4_7b6e_kilian-poste-regulierement-sur-son-compte_61a617305f7d995a6735b745dda83405.jpg", width: 150, height: 150, crop: :fill) %>
+            <p><br> Kilian Jornet "MyShelter.com is the most convenient solution for a someone like me!"</p>
           </div>
           </div>
         </div>
         </section>
 
-
-    <section class="mainContentSection packagesSection">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="sectionTitle">
-              <h2><span class="lightBg">Talking about us</span></h2>
-            </div>
-          </div>
-        </div>
-        </div>
-        </section>
 
 

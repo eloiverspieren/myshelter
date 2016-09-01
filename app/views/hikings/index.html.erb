@@ -19,8 +19,8 @@
               </ul>
             </div>
             <div class="caption">
-              <h4><a href="single-package-right-sidebar.html" class="captionTitle">Range : <%= hiking.range %></a></h4>
-              <h5>Level: <%= hiking.difficulty %></h5>
+              <h4><a href="single-package-right-sidebar.html" class="captionTitle"><%= hiking.name %></a></h4>
+              <p><%= hiking.range %></p>
               <div class="detailsInfo">
                 <br>
                  <%= link_to 'More Info', hiking, :class => "btn btn-primary btn"%>
