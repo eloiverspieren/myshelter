@@ -13,17 +13,17 @@
         </div>
         <div class="col-sm-7 col-xs-12">
           <div class="row">
-            <div class="col-sm-3 col-xs-12">
+            <div class="col-sm-6 col-xs-12">
               <div class="searchTour">
                 <select name="guiest_id2" id="guiest_id2" class="select-drop">
-                  <option value="0">Mountain Range Destination</option>
+                  <option value="0">Mountain Range</option>
                   <option value="1">Alpes</option>
                   <option value="2">Pyrenees</option>
                   <option value="3">Vosges</option>
                 </select>
               </div>
             </div>
-            <div class="col-sm-3 col-xs-12">
+            <div class="col-sm-6 col-xs-12">
               <div class="input-group date ed-datepicker">
                 <%= form_tag url_for(action: 'index', controller: 'refuges'), :id => 'search', :method => :get do %>
                 <%= text_field_tag :search, params[:search], placeholder: "LOCATION"%>
