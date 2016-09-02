@@ -14,9 +14,9 @@ Review.destroy_all
 
 
 
-u1 = User.create!(email: "eloi.verspieren@gmail.com", password: "verchu", admin: true)
+u2 = User.create!(email: "eloi.verspieren@gmail.com", password: "verchu", admin: true)
 
-u2 = User.create!(email: "brieucsartorius@gmail.com", password: "montagne", admin: true)
+u1 = User.create!(email: "brieucsartorius@gmail.com", password: "montagne", admin: true)
 
 
 r1 = u1.refuges.create!({
