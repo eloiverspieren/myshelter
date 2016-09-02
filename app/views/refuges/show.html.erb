@@ -36,18 +36,20 @@
             <h4><%= @refuge.day_price %> € per day per hiker</h4>
           </div>
           <div class="container-form">
-          <div class="col-sm-8 col-xs-12" col-xs-12" id='form-card'>
-            <% if @refuge.user == current_user %>
-            <h3> Set Your Availabilities</h3>
-            <%= render partial: 'availabilities/form', refuge: @refuge, url: refuge_availabilities_path(@refuge), method: :post %>
+          <div class="col-sm-8 col-xs-12" id='form-card'>
+          <% if current_user %>
+              <% if @refuge.user == current_user %>
+              <h3> Set Your Availabilities</h3>
+              <%= render partial: 'availabilities/form', refuge: @refuge, url: refuge_availabilities_path(@refuge), method: :post %>
+            <% else %>
+              <h3>Book this Shelter </h3>
+              <%= render partial: 'bookings/form', refuge: @refuge, url: refuge_bookings_path(@refuge), method: :post %>
+            <% end %>
           <% else %>
-            <h3>Book this Shelter </h3>
-            <%= render partial: 'bookings/form', refuge: @refuge, url: refuge_bookings_path(@refuge), method: :post %>
-          <% end %>
+            <%= link_to 'Log-in before Booking', new_user_session_path, class: 'btn btn-success' %>
+          <%end%>
           </div>
           </div>
-
-
         </div>
       </aside>
     </div>
@@ -210,7 +212,11 @@
 </section>
 
 <div class="text-center padded">
-  <%= link_to 'Edit Your Shelter', edit_refuge_path(@refuge), class: "btn btn-success" %>
+  <% if @refuge.user == current_user %>
+    <%= link_to 'Edit Your Shelter', edit_refuge_path(@refuge), class: "btn btn-success" %>
+  <% else %>
+  <% end%>
+
   <% if policy(@refuge).destroy? %>
   <td><%= link_to 'Destroy', refuge_path(@refuge), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>
